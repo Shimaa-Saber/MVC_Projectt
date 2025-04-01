@@ -4,8 +4,8 @@ namespace MVC_Projec2.Repository
 {
     public class UserRepository:IUserRepository
     {
-        ITIContext _context;
-        public UserRepository(ITIContext context)
+        MVCProjectContext _context;
+        public UserRepository(MVCProjectContext context)
         {
             _context = context;
         }
@@ -17,22 +17,22 @@ namespace MVC_Projec2.Repository
 
         public List<User> GetAll()
         {
-            return _context.users.ToList();
+            return _context.Users.ToList();
         }
 
         public User GetById(int id)
         {
-           return _context.users.Where(u => u.Id == id).FirstOrDefault();
+           return _context.Users.Where(u => u.Id == id).FirstOrDefault();
         }
 
         public void insert(User obj)
         {
-            _context.users.Add(obj);
+            _context.Users.Add(obj);
         }
 
         public void Update(User obj)
         {
-            _context.users.Update(obj);
+            _context.Users.Update(obj);
         }
         
         public void Save()

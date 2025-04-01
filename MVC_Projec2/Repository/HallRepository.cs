@@ -4,35 +4,35 @@ namespace MVC_Projec2.Repository
 {
     public class HallRepository : IHallRepository
     {
-        ITIContext _context;
-        public HallRepository(ITIContext context)
+        MVCProjectContext _context;
+        public HallRepository(MVCProjectContext context)
         {
             _context = context;
         }
 
         public void Delete(Hall obj)
         {
-            _context.halls.Remove(obj);
+            _context.Halls.Remove(obj);
         }
 
         public List<Hall> GetAll()
         {
-           return _context.halls.ToList();
+           return _context.Halls.ToList();
         }
 
         public Hall GetById(int id)
         {
-            return _context.halls.Where(h => h.Id == id).FirstOrDefault();
+            return _context.Halls.Where(h => h.Id == id).FirstOrDefault();
         }
 
         public void insert(Hall obj)
         {
-            _context.halls.Add(obj);
+            _context.Halls.Add(obj);
         }
 
         public void Update(Hall obj)
         {
-            _context.halls.Update(obj);
+            _context.Halls.Update(obj);
         }
         
         public void Save()

@@ -4,35 +4,35 @@ namespace MVC_Projec2.Repository
 {
     public class MakeUpRepository : IMakeUpRepository
     {
-        ITIContext _context;
-        public MakeUpRepository(ITIContext context)
+        MVCProjectContext _context;
+        public MakeUpRepository(MVCProjectContext context)
         {
             _context = context;
         }
 
         public void Delete(MakeUp_Service obj)
         {
-            _context.makeUp_s.Remove(obj);
+            _context.MakeUpServices.Remove(obj);
         }
 
         public List<MakeUp_Service> GetAll()
         {
-            return _context.makeUp_s.ToList();
+            return _context.MakeUpServices.ToList();
         }
 
         public MakeUp_Service GetById(int id)
         {
-            return _context.makeUp_s.Where(m => m.Id == id).FirstOrDefault();
+            return _context.MakeUpServices.Where(m => m.Id == id).FirstOrDefault();
         }
 
         public void insert(MakeUp_Service obj)
         {
-            _context.makeUp_s.Add(obj);
+            _context.MakeUpServices.Add(obj);
         }
 
         public void Update(MakeUp_Service obj)
         {
-            _context.makeUp_s.Update(obj);
+            _context.MakeUpServices.Update(obj);
         }
 
         public void Save()

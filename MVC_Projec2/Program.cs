@@ -11,7 +11,7 @@ namespace MVC_Projec2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ITIContext>(
+            builder.Services.AddDbContext<MVCProjectContext>(
                 options => options.UseSqlServer(
                     builder.Configuration.GetConnectionString("ConnectionStrings")
                     )

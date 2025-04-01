@@ -1,39 +1,34 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Net.Sockets;
 
 namespace MVC_Projec2.Models
 {
-    public class ITIContext:DbContext
+    public class MVCProjectContext:DbContext
     {
+        private readonly IConfiguration _configuration;
 
-        public ITIContext():base()
+        public MVCProjectContext(DbContextOptions<MVCProjectContext> options, IConfiguration configuration) : base(options)
         {
-
+            _configuration = configuration;
         }
 
-        public ITIContext(DbContextOptions<ITIContext> options):base(options)
+        public DbSet<User> Users { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Atelier> Ateliers { get; set; }
+        public DbSet<Hall> Halls { get; set; }
+        public DbSet<MakeUp_Service> MakeUpServices { get; set; }
+        public DbSet<Decor> Decors { get; set; }
+        public DbSet<Session> Sessions { get; set; }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            if (!optionsBuilder.IsConfigured)
+            {
+                string? connectionString = _configuration.GetConnectionString("ConnectionStrings");
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
-
-        public DbSet<User> users { get; set; }
-        public DbSet<Booking> bookings { get; set; }
-        public DbSet<Comment> comments { get; set; }
-        public DbSet<Atelier> ateliers { get; set; }
-        public DbSet<Hall> halls { get; set; }
-        public DbSet<MakeUp_Service> makeUp_s { get; set; }
-        public DbSet<Decor> decors { get; set; }
-        public DbSet<Session> sessions { get; set; }
-
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if(!optionsBuilder.IsConfigured)
-        //    {
-        //       string connectionString = _configuration.GetConnectionString("ConnectionStrings");
-        //       optionsBuilder.UseSqlServer(connectionString);
-        //    }
-        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -45,17 +40,18 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Booking>().HasData(
-                new Booking { Id = 1, User_Id = 1, Hall_Id = 2, Makeup_Id = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3, Status = "Confirmed", Created_at = DateTime.Now },
-                new Booking { Id = 2, User_Id = 3, Makeup_Id = 4, Session_Id = 1, Decor_Id = 2, Atelier_Id = 1, Status = "Pending", Created_at = DateTime.Today },
-                new Booking { Id = 3, User_Id = 2, Hall_Id = 1, Makeup_Id=3, Session_Id = 4, Decor_Id = 3, Atelier_Id = 4, Status = "Cancelled", Created_at = DateTime.Now },
-                new Booking { Id = 4, User_Id = 4, Hall_Id = 3, Makeup_Id = 2, Session_Id = 3, Decor_Id=1, Atelier_Id = 2, Status = "Confirmed", Created_at = DateTime.Today }
+                new Booking { Id = 1, User_Id = 1, MakeupId = 1, Hall_Id = 2, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3, Status = "Confirmed", Created_at = DateTime.Now },
+                new Booking { Id = 2, User_Id = 3, MakeupId = 4, Hall_Id = 1, Session_Id = 1, Decor_Id = 2, Atelier_Id = 1, Status = "Pending", Created_at = DateTime.Today },
+                new Booking { Id = 3, User_Id = 2, MakeupId = 3, Hall_Id = 1, Session_Id = 4, Decor_Id = 3, Atelier_Id = 4, Status = "Cancelled", Created_at = DateTime.Now },  // كان ناقص هنا
+                new Booking { Id = 4, User_Id = 4, MakeupId = 2, Hall_Id = 3, Session_Id = 3, Decor_Id = 1, Atelier_Id = 2, Status = "Confirmed", Created_at = DateTime.Today }
             );
 
+
             modelBuilder.Entity<Comment>().HasData(
-                new Comment { Id = 1, User_Id = 3, Content = "Excellent service!", Created_at = DateTime.Now, Hall_Id = 2, Makeup_Id = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 },
-                new Comment { Id = 2, User_Id = 1, Content = "Loved the decorations!", Created_at = DateTime.Now, Hall_Id = 2, Makeup_Id = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 },
-                new Comment { Id = 3, User_Id = 4, Content = "Great experience, highly recommend!", Created_at = DateTime.Now, Hall_Id = 2, Makeup_Id = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 },
-                new Comment { Id = 4, User_Id = 2, Content = "Nice ambiance but service could be better.", Created_at = DateTime.Now, Hall_Id = 2, Makeup_Id = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 }
+                new Comment { Id = 1, User_Id = 3, Content = "Excellent service!", Created_at = DateTime.Now, Hall_Id = 2, MakeupId = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 },
+                new Comment { Id = 2, User_Id = 1, Content = "Loved the decorations!", Created_at = DateTime.Now, Hall_Id = 2, MakeupId = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 },
+                new Comment { Id = 3, User_Id = 4, Content = "Great experience, highly recommend!", Created_at = DateTime.Now, Hall_Id = 2, MakeupId = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 },
+                new Comment { Id = 4, User_Id = 2, Content = "Nice ambiance but service could be better.", Created_at = DateTime.Now, Hall_Id = 2, MakeupId = 1, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3 }
             );
 
             modelBuilder.Entity<Atelier>().HasData(
@@ -93,6 +89,5 @@ namespace MVC_Projec2.Models
 
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }

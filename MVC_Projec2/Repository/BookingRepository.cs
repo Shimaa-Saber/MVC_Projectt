@@ -4,34 +4,40 @@ namespace MVC_Projec2.Repository
 {
     public class BookingRepository : IBookingReposirtory
     {
+        MVCProjectContext _context;
+        public BookingRepository(MVCProjectContext context)
+        {
+            _context = context;
+        }
+
         public void Delete(Booking obj)
         {
-            throw new NotImplementedException();
+            _context.Bookings.Remove(obj);
         }
 
         public List<Booking> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Bookings.ToList();
         }
 
         public Booking GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Bookings.Where(a => a.Id == id).FirstOrDefault();
         }
 
         public void insert(Booking obj)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
+            _context.Bookings.Add(obj);
         }
 
         public void Update(Booking obj)
         {
-            throw new NotImplementedException();
+            _context.Bookings.Update(obj);
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

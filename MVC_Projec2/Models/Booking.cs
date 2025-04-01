@@ -18,8 +18,8 @@ namespace MVC_Projec2.Models
         [ForeignKey("Atelier")]
         public int? Atelier_Id { get; set; }
 
-        //[ForeignKey("MakeUp_Service")]
-        public int? Makeup_Id { get; set; }
+        [ForeignKey("MakeUp_Service")]
+        public int? MakeupId { get; set; }
 
         [ForeignKey("Decor")]
         public int? Decor_Id { get; set; }
