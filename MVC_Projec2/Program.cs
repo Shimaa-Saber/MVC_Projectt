@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
+
 namespace MVC_Projec2
 {
     public class Program
@@ -8,7 +11,11 @@ namespace MVC_Projec2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<ITIContext>(
+                options => options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("ConnectionStrings")
+                    )
+                );
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
