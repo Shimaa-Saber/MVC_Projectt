@@ -24,13 +24,15 @@ namespace MVC_Projec2.Models
         [ForeignKey("Decor")]
         public int? Decor_Id { get; set; }
 
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
+       
+        [ForeignKey("user")]
+        public string user_id { get; set; }
         public string Status { get; set; }
         public DateTime Created_at { get; set; }
 
 
-        public virtual User User { get; set; }
+        
+        public virtual ApplicationUser user { get; set; }
         public virtual Hall Hall { get; set; }
         public virtual Session Session { get; set; }
         public virtual Atelier Atelier { get; set; }
