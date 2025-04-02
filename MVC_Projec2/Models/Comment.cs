@@ -12,6 +12,9 @@ namespace MVC_Projec2.Models
 
         [ForeignKey("User")]
         public int User_Id { get; set; }
+
+        [ForeignKey("user")]
+        public string user_id { get; set; }
         public DateTime Created_at { get; set; }
 
         [ForeignKey("Hall")]
@@ -30,6 +33,9 @@ namespace MVC_Projec2.Models
         public int? Decor_Id { get; set; }
 
         public virtual User User { get; set; }
+
+
+        public virtual ApplicationUser user { get; set; }
         public virtual Hall Hall { get; set; }
         public virtual Session Session { get; set; }
         public virtual Atelier Atelier { get; set; }

@@ -44,8 +44,8 @@ namespace MVC_Projec2.Controllers
                 if (result.Succeeded)
                 {
                   
-                    await userManager.AddToRoleAsync(userApp, "Admin");
-                    await signInManager.SignInAsync(userApp, false);
+                    await userManager.AddToRoleAsync(userApp, "User");
+                    await signInManager.SignInAsync(userApp,isPersistent: false);
              
                     return RedirectToAction("Index", "Home");
                 }
