@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Projec2.Models;
 
-namespace MVC_Projec2.Controllers
+namespace MVC_Project.Controllers
 {
     public class HomeController : Controller
     {
