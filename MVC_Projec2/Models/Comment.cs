@@ -10,9 +10,6 @@ namespace MVC_Projec2.Models
         public int Id { get; set; }
         public string Content { get; set; }
 
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
-
         [ForeignKey("user")]
         public string user_id { get; set; }
         public DateTime Created_at { get; set; }
@@ -32,7 +29,7 @@ namespace MVC_Projec2.Models
         [ForeignKey("Decor")]
         public int? Decor_Id { get; set; }
 
-        public virtual User User { get; set; }
+        
 
 
         public virtual ApplicationUser user { get; set; }

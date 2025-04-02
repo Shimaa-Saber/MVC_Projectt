@@ -14,11 +14,21 @@ namespace MVC_Projec2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //HAGER
+            //builder.Services.AddDbContext<MVCProjectContext>(
+            //    options => options.UseSqlServer(
+            //        builder.Configuration.GetConnectionString("ConnectionStrings")
+            //        )
+            //    );
+
+            //SHIMAA
+
             builder.Services.AddDbContext<MVCProjectContext>(
-                options => options.UseSqlServer(
-                    builder.Configuration.GetConnectionString("ConnectionStrings")
-                    )
-                );
+               options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
+               ); ;
+
+
 
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  
     .AddEntityFrameworkStores<MVCProjectContext>()

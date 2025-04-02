@@ -23,13 +23,19 @@ namespace MVC_Projec2.Models
         public DbSet<Decor> Decors { get; set; }
         public DbSet<Session> Sessions { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        string? connectionString = _configuration.GetConnectionString("ConnectionStrings");
+        //        optionsBuilder.UseSqlServer(connectionString);
+        //    }
+        //}
+
+
+        public MVCProjectContext(DbContextOptions<MVCProjectContext> option) : base(option)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                string? connectionString = _configuration.GetConnectionString("ConnectionStrings");
-                optionsBuilder.UseSqlServer(connectionString);
-            }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -34,7 +34,7 @@ namespace MVC_Projec2.Controllers
             {
                 
                 ApplicationUser userApp = new ApplicationUser();
-                userApp.UserName = userFromREquest.FullName;
+                userApp.FullName = userFromREquest.FullName;
                 userApp.Email = userFromREquest.Email;
                 userApp.PhoneNumber = userFromREquest.PhoneNumber;
                 userApp.PasswordHash = userFromREquest.Password;

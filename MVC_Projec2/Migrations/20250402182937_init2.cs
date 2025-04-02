@@ -8,11 +8,52 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class init2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Ateliers",
                 columns: table => new
@@ -84,20 +125,109 @@ namespace MVC_Projec2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password_hash = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,13 +241,19 @@ namespace MVC_Projec2.Migrations
                     Atelier_Id = table.Column<int>(type: "int", nullable: true),
                     MakeupId = table.Column<int>(type: "int", nullable: true),
                     Decor_Id = table.Column<int>(type: "int", nullable: true),
-                    User_Id = table.Column<int>(type: "int", nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bookings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bookings_AspNetUsers_user_id",
+                        column: x => x.user_id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bookings_Ateliers_Atelier_Id",
                         column: x => x.Atelier_Id,
@@ -143,12 +279,6 @@ namespace MVC_Projec2.Migrations
                         column: x => x.Session_Id,
                         principalTable: "Sessions",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Bookings_Users_User_Id",
-                        column: x => x.User_Id,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -158,7 +288,7 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    User_Id = table.Column<int>(type: "int", nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hall_Id = table.Column<int>(type: "int", nullable: true),
                     Session_Id = table.Column<int>(type: "int", nullable: true),
@@ -169,6 +299,12 @@ namespace MVC_Projec2.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_AspNetUsers_user_id",
+                        column: x => x.user_id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comments_Ateliers_Atelier_Id",
                         column: x => x.Atelier_Id,
@@ -194,13 +330,21 @@ namespace MVC_Projec2.Migrations
                         column: x => x.Session_Id,
                         principalTable: "Sessions",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Comments_Users_User_Id",
-                        column: x => x.User_Id,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "1", null, "Admin", "ADMIN" },
+                    { "2", null, "User", "USER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "1643b6a6-52b2-44a0-9758-004c6a6e717e", 0, "73b7bebe-dcde-4e01-a897-f39ff576d3c8", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEFiBChZ5LrlEnVMKlDXNDAZQ828nh9HueYvddRrif4AS4jxEs1rl8yrHOz6bDECxag==", "0123456789", true, "ebbea584-c284-48c4-a37a-da96f480c45c", false, "admin@example.com" });
 
             migrationBuilder.InsertData(
                 table: "Ateliers",
@@ -256,37 +400,62 @@ namespace MVC_Projec2.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Id", "Created_at", "Email", "Name", "Password_hash", "Phone" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4128), "h@gmail.com", "Hager", "h_123@20", "01113986645" },
-                    { 2, new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local), "a@gmail.com", "Asmaa", "a@5002", "01213986647" },
-                    { 3, new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4183), "s@gmail.com", "Shimaa", "s123@4", "01013986647" },
-                    { 4, new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local), "f@gmail.com", "Fatma", "f1@237", "01118936647" }
-                });
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "1", "1643b6a6-52b2-44a0-9758-004c6a6e717e" });
 
             migrationBuilder.InsertData(
                 table: "Bookings",
-                columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "User_Id" },
+                columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4343), 1, 2, 1, 2, "Confirmed", 1 },
-                    { 2, 1, new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", 3 },
-                    { 3, 4, new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4353), 3, 1, 3, 4, "Cancelled", 2 },
-                    { 4, 2, new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local), 1, 3, 2, 3, "Confirmed", 4 }
+                    { 1, 3, new DateTime(2025, 4, 2, 20, 29, 35, 28, DateTimeKind.Local).AddTicks(137), 1, 2, 1, 2, "Confirmed", "1643b6a6-52b2-44a0-9758-004c6a6e717e" },
+                    { 2, 1, new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "1643b6a6-52b2-44a0-9758-004c6a6e717e" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
-                columns: new[] { "Id", "Atelier_Id", "Content", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "User_Id" },
-                values: new object[,]
-                {
-                    { 1, 3, "Excellent service!", new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4385), 1, 2, 1, 2, 3 },
-                    { 2, 3, "Loved the decorations!", new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4390), 1, 2, 1, 2, 1 },
-                    { 3, 3, "Great experience, highly recommend!", new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4393), 1, 2, 1, 2, 4 },
-                    { 4, 3, "Nice ambiance but service could be better.", new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4396), 1, 2, 1, 2, 2 }
-                });
+                columns: new[] { "Id", "Atelier_Id", "Content", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "user_id" },
+                values: new object[] { 1, 3, "Excellent service!", new DateTime(2025, 4, 2, 20, 29, 35, 28, DateTimeKind.Local).AddTicks(328), 1, 2, 1, 2, "1643b6a6-52b2-44a0-9758-004c6a6e717e" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bookings_Atelier_Id",
@@ -314,9 +483,9 @@ namespace MVC_Projec2.Migrations
                 column: "Session_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bookings_User_Id",
+                name: "IX_Bookings_user_id",
                 table: "Bookings",
-                column: "User_Id");
+                column: "user_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_Atelier_Id",
@@ -344,19 +513,40 @@ namespace MVC_Projec2.Migrations
                 column: "Session_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_User_Id",
+                name: "IX_Comments_user_id",
                 table: "Comments",
-                column: "User_Id");
+                column: "user_id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AspNetRoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
                 name: "Bookings");
 
             migrationBuilder.DropTable(
                 name: "Comments");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Ateliers");
@@ -372,9 +562,6 @@ namespace MVC_Projec2.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sessions");
-
-            migrationBuilder.DropTable(
-                name: "Users");
         }
     }
 }
