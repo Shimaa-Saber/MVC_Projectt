@@ -4,6 +4,7 @@ using MVC_Projec2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    partial class MVCProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20250403155544_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,19 +98,19 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b749d298-6f7e-435c-b2a2-cfe028b18134",
+                            Id = "0c605afc-c225-4ef8-989c-643648088c83",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "46256405-b680-4ffc-9401-b0fc174b23ea",
+                            ConcurrencyStamp = "2d74a726-e0b7-4513-9b35-051d49fe405b",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEItbLAfKlIfbeLT32yn/qQMWArhJZw1g1fdP/1u85h3pI+c0vgpG5AmWhiMsF+K9AQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBRMTQA491UyuK3UbrQU+0y7XnUuAGv6giBgkzaGYcr58wuUNzV96unSe59NmMlsVA==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "bb16f6bd-dd8f-41b0-a1b2-a215897aa92d",
+                            SecurityStamp = "580edb5c-86c6-4f1e-a948-01aa077f9c38",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         });
@@ -215,13 +218,13 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 3, 22, 40, 9, 259, DateTimeKind.Local).AddTicks(2737),
+                            Created_at = new DateTime(2025, 4, 3, 17, 55, 41, 476, DateTimeKind.Local).AddTicks(9339),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "b749d298-6f7e-435c-b2a2-cfe028b18134"
+                            user_id = "0c605afc-c225-4ef8-989c-643648088c83"
                         },
                         new
                         {
@@ -233,7 +236,7 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "b749d298-6f7e-435c-b2a2-cfe028b18134"
+                            user_id = "0c605afc-c225-4ef8-989c-643648088c83"
                         });
                 });
 
@@ -293,12 +296,12 @@ namespace MVC_Projec2.Migrations
                             Id = 1,
                             Atelier_Id = 3,
                             Content = "Excellent service!",
-                            Created_at = new DateTime(2025, 4, 3, 22, 40, 9, 259, DateTimeKind.Local).AddTicks(2900),
+                            Created_at = new DateTime(2025, 4, 3, 17, 55, 41, 476, DateTimeKind.Local).AddTicks(9592),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
-                            user_id = "b749d298-6f7e-435c-b2a2-cfe028b18134"
+                            user_id = "0c605afc-c225-4ef8-989c-643648088c83"
                         });
                 });
 
@@ -348,28 +351,6 @@ namespace MVC_Projec2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MVC_Projec2.Models.DecoreImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DecorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DecorId");
-
-                    b.ToTable("DecoreImages");
-                });
-
             modelBuilder.Entity("MVC_Projec2.Models.Hall", b =>
                 {
                     b.Property<int>("Id")
@@ -417,28 +398,6 @@ namespace MVC_Projec2.Migrations
                             Capacity = 200,
                             Name = "Sunset Venue"
                         });
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.HallImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("HallId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HallId");
-
-                    b.ToTable("HallImages");
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.MakeUp_Service", b =>
@@ -662,7 +621,7 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "b749d298-6f7e-435c-b2a2-cfe028b18134",
+                            UserId = "0c605afc-c225-4ef8-989c-643648088c83",
                             RoleId = "1"
                         });
                 });
@@ -768,28 +727,6 @@ namespace MVC_Projec2.Migrations
                     b.Navigation("user");
                 });
 
-            modelBuilder.Entity("MVC_Projec2.Models.DecoreImage", b =>
-                {
-                    b.HasOne("MVC_Projec2.Models.Decor", "Decor")
-                        .WithMany("Images")
-                        .HasForeignKey("DecorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Decor");
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.HallImage", b =>
-                {
-                    b.HasOne("MVC_Projec2.Models.Hall", "Hall")
-                        .WithMany("Images")
-                        .HasForeignKey("HallId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hall");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -846,16 +783,6 @@ namespace MVC_Projec2.Migrations
                     b.Navigation("Bookings");
 
                     b.Navigation("Comments");
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.Decor", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.Hall", b =>
-                {
-                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }
