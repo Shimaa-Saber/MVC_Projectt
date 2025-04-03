@@ -1,4 +1,5 @@
-﻿using MVC_Projec2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
 
 namespace MVC_Projec2.Repository
 {
@@ -20,9 +21,25 @@ namespace MVC_Projec2.Repository
            return _context.Halls.ToList();
         }
 
+        public List<Hall> GetAllWithImages()
+        {
+            return _context.Halls
+                .Include(h => h.Images)
+                .AsNoTracking()
+                .ToList();
+        }
+
         public Hall GetById(int id)
         {
             return _context.Halls.Where(h => h.Id == id).FirstOrDefault();
+        }
+
+        public Hall GetByIdWithImages(int id)
+        {
+            return _context.Halls
+                .Include(h => h.Images) 
+                .AsNoTracking() 
+                .FirstOrDefault(h => h.Id == id);
         }
 
         public void insert(Hall obj)

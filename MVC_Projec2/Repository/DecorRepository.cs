@@ -1,4 +1,5 @@
-﻿using MVC_Projec2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
 
 namespace MVC_Projec2.Repository
 {
@@ -20,9 +21,24 @@ namespace MVC_Projec2.Repository
             return _context.Decors.ToList();
         }
 
+        public List<Decor> GetAllWithImages()
+        {
+            return _context.Decors
+                .Include(d => d.Images) 
+                .AsNoTracking() 
+                .ToList();
+        }
+
         public Decor GetById(int id)
         {
             return _context.Decors.Where(d => d.Id == id).FirstOrDefault();
+        }
+
+        public Decor GetByIdWithImages(int id)
+        {
+            return _context.Decors
+                .Include(d => d.Images)
+                .FirstOrDefault(d => d.Id == id);
         }
 
         public void insert(Decor obj)

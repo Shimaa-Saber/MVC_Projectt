@@ -19,6 +19,8 @@ namespace MVC_Projec2.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Atelier> Ateliers { get; set; }
         public DbSet<Hall> Halls { get; set; }
+        public DbSet<HallImage> HallImages { get; set; }
+        public DbSet<DecoreImage> DecoreImages { get; set; }
         public DbSet<MakeUp_Service> MakeUpServices { get; set; }
         public DbSet<Decor> Decors { get; set; }
         public DbSet<Session> Sessions { get; set; }
@@ -142,7 +144,7 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Decor>().HasData(
-                new Decor { Id = 1, Style = "Classic", Price = 5000 },
+                new Decor { Id = 1, Style = "Classic", Price = 5000, },
                 new Decor { Id = 2, Style = "Modern", Price = 7000 },
                 new Decor { Id = 3, Style = "Rustic", Price = 4500 }
             );
