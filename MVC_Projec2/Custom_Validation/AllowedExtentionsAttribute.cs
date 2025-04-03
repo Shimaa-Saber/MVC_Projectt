@@ -8,6 +8,7 @@ namespace MVC_Projec2.Custom_Validation
 
         public AllowedExtensionsAttribute(string[] extensions)
         {
+
             _extensions = extensions;
         }
 
