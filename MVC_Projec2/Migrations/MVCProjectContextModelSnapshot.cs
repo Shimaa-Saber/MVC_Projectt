@@ -22,6 +22,97 @@ namespace MVC_Projec2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MVC_Projec2.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "55c67237-fae1-4887-8195-184d91a6eef4",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin@example.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                            NormalizedUserName = "ADMIN@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAELXXRUmPgzRcP2R/NTFWmmKf1g7vKeZEugKXN81rtTUPlCXtGDnpQ/27k++tUewdDw==",
+                            PhoneNumber = "0123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "21fb369f-a4b0-4a42-9d52-a8ca6106484d",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@example.com"
+                        });
+                });
+
             modelBuilder.Entity("MVC_Projec2.Models.Atelier", b =>
                 {
                     b.Property<int>("Id")
@@ -123,49 +214,25 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4343),
+                            Created_at = new DateTime(2025, 4, 4, 0, 40, 34, 31, DateTimeKind.Local).AddTicks(7144),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            User_Id = 1
+                            user_id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b"
                         },
                         new
                         {
                             Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 4, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            User_Id = 3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Atelier_Id = 4,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4353),
-                            Decor_Id = 3,
-                            Hall_Id = 1,
-                            MakeupId = 3,
-                            Session_Id = 4,
-                            Status = "Cancelled",
-                            User_Id = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Atelier_Id = 2,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            Decor_Id = 1,
-                            Hall_Id = 3,
-                            MakeupId = 2,
-                            Session_Id = 3,
-                            Status = "Confirmed",
-                            User_Id = 4
+                            user_id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b"
                         });
                 });
 
@@ -224,48 +291,12 @@ namespace MVC_Projec2.Migrations
                             Id = 1,
                             Atelier_Id = 3,
                             Content = "Excellent service!",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4385),
+                            Created_at = new DateTime(2025, 4, 4, 0, 40, 34, 31, DateTimeKind.Local).AddTicks(7307),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
-                            User_Id = 3
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Atelier_Id = 3,
-                            Content = "Loved the decorations!",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4390),
-                            Decor_Id = 1,
-                            Hall_Id = 2,
-                            MakeupId = 1,
-                            Session_Id = 2,
-                            User_Id = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Atelier_Id = 3,
-                            Content = "Great experience, highly recommend!",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4393),
-                            Decor_Id = 1,
-                            Hall_Id = 2,
-                            MakeupId = 1,
-                            Session_Id = 2,
-                            User_Id = 4
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Atelier_Id = 3,
-                            Content = "Nice ambiance but service could be better.",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4396),
-                            Decor_Id = 1,
-                            Hall_Id = 2,
-                            MakeupId = 1,
-                            Session_Id = 2,
-                            User_Id = 2
+                            user_id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b"
                         });
                 });
 
@@ -492,22 +523,28 @@ namespace MVC_Projec2.Migrations
                         },
                         new
                         {
-                            Id = 3,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4183),
-                            Email = "s@gmail.com",
-                            Name = "Shimaa",
-                            Password_hash = "s123@4",
-                            Phone = "01013986647"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            Email = "f@gmail.com",
-                            Name = "Fatma",
-                            Password_hash = "f1@237",
-                            Phone = "01118936647"
+                            UserId = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b",
+                            RoleId = "1"
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.Booking", b =>

@@ -40,10 +40,31 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Booking>().HasData(
-                new Booking { Id = 1, User_Id = 1, MakeupId = 1, Hall_Id = 2, Session_Id = 2, Decor_Id = 1, Atelier_Id = 3, Status = "Confirmed", Created_at = DateTime.Now },
-                new Booking { Id = 2, User_Id = 3, MakeupId = 4, Hall_Id = 1, Session_Id = 1, Decor_Id = 2, Atelier_Id = 1, Status = "Pending", Created_at = DateTime.Today },
-                new Booking { Id = 3, User_Id = 2, MakeupId = 3, Hall_Id = 1, Session_Id = 4, Decor_Id = 3, Atelier_Id = 4, Status = "Cancelled", Created_at = DateTime.Now },  // كان ناقص هنا
-                new Booking { Id = 4, User_Id = 4, MakeupId = 2, Hall_Id = 3, Session_Id = 3, Decor_Id = 1, Atelier_Id = 2, Status = "Confirmed", Created_at = DateTime.Today }
+            new Booking
+            {
+                Id = 1,
+                user_id = adminUserId,
+                MakeupId = 1,
+                Hall_Id = 2,
+                Session_Id = 2,
+                Decor_Id = 1,
+                Atelier_Id = 3,
+                Status = "Confirmed",
+                Created_at = DateTime.Now
+            },
+                new Booking
+                {
+                    Id = 2,
+                    user_id = adminUserId,
+                    MakeupId = 4,
+                    Hall_Id = 1,
+                    Session_Id = 1,
+                    Decor_Id = 2,
+                    Atelier_Id = 1,
+                    Status = "Pending",
+                    Created_at = DateTime.Today
+                }
+
             );
 
 
@@ -62,9 +83,9 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Hall>().HasData(
-                new Hall { Id = 1, Name = "Grand Hall", Capacity = 500 },
-                new Hall { Id = 2, Name = "Crystal Ballroom", Capacity = 300 },
-                new Hall { Id = 3, Name = "Sunset Venue", Capacity = 200 }
+                new Hall { Id = 1, Name = "Grand Hall", Capacity = 500, ImageUrl = "1.jpg", Images = new List<HallImage>() },
+                new Hall { Id = 2, Name = "Crystal Ballroom", Capacity = 300, ImageUrl = "3.jpg", Images = new List<HallImage>() },
+                new Hall { Id = 3, Name = "Sunset Venue", Capacity = 200, ImageUrl = "5.jpg", Images = new List<HallImage>() }
             );
 
             modelBuilder.Entity<MakeUp_Service>().HasData(
@@ -81,10 +102,10 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Session>().HasData(
-                new Session { Id = 1, Type = "Photography", Duration = 2 },
-                new Session { Id = 2, Type = "Videography", Duration = 3 },
-                new Session { Id = 3, Type = "Engagement Shoot", Duration = 4 },
-                new Session { Id = 4, Type = "Pre-Wedding Shoot", Duration = 5 }
+                new Session { Id = 1, Type = "Photography", Duration = 2, ImageUrl="1.jpg"},
+                new Session { Id = 2, Type = "Videography", Duration = 3, ImageUrl = "2.jpg" },
+                new Session { Id = 3, Type = "Engagement Shoot", Duration = 4, ImageUrl = "3.jpg" },
+                new Session { Id = 4, Type = "Pre-Wedding Shoot", Duration = 5, ImageUrl = "4.jpg" }
             );
 
             base.OnModelCreating(modelBuilder);
