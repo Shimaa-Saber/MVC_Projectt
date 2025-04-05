@@ -75,12 +75,11 @@ namespace MVC_Projec2.Models
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(
                 new IdentityUserRole<string> { UserId = adminUserId, RoleId = "1" }
             );
-            int adminUserId = 1;
             modelBuilder.Entity<Booking>().HasData(
             new Booking
             {
                 Id = 1,
-                User_Id= adminUserId,
+                user_id = adminUserId,
                 MakeupId = 1,
                 Hall_Id = 2,
                 Session_Id = 2,
@@ -92,7 +91,7 @@ namespace MVC_Projec2.Models
                 new Booking
                 {
                     Id = 2,
-                    User_Id = adminUserId,
+                    user_id = adminUserId,
                     MakeupId = 4,
                     Hall_Id = 1,
                     Session_Id = 1,
@@ -100,7 +99,7 @@ namespace MVC_Projec2.Models
                     Atelier_Id = 1,
                     Status = "Pending",
                     Created_at = DateTime.Today
-                }
+                });
 
 
             modelBuilder.Entity<Booking>().HasData(
