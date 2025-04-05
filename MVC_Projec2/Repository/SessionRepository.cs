@@ -39,5 +39,7 @@ namespace MVC_Projec2.Repository
         {
             _context.SaveChanges();
         }
+
     }
+
 }

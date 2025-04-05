@@ -38,12 +38,12 @@ namespace MVC_Projec2.Models
                 new User { Id = 3, Name = "Shimaa", Email = "s@gmail.com", Phone = "01013986647", Password_hash = "s123@4", Created_at = DateTime.Now },
                 new User { Id = 4, Name = "Fatma", Email = "f@gmail.com", Phone = "01118936647", Password_hash = "f1@237", Created_at = DateTime.Today }
             );
-
+            int adminUserId = 1;
             modelBuilder.Entity<Booking>().HasData(
             new Booking
             {
                 Id = 1,
-                user_id = adminUserId,
+                User_Id= adminUserId,
                 MakeupId = 1,
                 Hall_Id = 2,
                 Session_Id = 2,
@@ -55,7 +55,7 @@ namespace MVC_Projec2.Models
                 new Booking
                 {
                     Id = 2,
-                    user_id = adminUserId,
+                    User_Id = adminUserId,
                     MakeupId = 4,
                     Hall_Id = 1,
                     Session_Id = 1,
@@ -83,9 +83,9 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Hall>().HasData(
-                new Hall { Id = 1, Name = "Grand Hall", Capacity = 500, ImageUrl = "1.jpg", Images = new List<HallImage>() },
-                new Hall { Id = 2, Name = "Crystal Ballroom", Capacity = 300, ImageUrl = "3.jpg", Images = new List<HallImage>() },
-                new Hall { Id = 3, Name = "Sunset Venue", Capacity = 200, ImageUrl = "5.jpg", Images = new List<HallImage>() }
+                new Hall { Id = 1, Name = "Grand Hall", Capacity = 500, ImageUrl = "1.jpg" },
+                new Hall { Id = 2, Name = "Crystal Ballroom", Capacity = 300, ImageUrl = "3.jpg" },
+                new Hall { Id = 3, Name = "Sunset Venue", Capacity = 200, ImageUrl = "5.jpg" }
             );
 
             modelBuilder.Entity<MakeUp_Service>().HasData(

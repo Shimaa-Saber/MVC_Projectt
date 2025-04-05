@@ -31,9 +31,9 @@ namespace MVC_Projec2
                ); ;
 
           
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  
-    .AddEntityFrameworkStores<MVCProjectContext>()
-    .AddDefaultTokenProviders();
+    //        builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  
+    //.AddEntityFrameworkStores<MVCProjectContext>()
+    //.AddDefaultTokenProviders();
 
 
 
