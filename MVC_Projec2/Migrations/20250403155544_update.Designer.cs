@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    [Migration("20250401235325_init")]
-    partial class init
+    [Migration("20250403155544_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,97 @@ namespace MVC_Projec2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("MVC_Projec2.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0c605afc-c225-4ef8-989c-643648088c83",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2d74a726-e0b7-4513-9b35-051d49fe405b",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin@example.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                            NormalizedUserName = "ADMIN@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBRMTQA491UyuK3UbrQU+0y7XnUuAGv6giBgkzaGYcr58wuUNzV96unSe59NmMlsVA==",
+                            PhoneNumber = "0123456789",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "580edb5c-86c6-4f1e-a948-01aa077f9c38",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@example.com"
+                        });
+                });
 
             modelBuilder.Entity("MVC_Projec2.Models.Atelier", b =>
                 {
@@ -102,8 +193,9 @@ namespace MVC_Projec2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("User_Id")
-                        .HasColumnType("int");
+                    b.Property<string>("user_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -117,7 +209,7 @@ namespace MVC_Projec2.Migrations
 
                     b.HasIndex("Session_Id");
 
-                    b.HasIndex("User_Id");
+                    b.HasIndex("user_id");
 
                     b.ToTable("Bookings");
 
@@ -126,49 +218,25 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4343),
+                            Created_at = new DateTime(2025, 4, 3, 17, 55, 41, 476, DateTimeKind.Local).AddTicks(9339),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            User_Id = 1
+                            user_id = "0c605afc-c225-4ef8-989c-643648088c83"
                         },
                         new
                         {
                             Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 4, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            User_Id = 3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Atelier_Id = 4,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4353),
-                            Decor_Id = 3,
-                            Hall_Id = 1,
-                            MakeupId = 3,
-                            Session_Id = 4,
-                            Status = "Cancelled",
-                            User_Id = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Atelier_Id = 2,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            Decor_Id = 1,
-                            Hall_Id = 3,
-                            MakeupId = 2,
-                            Session_Id = 3,
-                            Status = "Confirmed",
-                            User_Id = 4
+                            user_id = "0c605afc-c225-4ef8-989c-643648088c83"
                         });
                 });
 
@@ -202,8 +270,9 @@ namespace MVC_Projec2.Migrations
                     b.Property<int?>("Session_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("User_Id")
-                        .HasColumnType("int");
+                    b.Property<string>("user_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -217,7 +286,7 @@ namespace MVC_Projec2.Migrations
 
                     b.HasIndex("Session_Id");
 
-                    b.HasIndex("User_Id");
+                    b.HasIndex("user_id");
 
                     b.ToTable("Comments");
 
@@ -227,48 +296,12 @@ namespace MVC_Projec2.Migrations
                             Id = 1,
                             Atelier_Id = 3,
                             Content = "Excellent service!",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4385),
+                            Created_at = new DateTime(2025, 4, 3, 17, 55, 41, 476, DateTimeKind.Local).AddTicks(9592),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
-                            User_Id = 3
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Atelier_Id = 3,
-                            Content = "Loved the decorations!",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4390),
-                            Decor_Id = 1,
-                            Hall_Id = 2,
-                            MakeupId = 1,
-                            Session_Id = 2,
-                            User_Id = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Atelier_Id = 3,
-                            Content = "Great experience, highly recommend!",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4393),
-                            Decor_Id = 1,
-                            Hall_Id = 2,
-                            MakeupId = 1,
-                            Session_Id = 2,
-                            User_Id = 4
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Atelier_Id = 3,
-                            Content = "Nice ambiance but service could be better.",
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4396),
-                            Decor_Id = 1,
-                            Hall_Id = 2,
-                            MakeupId = 1,
-                            Session_Id = 2,
-                            User_Id = 2
+                            user_id = "0c605afc-c225-4ef8-989c-643648088c83"
                         });
                 });
 
@@ -279,6 +312,12 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -323,9 +362,18 @@ namespace MVC_Projec2.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Price")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -443,7 +491,48 @@ namespace MVC_Projec2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MVC_Projec2.Models.User", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -451,66 +540,109 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
+                    b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password_hash")
+                    b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4128),
-                            Email = "h@gmail.com",
-                            Name = "Hager",
-                            Password_hash = "h_123@20",
-                            Phone = "01113986645"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            Email = "a@gmail.com",
-                            Name = "Asmaa",
-                            Password_hash = "a@5002",
-                            Phone = "01213986647"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Created_at = new DateTime(2025, 4, 2, 1, 53, 24, 900, DateTimeKind.Local).AddTicks(4183),
-                            Email = "s@gmail.com",
-                            Name = "Shimaa",
-                            Password_hash = "s123@4",
-                            Phone = "01013986647"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Created_at = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            Email = "f@gmail.com",
-                            Name = "Fatma",
-                            Password_hash = "f1@237",
-                            Phone = "01118936647"
+                            UserId = "0c605afc-c225-4ef8-989c-643648088c83",
+                            RoleId = "1"
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.Booking", b =>
@@ -535,9 +667,9 @@ namespace MVC_Projec2.Migrations
                         .WithMany()
                         .HasForeignKey("Session_Id");
 
-                    b.HasOne("MVC_Projec2.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("User_Id")
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", "user")
+                        .WithMany("Bookings")
+                        .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -551,7 +683,7 @@ namespace MVC_Projec2.Migrations
 
                     b.Navigation("Session");
 
-                    b.Navigation("User");
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.Comment", b =>
@@ -576,9 +708,9 @@ namespace MVC_Projec2.Migrations
                         .WithMany()
                         .HasForeignKey("Session_Id");
 
-                    b.HasOne("MVC_Projec2.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("User_Id")
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", "user")
+                        .WithMany("Comments")
+                        .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -592,7 +724,65 @@ namespace MVC_Projec2.Migrations
 
                     b.Navigation("Session");
 
-                    b.Navigation("User");
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MVC_Projec2.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Bookings");
+
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

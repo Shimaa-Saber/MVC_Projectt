@@ -4,6 +4,7 @@ using MVC_Projec2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    partial class MVCProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20250403204012_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,19 +98,19 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b",
+                            Id = "b749d298-6f7e-435c-b2a2-cfe028b18134",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "55c67237-fae1-4887-8195-184d91a6eef4",
+                            ConcurrencyStamp = "46256405-b680-4ffc-9401-b0fc174b23ea",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELXXRUmPgzRcP2R/NTFWmmKf1g7vKeZEugKXN81rtTUPlCXtGDnpQ/27k++tUewdDw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEItbLAfKlIfbeLT32yn/qQMWArhJZw1g1fdP/1u85h3pI+c0vgpG5AmWhiMsF+K9AQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "21fb369f-a4b0-4a42-9d52-a8ca6106484d",
+                            SecurityStamp = "bb16f6bd-dd8f-41b0-a1b2-a215897aa92d",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         });
@@ -221,7 +224,7 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b"
+                            user_id = "b749d298-6f7e-435c-b2a2-cfe028b18134"
                         },
                         new
                         {
@@ -233,7 +236,7 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b"
+                            user_id = "b749d298-6f7e-435c-b2a2-cfe028b18134"
                         });
                 });
 
@@ -298,7 +301,7 @@ namespace MVC_Projec2.Migrations
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
-                            user_id = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b"
+                            user_id = "b749d298-6f7e-435c-b2a2-cfe028b18134"
                         });
                 });
 
@@ -662,7 +665,7 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "0749a18c-980f-4fb3-8bd2-9184f1e7d77b",
+                            UserId = "b749d298-6f7e-435c-b2a2-cfe028b18134",
                             RoleId = "1"
                         });
                 });
