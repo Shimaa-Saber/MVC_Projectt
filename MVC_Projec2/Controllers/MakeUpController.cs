@@ -48,6 +48,26 @@ namespace MVC_Projec2.Controllers
             return View(makeUp);
         }
 
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var makeUp_s = _makeUpRepository.SearchByName(searchValue);
+                return View("GetAll", makeUp_s);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching Makeup");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
 
         [Authorize(Roles = "Admin")]
         public IActionResult AddSession()

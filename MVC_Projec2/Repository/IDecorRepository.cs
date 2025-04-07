@@ -7,5 +7,7 @@ namespace MVC_Projec2.Repository
         Decor GetByIdWithImages(int id);
 
         List<Decor> GetAllWithImages();
+
+        IEnumerable<Decor> SearchByName(string name);
     }
 }

@@ -15,7 +15,7 @@ namespace MVC_Projec2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // SaveAdd services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IDecorRepository, DecorRepository>();
             builder.Services.AddScoped<IHallRepository, HallRepository>();

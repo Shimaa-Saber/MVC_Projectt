@@ -41,6 +41,15 @@ namespace MVC_Projec2.Repository
                 .FirstOrDefault(d => d.Id == id);
         }
 
+        public IEnumerable<Decor> SearchByName(string name)
+        {
+            return _context.Decors
+                .Include(d => d.Images)
+                .Where(d => d.Style.Contains(name))
+                .AsNoTracking()
+                .ToList();
+        }
+
         public void insert(Decor obj)
         {
             _context.Decors.Add(obj);

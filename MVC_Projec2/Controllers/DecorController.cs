@@ -49,6 +49,27 @@ namespace MVC_Projec2.Controllers
         }
 
 
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var decors = _decorRepository.SearchByName(searchValue);
+                return View("GetAll", decors);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching Decors");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
+
         [Authorize(Roles = "Admin")]
         public IActionResult AddDecor()
         {
@@ -117,7 +138,7 @@ namespace MVC_Projec2.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult Edit(EditDecorViewMode model)
+        public IActionResult SaveEdit(EditDecorViewMode model)
         {
             if (!ModelState.IsValid)
             {
