@@ -105,7 +105,7 @@ namespace MVC_Projec2.Models
             modelBuilder.Entity<Booking>().HasData(
                 new Booking
                 {
-                    Id = 1,
+                    Id = 3,
                     user_id = adminUserId,
                     MakeupId = 1,
                     Hall_Id = 2,
@@ -117,7 +117,7 @@ namespace MVC_Projec2.Models
                 },
                 new Booking
                 {
-                    Id = 2,
+                    Id = 4,
                     user_id = adminUserId,
                     MakeupId = 4,
                     Hall_Id = 1,

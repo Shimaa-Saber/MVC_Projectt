@@ -40,6 +40,39 @@ namespace MVC_Projec2.Controllers
                 return View("HallDetailes", hall);
             }
         }
+
+
+        public  IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var halls =  hallRepository.SearchByName(searchValue);
+                return View("GetAll", halls); 
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching halls");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         [Authorize(Roles = "Admin")]
         public IActionResult DeleteHall(int id)
         {
@@ -86,7 +119,7 @@ namespace MVC_Projec2.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Add(AddHallViewModel model)
+        public async Task<IActionResult> SaveAdd(AddHallViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -149,7 +182,7 @@ namespace MVC_Projec2.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        public IActionResult Edit(EditHallViewModel model)
+        public IActionResult SaveEdit(EditHallViewModel model)
         {
             if (!ModelState.IsValid)
             {

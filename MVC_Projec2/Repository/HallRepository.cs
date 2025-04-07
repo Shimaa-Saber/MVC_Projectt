@@ -42,6 +42,15 @@ namespace MVC_Projec2.Repository
                 .FirstOrDefault(h => h.Id == id);
         }
 
+        public IEnumerable<Hall> SearchByName(string name)
+        {
+            return _context.Halls
+                .Include(h => h.Images) 
+                .Where(h => h.Name.Contains(name))
+                .AsNoTracking()
+                .ToList();
+        }
+
         public void insert(Hall obj)
         {
             _context.Halls.Add(obj);
