@@ -6,7 +6,7 @@ using System;
 
 namespace MVC_Projec2.Models
 {
-    public class MVCProjectContext : IdentityDbContext<ApplicationUser>
+    public class MVCProjectContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         private readonly IConfiguration _configuration;
 
@@ -45,9 +45,9 @@ namespace MVC_Projec2.Models
             base.OnModelCreating(modelBuilder);
 
 
-            modelBuilder.Entity<IdentityRole>().HasData(
-                new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
-                new IdentityRole { Id = "2", Name = "User", NormalizedName = "USER" }
+            modelBuilder.Entity<ApplicationRole>().HasData(
+                new ApplicationRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+                new ApplicationRole { Id = "2", Name = "User", NormalizedName = "USER" }
             );
 
 
@@ -75,6 +75,37 @@ namespace MVC_Projec2.Models
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(
                 new IdentityUserRole<string> { UserId = adminUserId, RoleId = "1" }
             );
+
+
+            var normalUserId = Guid.NewGuid().ToString();
+
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+                    Id = normalUserId,
+                    UserName = "user@example.com",
+                    NormalizedUserName = "USER@EXAMPLE.COM",
+                    Email = "user@example.com",
+                    NormalizedEmail = "USER@EXAMPLE.COM",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "User@1234!"),
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                    PhoneNumber = "9876543210",
+                    PhoneNumberConfirmed = true
+                }
+            );
+
+           
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string> { UserId = normalUserId, RoleId = "2" }
+            );
+
+
+
+
+
+
             modelBuilder.Entity<Booking>().HasData(
             new Booking
             {
