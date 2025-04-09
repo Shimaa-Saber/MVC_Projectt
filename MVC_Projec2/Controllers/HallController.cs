@@ -10,25 +10,29 @@ using System.ComponentModel;
 namespace MVC_Projec2.Controllers
 {
     public class HallController : Controller
-
     {
         private readonly IHallRepository hallRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<HallController> _logger;
-        public HallController(IHallRepository hallRepo,IImageUploadService imageUpload, ILogger<HallController> logger)
+        private readonly ICommentRepository _commentRepository;
+
+        public HallController(ICommentRepository commentRepository,
+                              IHallRepository hallRepo,
+                              IImageUploadService imageUpload,
+                              ILogger<HallController> logger)
         {
+            this._commentRepository = commentRepository;
             this.hallRepository = hallRepo;
             this._imageUploadService = imageUpload;
             _logger = logger;
         }
+
         public IActionResult GetAll()
         {
-            List<Hall> HallList = hallRepository.GetAllWithImages();
-
-            return View("GetAll", HallList);
+            return View(hallRepository.GetAllWithImages());
         }
 
-        public IActionResult HallDetailes(int id)
+        public IActionResult HallDetails(int id)
         {
             Hall hall = hallRepository.GetByIdWithImages(id);
             if (hall == null)
@@ -37,14 +41,45 @@ namespace MVC_Projec2.Controllers
             }
             else
             {
-                return View("HallDetailes", hall);
+                var comments = _commentRepository.GetCommentsByService(id, ServiceType.Hall);
+                var viewModel = new HallCommentViewModel
+                {
+                    Hall = hall,
+                    Comments = comments,
+                    CommentText = ""
+                };
+
+                return View(viewModel);
             }
         }
+
+        [HttpPost]
+        public IActionResult AddComment(HallCommentViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.CommentText))
+            {
+                ModelState.AddModelError("", "Please provide a comment.");
+                return RedirectToAction("HallDetails", new { id = model.Hall.Id });
+            }
+
+            var comment = new Comment
+            {
+                Content = model.CommentText,
+                ServiceId = model.Hall.Id,
+                CreatedAt = DateTime.Now,
+                UserId = User.Identity.Name,
+                ServiceType = ServiceType.Hall
+            };
+
+            _commentRepository.insert(comment);
+            _commentRepository.Save();
+
+            return RedirectToAction("HallDetails", new { id = model.Hall.Id });
+        }
+
         [Authorize(Roles = "Admin")]
         public IActionResult DeleteHall(int id)
         {
-
-
             try
             {
                 Hall hall = hallRepository.GetById(id);
@@ -54,10 +89,15 @@ namespace MVC_Projec2.Controllers
                     return NotFound();
                 }
 
-                foreach (var image in hall.Images)
+                if (hall.Images != null && hall.Images.Count() > 0)
                 {
-                    _imageUploadService.DeleteImage(image.ImageUrl);
+                    foreach (var image in hall.Images)
+                    {
+                        _imageUploadService.DeleteImage(image.ImageUrl);
+                    }
+
                 }
+
 
                 hallRepository.Delete(hall);
                 hallRepository.Save();
@@ -66,24 +106,18 @@ namespace MVC_Projec2.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error adding hall");
+                _logger.LogError(ex, "Error deleting hall");
                 ModelState.AddModelError("", "An error occurred while deleting the hall. Please try again.");
 
                 return View("GetAll");
             }
-
-
         }
-
 
         [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
             return View();
         }
-
-
-
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add(AddHallViewModel model)
@@ -95,15 +129,12 @@ namespace MVC_Projec2.Controllers
 
             try
             {
-               
-
                 var hall = new Hall
                 {
                     Name = model.Name,
                     Capacity = model.Capacity,
                     Location = model.Location,
                     Price = model.Price,
-                  
                 };
 
                 foreach (var file in model.ImageFiles)
@@ -125,6 +156,7 @@ namespace MVC_Projec2.Controllers
                 return View(model);
             }
         }
+
         [Authorize(Roles = "Admin")]
         public IActionResult Edit(int id)
         {
@@ -141,19 +173,18 @@ namespace MVC_Projec2.Controllers
                 Capacity = hall.Capacity,
                 Location = hall.Location,
                 Price = (double)hall.Price,
-               
             };
 
             return View(viewModel);
         }
 
-
         [Authorize(Roles = "Admin")]
-        public IActionResult Edit(EditHallViewModel model)
+        [HttpPost]
+        public IActionResult UpdateHall(EditHallViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("Edit", model); 
             }
 
             try
@@ -164,31 +195,23 @@ namespace MVC_Projec2.Controllers
                     return NotFound();
                 }
 
-            
                 hall.Name = model.Name;
                 hall.Capacity = model.Capacity;
                 hall.Location = model.Location;
                 hall.Price = model.Price;
-             
 
                 hallRepository.Update(hall);
                 hallRepository.Save();
 
                 TempData["SuccessMessage"] = "Hall updated successfully!";
-                return RedirectToAction("Index");
+                return RedirectToAction("GetAll");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error editing hall ID {HallId}", model.Id);
                 ModelState.AddModelError("", "An error occurred while updating the hall.");
-                return View(model);
+                return View("Edit", model); 
             }
         }
-
-
-
-
     }
-
-    }
-
+}

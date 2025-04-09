@@ -8,6 +8,7 @@ namespace MVC_Projec2.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
+        public List<AtelierImages> Images { get; set; } = new List<AtelierImages>();
 
     }
 }

@@ -4,33 +4,33 @@ using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
 using MVC_Projec2.ViewModels;
+using System;
 
 namespace MVC_Projec2.Controllers
 {
     public class SessionController : Controller
     {
-
+        private readonly ICommentRepository _commentRepository;
         private readonly ISessionRepository _sessionRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<SessionController> _logger;
 
-
         public SessionController(
-            ISessionRepository sessionRepository,
-            IImageUploadService imageUploadService,
-            ILogger<SessionController> logger)
-        {
-            this._sessionRepository = sessionRepository;
-            this._imageUploadService = imageUploadService;
-            this._logger = logger;
-        }
+               ICommentRepository commentRepository,
+               ISessionRepository sessionRepository,
+               IImageUploadService imageUploadService,
+               ILogger<SessionController> logger)
+            {
+                this._sessionRepository = sessionRepository;
+                this._imageUploadService = imageUploadService;
+                this._logger = logger;
+            }
 
         public IActionResult GetAll()
         {
             try
             {
-                var sessionList = _sessionRepository.GetAll();
-                return View("GetAll", sessionList);
+                return View(_sessionRepository.GetAll());
             }
             catch (Exception ex)
             {
@@ -46,16 +46,48 @@ namespace MVC_Projec2.Controllers
             {
                 return NotFound();
             }
-            return View(session);
+
+            var comments = _commentRepository.GetCommentsByService(id, ServiceType.Session);
+
+            var viewModel = new SessionCommentViewModel
+            {
+                Session = session,
+                Comments = comments,
+                CommentText = ""
+            };
+
+            return View(viewModel);
         }
 
+        [HttpPost]
+        public IActionResult AddComment(SessionCommentViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.CommentText))
+            {
+                ModelState.AddModelError("", "Please provide a comment.");
+                return RedirectToAction("Details", new { id = model.Session.Id });
+            }
+
+            var comment = new Comment
+            {
+                Content = model.CommentText,
+                CreatedAt = DateTime.Now,
+                ServiceType = ServiceType.MakeUp,
+                UserId = User.Identity.Name,
+                ServiceId = model.Session.Id
+            };
+
+            _commentRepository.insert(comment);
+            _commentRepository.Save();
+
+            return RedirectToAction("Details", new { id = model.Session.Id });
+        }
 
         [Authorize(Roles = "Admin")]
         public IActionResult AddSession()
         {
             return View();
         }
-
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(AddSessionViewModel model)
@@ -67,14 +99,17 @@ namespace MVC_Projec2.Controllers
 
             try
             {
-                var imageUrl = await _imageUploadService.UploadImageAsync(model.ImageFile);
-
                 var session = new Session
                 {
                     Type = model.Type,
-                    Duration = model.Duration,
-                    ImageUrl = imageUrl
+                    Duration = model.Duration
                 };
+
+                foreach (var file in model.ImageFiles)
+                {
+                    var imageUrl = await _imageUploadService.UploadImageAsync(file);
+                    session.Images.Add(new SessionImages { ImageUrl = imageUrl });
+                }
 
                 _sessionRepository.insert(session); 
                 _sessionRepository.Save();
@@ -90,7 +125,6 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
@@ -104,8 +138,7 @@ namespace MVC_Projec2.Controllers
             {
                 Id = session.Id,
                 Type = session.Type,
-                Duration = session.Duration,
-                ImageUrl = session.ImageUrl,  
+                Duration = session.Duration
             };
 
             return View(viewModel);
@@ -131,12 +164,6 @@ namespace MVC_Projec2.Controllers
                 session.Type = model.Type;
                 session.Duration = model.Duration;
 
-                if (model.ImageFile != null)
-                {
-                    var imageUrl = await _imageUploadService.UploadImageAsync(model.ImageFile);
-                    session.ImageUrl = imageUrl;  
-                }
-
                 _sessionRepository.Update(session);
                 _sessionRepository.Save();
 
@@ -151,7 +178,6 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
@@ -163,9 +189,13 @@ namespace MVC_Projec2.Controllers
                     return NotFound();
                 }
 
-                if (!string.IsNullOrEmpty(session.ImageUrl))
+                if (session.Images != null && session.Images.Count()>0)
                 {
-                    _imageUploadService.DeleteImage(session.ImageUrl);
+                    foreach(var image in session.Images)
+                    {
+                     _imageUploadService.DeleteImage(image.ImageUrl);
+                    }
+                    
                 }
 
                 _sessionRepository.Delete(session);

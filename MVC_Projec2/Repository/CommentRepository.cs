@@ -4,7 +4,7 @@ namespace MVC_Projec2.Repository
 {
     public class CommentRepository : ICommentRepository
     {
-        MVCProjectContext _context;
+        private readonly MVCProjectContext _context;
         public CommentRepository(MVCProjectContext context)
         {
             _context = context;
@@ -13,31 +13,51 @@ namespace MVC_Projec2.Repository
         public void Delete(Comment obj)
         {
             _context.Comments.Remove(obj);
+            Save();  
         }
 
         public List<Comment> GetAll()
         {
-            return _context.Comments.ToList();
+            return _context.Comments.ToList(); 
         }
 
         public Comment GetById(int id)
         {
-            return _context.Comments.Where(c => c.Id == id).FirstOrDefault();
+            return _context.Comments.Find(id); 
         }
 
-        public void insert(Comment obj)
+        public List<Comment> GetCommentsByService(int serviceId, ServiceType serviceType)
         {
-            _context.Comments.Add(obj);
+            return _context.Comments
+                .Where(c => c.ServiceId == serviceId && c.ServiceType == serviceType)
+                .OrderByDescending(c => c.CreatedAt)
+                .ToList();
+        }
+
+        public List<Comment> GetCommentsByUser(string userId)
+        {
+            return _context.Comments
+                .Where(c => c.UserId == userId)
+                .OrderByDescending(c => c.CreatedAt)
+                .ToList();
+        }
+
+        public void insert(Comment comment)
+        {
+            _context.Comments.Add(comment);
+            Save();
         }
 
         public void Update(Comment obj)
         {
             _context.Comments.Update(obj);
+            Save();  
         }
-
+        
         public void Save()
         {
-            _context.SaveChanges();
+            _context.SaveChanges(); 
         }
+
     }
 }

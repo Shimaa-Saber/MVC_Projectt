@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -15,8 +16,8 @@ namespace MVC_Projec2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
+
             builder.Services.AddScoped<IDecorRepository, DecorRepository>();
             builder.Services.AddScoped<IHallRepository, HallRepository>();
             builder.Services.AddScoped<IAtelierRepository, AtelierRepository>();
@@ -27,18 +28,17 @@ namespace MVC_Projec2
             builder.Services.AddScoped<IImageUploadService, ImageUploadServices>();
 
 
-
-
             builder.Services.AddDbContext<MVCProjectContext>(
-               options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
-               ); ;
-
+                   options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
+            ); 
 
 
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  
-    .AddEntityFrameworkStores<MVCProjectContext>()
-    .AddDefaultTokenProviders();
+                            .AddEntityFrameworkStores<MVCProjectContext>()
+                            .AddDefaultTokenProviders();
 
+
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -55,7 +55,7 @@ namespace MVC_Projec2
                     logger.LogError(ex, "An error occurred seeding the DB.");
                 }
             }
-            // Configure the HTTP request pipeline.
+
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
@@ -68,8 +68,9 @@ namespace MVC_Projec2
 
             app.UseAuthentication();
             app.UseAuthorization();
-           
-       
+
+            app.MapHub<CommentHub>("/commentHub");
+
 
             app.MapControllerRoute(
                 name: "default",

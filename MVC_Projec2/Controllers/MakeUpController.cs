@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -9,12 +10,13 @@ namespace MVC_Projec2.Controllers
 {
     public class MakeUpController : Controller
     {
+        private readonly ICommentRepository _commentRepository;
         private readonly IMakeUpRepository _makeUpRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<SessionController> _logger;
 
-
         public MakeUpController(
+            ICommentRepository commentRepository,
             IMakeUpRepository makeUpRepository,
             IImageUploadService imageUploadService,
             ILogger<SessionController> logger)
@@ -28,8 +30,7 @@ namespace MVC_Projec2.Controllers
         {
             try
             {
-                var makeUpList = _makeUpRepository.GetAll();
-                return View("GetAll", makeUpList);
+                return View(_makeUpRepository.GetAll());
             }
             catch (Exception ex)
             {
@@ -45,9 +46,51 @@ namespace MVC_Projec2.Controllers
             {
                 return NotFound();
             }
-            return View(makeUp);
+
+            var comments = _commentRepository.GetCommentsByService(id, ServiceType.MakeUp);
+
+            var viewModel = new MakeUpCommentViewModel
+            {
+                makeUp = makeUp,
+                Comments = comments,
+                CommentText = ""
+            };
+
+            return View(viewModel);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddComment(MakeUpCommentViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.CommentText))
+            {
+                ModelState.AddModelError("", "Please provide a comment.");
+                return RedirectToAction("Details", new { id = model.makeUp.Id });
+            }
+
+            try
+            {
+                var newComment = new Comment
+                {
+                    Content = model.CommentText,
+                    CreatedAt = DateTime.Now,
+                    ServiceType = ServiceType.MakeUp,
+                    UserId = User.Identity.Name,
+                    ServiceId= model.makeUp.Id
+                };
+                _commentRepository.insert(newComment);
+                _commentRepository.Save();
+
+                TempData["SuccessMessage"] = "Comment added successfully!";
+                return RedirectToAction("Details", new { id = model.makeUp.Id });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding comment for MakeUp Service ID {MakeUpId}", model.makeUp.Id);
+                ModelState.AddModelError("", "Error adding comment.");
+                return RedirectToAction("Details", new { id = model.makeUp.Id });
+            }
+        }
 
         [Authorize(Roles = "Admin")]
         public IActionResult AddSession()
@@ -65,14 +108,17 @@ namespace MVC_Projec2.Controllers
 
             try
             {
-                var imageUrl = await _imageUploadService.UploadImageAsync(model.ImageFile);
-
                 var makeUp = new MakeUp_Service
                 {
                     Name = model.Name,
-                    Price = model.Price,
-                    ImageUrl = imageUrl
+                    Price = model.Price
                 };
+
+                foreach (var file in model.ImageFiles)
+                {
+                    var imageUrl = await _imageUploadService.UploadImageAsync(file);
+                    makeUp.Images.Add(new MakeUpImages { ImageUrl = imageUrl });
+                }
 
                 _makeUpRepository.insert(makeUp);
                 _makeUpRepository.Save();
@@ -87,7 +133,6 @@ namespace MVC_Projec2.Controllers
                 return View(model);
             }
         }
-
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
@@ -130,13 +175,6 @@ namespace MVC_Projec2.Controllers
                 makeUp.Price = model.Price;
                 makeUp.ImageUrl = model.ImageUrl;
 
-
-                if (model.ImageFile != null)
-                {
-                    var imageUrl = await _imageUploadService.UploadImageAsync(model.ImageFile);
-                    makeUp.ImageUrl = imageUrl;
-                }
-
                 _makeUpRepository.Update(makeUp);
                 _makeUpRepository.Save();
 
@@ -151,7 +189,6 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
@@ -163,10 +200,15 @@ namespace MVC_Projec2.Controllers
                     return NotFound();
                 }
 
-                if (!string.IsNullOrEmpty(makeUp.ImageUrl))
+                if (makeUp.Images != null && makeUp.Images.Count() > 0)
                 {
-                    _imageUploadService.DeleteImage(makeUp.ImageUrl);
+                    foreach (var image in makeUp.Images)
+                    {
+                        _imageUploadService.DeleteImage(image.ImageUrl);
+                    }
+
                 }
+
 
                 _makeUpRepository.Delete(makeUp);
                 _makeUpRepository.Save();
@@ -182,6 +224,5 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction(nameof(GetAll));
             }
         }
-
     }
 }

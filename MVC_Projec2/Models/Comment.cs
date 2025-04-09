@@ -4,40 +4,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Projec2.Models
 {
+
+    public enum ServiceType
+    {
+        Hall,
+        Session,
+        Atelier,
+        MakeUp,
+        Decor
+    }
+
     public class Comment
     {
-        [Key]
         public int Id { get; set; }
         public string Content { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        [ForeignKey("user")]
-        public string user_id { get; set; }
-        public DateTime Created_at { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
-        [ForeignKey("Hall")]
-        public int? Hall_Id { get; set; }
-
-        [ForeignKey("Session")]
-        public int? Session_Id { get; set; }
-
-        [ForeignKey("Atelier")]
-        public int? Atelier_Id { get; set; }
-
-        [ForeignKey("MakeUp_Service")]
-        public int? MakeupId { get; set; }
-
-        [ForeignKey("Decor")]
-        public int? Decor_Id { get; set; }
-
-        
-
-
-        public virtual ApplicationUser user { get; set; }
-        public virtual Hall Hall { get; set; }
-        public virtual Session Session { get; set; }
-        public virtual Atelier Atelier { get; set; }
-        public virtual MakeUp_Service MakeUp { get; set; }
-        public virtual Decor Decor { get; set; }
-
+        public int ServiceId { get; set; }
+        public ServiceType ServiceType { get; set; }
     }
+
 }

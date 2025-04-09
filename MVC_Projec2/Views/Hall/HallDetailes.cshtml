@@ -1,7 +1,63 @@
-﻿
+﻿@model HallCommentViewModel
 @{
-    ViewData["Title"] = "HallDetailes";
+    ViewData["Title"] = "HallDetails";
 }
 
-<h1>HallDetailes</h1>
+<h1>Hall Details</h1>
+<input type="hidden" id="hallId" value="@Model.Hall.Id" />
+<input type="hidden" id="userName" value="@User.Identity.Name" />
+<input type="hidden" id="serviceType" value="Hall" />
 
+<div id="commentsContainer">
+    @foreach (var comment in Model.Comments)
+    {
+        <div><strong>@comment.User.FullName</strong>: @comment.Content</div>
+    }
+</div>
+
+<form id="commentForm">
+    <textarea id="commentText" required placeholder="Write your comment here..."></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/commentHub")
+        .build();
+
+    connection.on("NewCommentNotify", function (userName, message, serviceId, serviceType) {
+        const currentServiceId = document.getElementById("hallId").value;
+        const currentServiceType = document.getElementById("serviceType").value;
+
+        if (serviceId == currentServiceId && serviceType == currentServiceType) {
+            const commentDiv = document.createElement("div");
+            commentDiv.innerHTML = `<strong>${userName}</strong>: ${message}`;
+            document.getElementById("commentsContainer").appendChild(commentDiv);
+            document.getElementById("commentsContainer").scrollTop = document.getElementById("commentsContainer").scrollHeight;
+        }
+    });
+
+    connection.start()
+    .then(() => {
+        console.log("SignalR connection established successfully.");
+    })
+    .catch(err => {
+        console.error("Error establishing SignalR connection: ", err.toString());
+    });
+
+
+    document.getElementById("commentForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const userName = document.getElementById("userName").value;
+        const message = document.getElementById("commentText").value;
+        const serviceId = document.getElementById("hallId").value;
+        const serviceType = document.getElementById("serviceType").value;
+
+        connection.invoke("NewCommentArrived", userName, message, parseInt(serviceId), serviceType)
+            .catch(err => console.error(err.toString()));
+
+        document.getElementById("commentText").value = '';
+    });
+</script>

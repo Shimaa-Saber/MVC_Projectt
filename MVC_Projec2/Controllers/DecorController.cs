@@ -9,16 +9,18 @@ namespace MVC_Projec2.Controllers
 {
     public class DecorController : Controller
     {
+        private readonly ICommentRepository _commentRepository;
         private readonly IDecorRepository _decorRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<DecorController> _logger;
 
-
         public DecorController(
+            ICommentRepository commentRepository,
             IDecorRepository decorRepository,
             IImageUploadService imageUploadService,
             ILogger<DecorController> logger)
         {
+            this._commentRepository = commentRepository;
             this._decorRepository = decorRepository;
             this._imageUploadService = imageUploadService;
             this._logger = logger;
@@ -28,8 +30,7 @@ namespace MVC_Projec2.Controllers
         {
             try
             {
-                var decorList = _decorRepository.GetByIdWithImages;
-                return View(decorList);
+                return View(_decorRepository.GetByIdWithImages);
             }
             catch (Exception ex)
             {
@@ -38,23 +39,55 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        public IActionResult Details(int id)
+        public IActionResult DecorDetails(int id)
         {
             var decor = _decorRepository.GetByIdWithImages(id);
             if (decor == null)
             {
                 return NotFound();
             }
-            return View(decor);
+
+            var comments = _commentRepository.GetCommentsByService(id, ServiceType.Decor);
+
+            var viewModel = new DecorCommentViewModel
+            { 
+                Decor = decor,
+                Comments =  comments,
+                CommentText = "" 
+            };
+
+            return View(viewModel);
         }
 
+        [HttpPost]
+        public IActionResult AddComment(DecorCommentViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.CommentText))
+            {
+                ModelState.AddModelError("", "Please provide a comment.");
+                return RedirectToAction("DecorDetails", new { id = model.Decor.Id });
+            }
+
+            var comment = new Comment
+            {
+                Content = model.CommentText,
+                CreatedAt = DateTime.Now,
+                ServiceType = ServiceType.MakeUp,
+                UserId = User.Identity.Name,
+                ServiceId = model.Decor.Id
+            };
+
+            _commentRepository.insert(comment);
+            _commentRepository.Save();
+
+            return RedirectToAction("DecorDetails", new { id = model.Decor.Id });
+        }
 
         [Authorize(Roles = "Admin")]
         public IActionResult AddDecor()
         {
             return View();
         }
-
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(AddDecorViewModel model)
@@ -93,7 +126,6 @@ namespace MVC_Projec2.Controllers
                 return View(model);
             }
         }
-
 
         [Authorize(Roles = "Admin")]
         public IActionResult Edit(int id)
@@ -162,11 +194,16 @@ namespace MVC_Projec2.Controllers
                     return NotFound();
                 }
 
-                
-                foreach (var image in decor.Images)
+
+                if (decor.Images != null && decor.Images.Count() > 0)
                 {
-                    _imageUploadService.DeleteImage(image.ImageUrl);
+                    foreach (var image in decor.Images)
+                    {
+                        _imageUploadService.DeleteImage(image.ImageUrl);
+                    }
+
                 }
+
 
                 _decorRepository.Delete(decor);
                 _decorRepository.Save();
@@ -181,12 +218,6 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction(nameof(GetAll));
             }
         }
-
-
-
-
-
-
 
 
     }

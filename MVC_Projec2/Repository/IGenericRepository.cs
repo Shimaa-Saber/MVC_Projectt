@@ -2,7 +2,6 @@
 {
     public interface IGenericRepository<T>
     {
-        //CRUD Operation
         List<T> GetAll();
         T GetById(int id);
 

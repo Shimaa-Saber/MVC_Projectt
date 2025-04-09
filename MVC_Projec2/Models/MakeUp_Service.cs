@@ -6,6 +6,7 @@
         public string? Name { get; set; }
         public int Price { get; set; }
         public string? ImageUrl { get; set; }
+        public List<MakeUpImages> Images { get; set; } = new List<MakeUpImages>();
 
     }
 }

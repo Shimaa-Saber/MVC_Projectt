@@ -2,7 +2,6 @@
 {
     public class DecoreImage
     {
-        
             public int Id { get; set; }
             public string ImageUrl { get; set; }
             public int DecorId { get; set; }

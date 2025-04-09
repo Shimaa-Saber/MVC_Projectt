@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MVC_Projec2.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Projec2.ViewModels
 {
@@ -17,7 +18,9 @@ namespace MVC_Projec2.ViewModels
        public string? ImageUrl { get; set; }
 
        //[AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png" }, ErrorMessage = "Only .jpg, .jpeg, .png extensions are allowed.")]
-       public IFormFile? ImageFile { get; set; }  
+       public IFormFile? ImageFile { get; set; }
+      // public List<SessionImages> Images { get; set; } = new List<SessionImages>();
+
 
     }
 }
