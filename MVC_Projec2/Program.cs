@@ -26,7 +26,7 @@ namespace MVC_Projec2
             builder.Services.AddScoped<ISessionRepository, SessionRepository>();
             builder.Services.AddScoped<ICommentRepository, CommentRepository>();
             builder.Services.AddScoped<IImageUploadService, ImageUploadServices>();
-
+           
 
             builder.Services.AddDbContext<MVCProjectContext>(
                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))

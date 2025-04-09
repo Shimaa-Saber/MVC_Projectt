@@ -1,4 +1,5 @@
-﻿using MVC_Projec2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
 
 namespace MVC_Projec2.Repository
 {
@@ -24,6 +25,16 @@ namespace MVC_Projec2.Repository
         {
             return _context.Sessions.Where(s => s.Id == id).FirstOrDefault();
         }
+
+        public IEnumerable<Session> SearchByName(string name)
+        {
+            return _context.Sessions
+                
+                .Where(s => s.Name.Contains(name))
+                .AsNoTracking()
+                .ToList();
+        }
+
 
         public void insert(Session obj)
         {

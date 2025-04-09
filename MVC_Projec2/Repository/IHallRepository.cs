@@ -7,5 +7,7 @@ namespace MVC_Projec2.Repository
         Hall GetByIdWithImages(int id);
 
         List<Hall> GetAllWithImages();
+
+        IEnumerable<Hall> SearchByName(string name);
     }
 }

@@ -4,6 +4,7 @@ using MVC_Projec2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    partial class MVCProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20250407144820_update3")]
+    partial class update3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,47 +24,6 @@ namespace MVC_Projec2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MVC_Projec2.Models.ApplicationRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
-                });
 
             modelBuilder.Entity("MVC_Projec2.Models.ApplicationUser", b =>
                 {
@@ -136,39 +98,21 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5d2340c0-fe48-444e-9eb8-c21a10342a32",
+                            Id = "ed5d8263-7a51-437e-8ce4-06ea6faa1793",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "42e3164d-3aeb-4d1d-9248-b19d0536d064",
+                            ConcurrencyStamp = "b011e7a9-0b11-4d7c-8e8a-9c8d589e387f",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEImm+icPFxrPO880YjZ3ahav438qnCS6xdDCgGbIunzYPwqp05NocjF9bTLKusrQzA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJWCTUM9pjb5lsrVrxMr5dqiDVdM4Bx4v7L3gM/wM5PKYfKJTHMCvqQ0xEnkD0ilyQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "897e17c8-b434-46c0-a951-98ab06b99d87",
+                            SecurityStamp = "f29e2761-9c64-465c-8ae6-dab4398592c5",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
-                        },
-                        new
-                        {
-                            Id = "e24c41d0-25ec-436d-b777-b115e6d5fec8",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "63193402-30dd-4f30-b5d5-f4d2b4956dc6",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "user@example.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "USER@EXAMPLE.COM",
-                            NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFyGkB+iAQVuomuFqYOreCaPsvensuAB/tPuDneZcgNoJD2Jp1K7Pf2a9G0kJ57uVA==",
-                            PhoneNumber = "9876543210",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "58c6d9a2-8c56-419b-a666-630eb73102ae",
-                            TwoFactorEnabled = false,
-                            UserName = "user@example.com"
                         });
                 });
 
@@ -218,126 +162,6 @@ namespace MVC_Projec2.Migrations
                             Id = 4,
                             Location = "Suburb",
                             Name = "Elegant Creations"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Location = "North Park",
-                            Name = "Chic Styles"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Location = "South Side",
-                            Name = "Vintage Touch"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Location = "Midtown",
-                            Name = "Modern Artistry"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Location = "East End",
-                            Name = "Exquisite Design"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Location = "West End",
-                            Name = "Timeless Beauty"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Location = "Central Square",
-                            Name = "Fashion Forward"
-                        });
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.AtelierImages", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AtelierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AtelierId");
-
-                    b.ToTable("AtelierImages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AtelierId = 1,
-                            ImageUrl = "atelier1.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AtelierId = 2,
-                            ImageUrl = "atelier2.jpg"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AtelierId = 3,
-                            ImageUrl = "atelier3.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AtelierId = 4,
-                            ImageUrl = "atelier4.jpg"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AtelierId = 5,
-                            ImageUrl = "atelier5.jpg"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AtelierId = 6,
-                            ImageUrl = "atelier6.jpg"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AtelierId = 7,
-                            ImageUrl = "atelier7.jpg"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AtelierId = 8,
-                            ImageUrl = "atelier8.jpg"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AtelierId = 9,
-                            ImageUrl = "atelier9.jpg"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AtelierId = 10,
-                            ImageUrl = "atelier10.jpg"
                         });
                 });
 
@@ -394,27 +218,51 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 3,
+                            Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 10, 0, 17, 4, 658, DateTimeKind.Local).AddTicks(5721),
+                            Created_at = new DateTime(2025, 4, 7, 16, 48, 13, 405, DateTimeKind.Local).AddTicks(3558),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "5d2340c0-fe48-444e-9eb8-c21a10342a32"
+                            user_id = "ed5d8263-7a51-437e-8ce4-06ea6faa1793"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 4, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "5d2340c0-fe48-444e-9eb8-c21a10342a32"
+                            user_id = "ed5d8263-7a51-437e-8ce4-06ea6faa1793"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Atelier_Id = 3,
+                            Created_at = new DateTime(2025, 4, 7, 16, 48, 13, 405, DateTimeKind.Local).AddTicks(3799),
+                            Decor_Id = 1,
+                            Hall_Id = 2,
+                            MakeupId = 1,
+                            Session_Id = 2,
+                            Status = "Confirmed",
+                            user_id = "ed5d8263-7a51-437e-8ce4-06ea6faa1793"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Atelier_Id = 1,
+                            Created_at = new DateTime(2025, 4, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            Decor_Id = 2,
+                            Hall_Id = 1,
+                            MakeupId = 4,
+                            Session_Id = 1,
+                            Status = "Pending",
+                            user_id = "ed5d8263-7a51-437e-8ce4-06ea6faa1793"
                         });
                 });
 
@@ -426,26 +274,45 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("Atelier_Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ServiceId")
+                    b.Property<int?>("Decor_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("ServiceType")
+                    b.Property<int?>("Hall_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
+                    b.Property<int?>("MakeupId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Session_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("user_id")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Atelier_Id");
+
+                    b.HasIndex("Decor_Id");
+
+                    b.HasIndex("Hall_Id");
+
+                    b.HasIndex("MakeupId");
+
+                    b.HasIndex("Session_Id");
+
+                    b.HasIndex("user_id");
 
                     b.ToTable("Comments");
 
@@ -453,11 +320,14 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
+                            Atelier_Id = 3,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 10, 0, 17, 4, 658, DateTimeKind.Local).AddTicks(5892),
-                            ServiceId = 0,
-                            ServiceType = 0,
-                            UserId = "5d2340c0-fe48-444e-9eb8-c21a10342a32"
+                            Created_at = new DateTime(2025, 4, 7, 16, 48, 13, 405, DateTimeKind.Local).AddTicks(3964),
+                            Decor_Id = 1,
+                            Hall_Id = 2,
+                            MakeupId = 1,
+                            Session_Id = 2,
+                            user_id = "ed5d8263-7a51-437e-8ce4-06ea6faa1793"
                         });
                 });
 
@@ -470,6 +340,9 @@ namespace MVC_Projec2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
@@ -501,48 +374,6 @@ namespace MVC_Projec2.Migrations
                             Id = 3,
                             Price = 4500,
                             Style = "Rustic"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Price = 5500,
-                            Style = "Vintage"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Price = 6000,
-                            Style = "Industrial"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Price = 4000,
-                            Style = "Boho"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Price = 6500,
-                            Style = "Minimalist"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Price = 7000,
-                            Style = "Art Deco"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Price = 8000,
-                            Style = "Glam"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Price = 4500,
-                            Style = "Shabby Chic"
                         });
                 });
 
@@ -565,57 +396,7 @@ namespace MVC_Projec2.Migrations
 
                     b.HasIndex("DecorId");
 
-                    b.ToTable("DecoreImage");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DecorId = 1,
-                            ImageUrl = "decor1.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DecorId = 2,
-                            ImageUrl = "decor2.jpg"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DecorId = 3,
-                            ImageUrl = "decor3.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DecorId = 4,
-                            ImageUrl = "decor4.jpg"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DecorId = 5,
-                            ImageUrl = "decor5.jpg"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            DecorId = 6,
-                            ImageUrl = "decor6.jpg"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            DecorId = 7,
-                            ImageUrl = "decor7.jpg"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            DecorId = 8,
-                            ImageUrl = "decor8.jpg"
-                        });
+                    b.ToTable("DecoreImages");
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.Hall", b =>
@@ -628,6 +409,9 @@ namespace MVC_Projec2.Migrations
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -664,48 +448,6 @@ namespace MVC_Projec2.Migrations
                             Capacity = 200,
                             ImageUrl = "5.jpg",
                             Name = "Sunset Venue"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Capacity = 400,
-                            Name = "Majestic Hall"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Capacity = 350,
-                            Name = "Ocean View"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Capacity = 600,
-                            Name = "Skyline Pavilion"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Capacity = 250,
-                            Name = "Moonlight Hall"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Capacity = 450,
-                            Name = "Royal Suite"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Capacity = 500,
-                            Name = "Elite Venue"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Capacity = 700,
-                            Name = "Luxury Retreat"
                         });
                 });
 
@@ -729,152 +471,6 @@ namespace MVC_Projec2.Migrations
                     b.HasIndex("HallId");
 
                     b.ToTable("HallImages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            HallId = 1,
-                            ImageUrl = "hall1.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            HallId = 2,
-                            ImageUrl = "hall2.jpg"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            HallId = 3,
-                            ImageUrl = "hall3.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            HallId = 4,
-                            ImageUrl = "hall4.jpg"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            HallId = 5,
-                            ImageUrl = "hall5.jpg"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            HallId = 6,
-                            ImageUrl = "hall6.jpg"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            HallId = 7,
-                            ImageUrl = "hall7.jpg"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            HallId = 8,
-                            ImageUrl = "hall8.jpg"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            HallId = 9,
-                            ImageUrl = "hall9.jpg"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            HallId = 10,
-                            ImageUrl = "hall10.jpg"
-                        });
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.MakeUpImages", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MakeUpId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MakeUpId");
-
-                    b.ToTable("MakeUpImages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ImageUrl = "makeUp1.jpg",
-                            MakeUpId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ImageUrl = "makeUp2.jpg",
-                            MakeUpId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ImageUrl = "makeUp3.jpg",
-                            MakeUpId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ImageUrl = "makeUp4.jpg",
-                            MakeUpId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ImageUrl = "makeUp5.jpg",
-                            MakeUpId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ImageUrl = "makeUp6.jpg",
-                            MakeUpId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ImageUrl = "makeUp7.jpg",
-                            MakeUpId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ImageUrl = "makeUp8.jpg",
-                            MakeUpId = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ImageUrl = "makeUp9.jpg",
-                            MakeUpId = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ImageUrl = "makeUp10.jpg",
-                            MakeUpId = 10
-                        });
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.MakeUp_Service", b =>
@@ -925,42 +521,6 @@ namespace MVC_Projec2.Migrations
                             Id = 4,
                             Name = "Evening Elegance",
                             Price = 1000
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Glamour Shine",
-                            Price = 1200
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Festival Glam",
-                            Price = 700
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Bridal Glow",
-                            Price = 1600
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Special Occasion",
-                            Price = 1300
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Celebrity Look",
-                            Price = 2000
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Simple Elegance",
-                            Price = 600
                         });
                 });
 
@@ -1026,126 +586,47 @@ namespace MVC_Projec2.Migrations
                             Duration = 5,
                             ImageUrl = "4.jpg",
                             Type = "Pre-Wedding Shoot"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Duration = 6,
-                            Type = "Wedding Photography"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Duration = 2,
-                            Type = "Couple Shoot"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Duration = 3,
-                            Type = "Bridal Portraits"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Duration = 4,
-                            Type = "Fashion Photography"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Duration = 5,
-                            Type = "Event Coverage"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Duration = 3,
-                            Type = "Family Shoot"
                         });
                 });
 
-            modelBuilder.Entity("MVC_Projec2.Models.SessionImages", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SessionId")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SessionId");
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("SessionImages");
+                    b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            ImageUrl = "session1.jpg",
-                            SessionId = 1
+                            Id = "1",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = 2,
-                            ImageUrl = "session2.jpg",
-                            SessionId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ImageUrl = "session3.jpg",
-                            SessionId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ImageUrl = "session4.jpg",
-                            SessionId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ImageUrl = "session5.jpg",
-                            SessionId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ImageUrl = "session6.jpg",
-                            SessionId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ImageUrl = "session7.jpg",
-                            SessionId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ImageUrl = "session8.jpg",
-                            SessionId = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ImageUrl = "session9.jpg",
-                            SessionId = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ImageUrl = "session10.jpg",
-                            SessionId = 10
+                            Id = "2",
+                            Name = "User",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -1238,13 +719,8 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5d2340c0-fe48-444e-9eb8-c21a10342a32",
+                            UserId = "ed5d8263-7a51-437e-8ce4-06ea6faa1793",
                             RoleId = "1"
-                        },
-                        new
-                        {
-                            UserId = "e24c41d0-25ec-436d-b777-b115e6d5fec8",
-                            RoleId = "2"
                         });
                 });
 
@@ -1265,17 +741,6 @@ namespace MVC_Projec2.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.AtelierImages", b =>
-                {
-                    b.HasOne("MVC_Projec2.Models.Atelier", "Atelier")
-                        .WithMany("Images")
-                        .HasForeignKey("AtelierId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Atelier");
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.Booking", b =>
@@ -1321,13 +786,43 @@ namespace MVC_Projec2.Migrations
 
             modelBuilder.Entity("MVC_Projec2.Models.Comment", b =>
                 {
-                    b.HasOne("MVC_Projec2.Models.ApplicationUser", "User")
+                    b.HasOne("MVC_Projec2.Models.Atelier", "Atelier")
+                        .WithMany()
+                        .HasForeignKey("Atelier_Id");
+
+                    b.HasOne("MVC_Projec2.Models.Decor", "Decor")
+                        .WithMany()
+                        .HasForeignKey("Decor_Id");
+
+                    b.HasOne("MVC_Projec2.Models.Hall", "Hall")
+                        .WithMany()
+                        .HasForeignKey("Hall_Id");
+
+                    b.HasOne("MVC_Projec2.Models.MakeUp_Service", "MakeUp")
+                        .WithMany()
+                        .HasForeignKey("MakeupId");
+
+                    b.HasOne("MVC_Projec2.Models.Session", "Session")
+                        .WithMany()
+                        .HasForeignKey("Session_Id");
+
+                    b.HasOne("MVC_Projec2.Models.ApplicationUser", "user")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Atelier");
+
+                    b.Navigation("Decor");
+
+                    b.Navigation("Hall");
+
+                    b.Navigation("MakeUp");
+
+                    b.Navigation("Session");
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.DecoreImage", b =>
@@ -1352,31 +847,9 @@ namespace MVC_Projec2.Migrations
                     b.Navigation("Hall");
                 });
 
-            modelBuilder.Entity("MVC_Projec2.Models.MakeUpImages", b =>
-                {
-                    b.HasOne("MVC_Projec2.Models.MakeUp_Service", "makeUp")
-                        .WithMany("Images")
-                        .HasForeignKey("MakeUpId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("makeUp");
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.SessionImages", b =>
-                {
-                    b.HasOne("MVC_Projec2.Models.Session", "Session")
-                        .WithMany("Images")
-                        .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Session");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("MVC_Projec2.Models.ApplicationRole", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1403,7 +876,7 @@ namespace MVC_Projec2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("MVC_Projec2.Models.ApplicationRole", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1432,27 +905,12 @@ namespace MVC_Projec2.Migrations
                     b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("MVC_Projec2.Models.Atelier", b =>
-                {
-                    b.Navigation("Images");
-                });
-
             modelBuilder.Entity("MVC_Projec2.Models.Decor", b =>
                 {
                     b.Navigation("Images");
                 });
 
             modelBuilder.Entity("MVC_Projec2.Models.Hall", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.MakeUp_Service", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("MVC_Projec2.Models.Session", b =>
                 {
                     b.Navigation("Images");
                 });

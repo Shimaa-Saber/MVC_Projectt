@@ -5,6 +5,6 @@ namespace MVC_Projec2.Repository
 {
     public interface ISessionRepository:IGenericRepository<Session>
     {
-        
+        IEnumerable<Session> SearchByName(string name);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Routing.Constraints;
+using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Projec2.Models
 {
@@ -7,8 +8,10 @@ namespace MVC_Projec2.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Location { get; set; }
         public List<AtelierImages> Images { get; set; } = new List<AtelierImages>();
+        public string ?Location { get; set; }
+        public double ?priceRange { get; set; }
+        //public string ?ImageURL { get; set; }
 
     }
 }

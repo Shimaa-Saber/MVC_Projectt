@@ -5,6 +5,7 @@ using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
 using MVC_Projec2.ViewModels;
+using System;
 
 namespace MVC_Projec2.Controllers
 {
@@ -89,6 +90,26 @@ namespace MVC_Projec2.Controllers
                 _logger.LogError(ex, "Error adding comment for MakeUp Service ID {MakeUpId}", model.makeUp.Id);
                 ModelState.AddModelError("", "Error adding comment.");
                 return RedirectToAction("Details", new { id = model.makeUp.Id });
+            }
+        }
+
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var makeUp_s = _makeUpRepository.SearchByName(searchValue);
+                return View("GetAll", makeUp_s);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching Makeup");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
             }
         }
 

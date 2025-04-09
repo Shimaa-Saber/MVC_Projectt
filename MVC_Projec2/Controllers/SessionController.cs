@@ -83,6 +83,27 @@ namespace MVC_Projec2.Controllers
             return RedirectToAction("Details", new { id = model.Session.Id });
         }
 
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var sessions = _sessionRepository.SearchByName(searchValue);
+                return View("GetAll", sessions);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching Sessions");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
+
         [Authorize(Roles = "Admin")]
         public IActionResult AddSession()
         {

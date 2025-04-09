@@ -120,7 +120,7 @@ namespace MVC_Projec2.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Add(AddHallViewModel model)
+        public async Task<IActionResult> SaveAdd(AddHallViewModel model)
         {
             if (!ModelState.IsValid)
             {

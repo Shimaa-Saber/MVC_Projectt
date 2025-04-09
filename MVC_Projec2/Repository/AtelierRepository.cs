@@ -1,4 +1,5 @@
-﻿using MVC_Projec2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
 
 namespace MVC_Projec2.Repository
 {
@@ -23,6 +24,15 @@ namespace MVC_Projec2.Repository
         public Atelier GetById(int id)
         {
             return _context.Ateliers.Where(a => a.Id == id).FirstOrDefault();
+        }
+
+        public IEnumerable<Atelier> SearchByName(string name)
+        {
+            return _context.Ateliers
+
+                .Where(s => s.Name.Contains(name))
+                .AsNoTracking()
+                .ToList();
         }
 
         public void insert(Atelier obj)
