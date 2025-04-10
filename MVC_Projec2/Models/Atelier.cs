@@ -10,7 +10,7 @@ namespace MVC_Projec2.Models
         public string Name { get; set; }
         public string ?Location { get; set; }
         public double ?priceRange { get; set; }
-        public string? ImageURL { get; set; }
-        public bool IsAvailable { get; internal set; }
+      //  public string? ImageURL { get; set; }
+       // public bool IsAvailable { get; internal set; }
     }
 }
