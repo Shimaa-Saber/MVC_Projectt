@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVC_Projec2.Models;
+using MVC_Projec2.Repository;
 using MVC_Projec2.ViewModels;
 
 namespace MVC_Projec2.Controllers
@@ -14,12 +15,26 @@ namespace MVC_Projec2.Controllers
         private readonly MVCProjectContext _context;
         private readonly ILogger<DashboardController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IHallRepository _hallRepository;
+        private readonly IDecorRepository _decorRepository;
+        private readonly IMakeUpRepository _makeUpRepository;
+        private readonly ISessionRepository _sessionRepository;
 
-        public DashboardController(MVCProjectContext context, ILogger<DashboardController> logger, UserManager<ApplicationUser> userManager)
+        public DashboardController(MVCProjectContext context, ILogger<DashboardController> logger,
+            UserManager<ApplicationUser> userManager,
+            IHallRepository hallRepository,
+            IDecorRepository decorRepository,
+            IMakeUpRepository makeUpRepository, 
+            ISessionRepository sessionRepository
+            )
         {
             _context = context;
             _logger = logger;
             _userManager = userManager;
+            _hallRepository = hallRepository;
+            _decorRepository = decorRepository;
+            _makeUpRepository = makeUpRepository;
+            _sessionRepository = sessionRepository;
 
 
         }
@@ -120,6 +135,57 @@ namespace MVC_Projec2.Controllers
                 .OrderByDescending(b => b.Created_at)
                 .Take(count)
                 .ToList();
+        }
+
+
+        public IActionResult GetAll()
+        {
+            List<Hall> HallList = _hallRepository.GetAll();
+
+            return View("GetAll", HallList);
+        }
+
+
+        public IActionResult GetAllDecors()
+        {
+            try
+            {
+                var decorList = _decorRepository.GetAll();
+                return View("GetAllDecors", decorList);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving decor items");
+                return View(new List<Decor>());
+            }
+        }
+
+        public IActionResult GetAllMackeups()
+        {
+            try
+            {
+                var makeUpList = _makeUpRepository.GetAll();
+                return View("GetAllMackeups", makeUpList);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving MakeUp_Service items");
+                return View(new List<MakeUp_Service>());
+            }
+        }
+
+        public IActionResult GetAllSessions()
+        {
+            try
+            {
+                var sessionList = _sessionRepository.GetAll();
+                return View("GetAllSessions", sessionList);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving session items");
+                return View(new List<Session>());
+            }
         }
     }
 }
