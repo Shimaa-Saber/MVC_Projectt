@@ -19,13 +19,16 @@ namespace MVC_Projec2.Controllers
         private readonly IDecorRepository _decorRepository;
         private readonly IMakeUpRepository _makeUpRepository;
         private readonly ISessionRepository _sessionRepository;
+        private readonly IBookingReposirtory _bookingRepo;
+
 
         public DashboardController(MVCProjectContext context, ILogger<DashboardController> logger,
             UserManager<ApplicationUser> userManager,
             IHallRepository hallRepository,
             IDecorRepository decorRepository,
             IMakeUpRepository makeUpRepository, 
-            ISessionRepository sessionRepository
+            ISessionRepository sessionRepository,
+            IBookingReposirtory bookingRepo
             )
         {
             _context = context;
@@ -35,6 +38,7 @@ namespace MVC_Projec2.Controllers
             _decorRepository = decorRepository;
             _makeUpRepository = makeUpRepository;
             _sessionRepository = sessionRepository;
+            _bookingRepo = bookingRepo;
 
 
         }
@@ -187,5 +191,74 @@ namespace MVC_Projec2.Controllers
                 return View(new List<Session>());
             }
         }
+
+
+        //[Authorize(Roles = "Admin")]
+        public IActionResult ManageBookings()
+        {
+            var bookings = _context.Bookings
+                .Include(b => b.user)
+                .Include(b => b.Hall)
+                .Include(b => b.Session)
+                .Include(b => b.Atelier)
+                .Include(b => b.MakeUp)
+                .Include(b => b.Decor)
+                .OrderByDescending(b => b.Created_at)
+                .Select(b => new BookingViewModel
+                {
+                    Id = b.Id,
+                    UserName = b.user.UserName,
+                    HallName = b.Hall.Name ?? "N/A",
+                    SessionType = b.Session.Type ?? "N/A",
+                    AtelierName = b.Atelier.Name ?? "N/A",
+                    MakeupService = b.MakeUp.Name ?? "N/A",
+                    DecorStyle = b.Decor.Style ?? "N/A",
+                    CreatedAt = b.Created_at,
+                    Status = b.Status,
+
+                })
+                .ToList();
+
+            return View(bookings);
+        }
+
+
+        public IActionResult UpdateBookingStatus(int id, string status)
+        {
+            var booking = _bookingRepo.GetById(id);
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            booking.Status = status;
+            _bookingRepo.Update(booking);
+            _bookingRepo.Save();
+
+            TempData["Message"] = $"Booking #{id} status updated to {status}";
+            return RedirectToAction("ManageBookings");
+        }
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

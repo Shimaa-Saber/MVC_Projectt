@@ -11,7 +11,7 @@ namespace MVC_Projec2.Models
         public List<AtelierImages> Images { get; set; } = new List<AtelierImages>();
         public string ?Location { get; set; }
         public double ?priceRange { get; set; }
-        //public string ?ImageURL { get; set; }
+        public string ?ImageURL { get; set; }
 
     }
 }

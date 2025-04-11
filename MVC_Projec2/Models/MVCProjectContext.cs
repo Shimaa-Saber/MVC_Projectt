@@ -161,17 +161,17 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Atelier>().HasData(
-                new Atelier { Id = 1, Name = "Elite Atelier", Location = "Downtown" },
-                new Atelier { Id = 2, Name = "Royal Designs", Location = "Uptown" },
-                new Atelier { Id = 3, Name = "Glamorous Styles", Location = "City Center" },
-                new Atelier { Id = 4, Name = "Elegant Creations", Location = "Suburb" },
-                new Atelier { Id = 5, Name = "Chic Styles", Location = "North Park" },
-                new Atelier { Id = 6, Name = "Vintage Touch", Location = "South Side" },
-                new Atelier { Id = 7, Name = "Modern Artistry", Location = "Midtown" },
-                new Atelier { Id = 8, Name = "Exquisite Design", Location = "East End" },
-                new Atelier { Id = 9, Name = "Timeless Beauty", Location = "West End" },
-                new Atelier { Id = 10, Name = "Fashion Forward", Location = "Central Square" }
-            );
+     new Atelier { Id = 1, Name = "Elite Atelier", Location = "Downtown", priceRange = 5000 },
+     new Atelier { Id = 2, Name = "Royal Designs", Location = "Uptown", priceRange = 3000 },
+     new Atelier { Id = 3, Name = "Glamorous Styles", Location = "City Center", priceRange = 5000 },
+     new Atelier { Id = 4, Name = "Elegant Creations", Location = "Suburb", priceRange = 3000 },
+     new Atelier { Id = 5, Name = "Chic Styles", Location = "North Park", priceRange = 1500 },
+     new Atelier { Id = 6, Name = "Vintage Touch", Location = "South Side", priceRange = 2500 },
+     new Atelier { Id = 7, Name = "Modern Artistry", Location = "Midtown", priceRange = 5000 },
+     new Atelier { Id = 8, Name = "Exquisite Design", Location = "East End", priceRange = 2500 },
+     new Atelier { Id = 9, Name = "Timeless Beauty", Location = "West End", priceRange = 5000 },
+     new Atelier { Id = 10, Name = "Fashion Forward", Location = "Central Square", priceRange = 1500 }
+ );
 
             modelBuilder.Entity<AtelierImages>().HasData(
                 new AtelierImages { Id = 1, AtelierId = 1, ImageUrl = "atelier1.jpg" },
@@ -186,18 +186,19 @@ namespace MVC_Projec2.Models
                 new AtelierImages { Id = 10, AtelierId = 10, ImageUrl = "atelier10.jpg" }
             );
 
-            modelBuilder.Entity<Hall>().HasData(
-                new Hall { Id = 1, Name = "Grand Hall", Capacity = 500 },
-                new Hall { Id = 2, Name = "Crystal Ballroom", Capacity = 300 },
-                new Hall { Id = 3, Name = "Sunset Venue", Capacity = 200},
-                new Hall { Id = 4, Name = "Majestic Hall", Capacity = 400 },
-                new Hall { Id = 5, Name = "Ocean View", Capacity = 350},
-                new Hall { Id = 6, Name = "Skyline Pavilion", Capacity = 600 },
-                new Hall { Id = 7, Name = "Moonlight Hall", Capacity = 250},
-                new Hall { Id = 8, Name = "Royal Suite", Capacity = 450},
-                new Hall { Id = 9, Name = "Elite Venue", Capacity = 500},
-                new Hall { Id = 10, Name = "Luxury Retreat", Capacity = 700}
-            );
+    modelBuilder.Entity<Hall>().HasData(
+    new Hall { Id = 1, Name = "Grand Hall", Capacity = 500, Price = 10000, Location = "Cairo" },
+    new Hall { Id = 2, Name = "Crystal Ballroom", Capacity = 300, Price = 8000, Location = "Alexandria" },
+    new Hall { Id = 3, Name = "Sunset Venue", Capacity = 200, Price = 5000, Location = "Sharm El Sheikh" },
+    new Hall { Id = 4, Name = "Majestic Hall", Capacity = 400, Price = 9000, Location = "Giza" },
+    new Hall { Id = 5, Name = "Ocean View", Capacity = 350, Price = 7500, Location = "Hurghada" },
+    new Hall { Id = 6, Name = "Skyline Pavilion", Capacity = 600, Price = 12000, Location = "New Cairo" },
+    new Hall { Id = 7, Name = "Moonlight Hall", Capacity = 250, Price = 6000, Location = "Tanta" },
+    new Hall { Id = 8, Name = "Royal Suite", Capacity = 450, Price = 11000, Location = "Mansoura" },
+    new Hall { Id = 9, Name = "Elite Venue", Capacity = 500, Price = 10500, Location = "Port Said" },
+    new Hall { Id = 10, Name = "Luxury Retreat", Capacity = 700, Price = 15000, Location = "Luxor" }
+);
+
 
             modelBuilder.Entity<HallImage>().HasData(
                 new HallImage { Id = 1, HallId = 1, ImageUrl = "hall1.jpg" },
@@ -212,18 +213,19 @@ namespace MVC_Projec2.Models
                 new HallImage { Id = 10, HallId = 10, ImageUrl = "hall10.jpg" }
             );
 
-            modelBuilder.Entity<MakeUp_Service>().HasData(
-                new MakeUp_Service { Id = 1, Name = "Bridal Makeup", Price = 1500 },
-                new MakeUp_Service { Id = 2, Name = "Party Glam", Price = 800 },
-                new MakeUp_Service { Id = 3, Name = "Natural Look", Price = 500 },
-                new MakeUp_Service { Id = 4, Name = "Evening Elegance", Price = 1000 },
-                new MakeUp_Service { Id = 5, Name = "Glamour Shine", Price = 1200 },
-                new MakeUp_Service { Id = 6, Name = "Festival Glam", Price = 700 },
-                new MakeUp_Service { Id = 7, Name = "Bridal Glow", Price = 1600 },
-                new MakeUp_Service { Id = 8, Name = "Special Occasion", Price = 1300 },
-                new MakeUp_Service { Id = 9, Name = "Celebrity Look", Price = 2000 },
-                new MakeUp_Service { Id = 10, Name = "Simple Elegance", Price = 600 }
-            );
+     modelBuilder.Entity<MakeUp_Service>().HasData(
+     new MakeUp_Service { Id = 1, Name = "Bridal Makeup", Price = 1500, Desc = "Flawless makeup designed to enhance the bride's natural beauty for her special day." },
+     new MakeUp_Service { Id = 2, Name = "Party Glam", Price = 800, Desc = "Bold and glamorous makeup for parties and social events." },
+     new MakeUp_Service { Id = 3, Name = "Natural Look", Price = 500, Desc = "A subtle and fresh makeup style for everyday wear." },
+     new MakeUp_Service { Id = 4, Name = "Evening Elegance", Price = 1000, Desc = "Sophisticated makeup perfect for evening events and dinners." },
+     new MakeUp_Service { Id = 5, Name = "Glamour Shine", Price = 1200, Desc = "Shimmery and radiant makeup for a glamorous, standout look." },
+     new MakeUp_Service { Id = 6, Name = "Festival Glam", Price = 700, Desc = "Vibrant and creative makeup for festivals and fun events." },
+     new MakeUp_Service { Id = 7, Name = "Bridal Glow", Price = 1600, Desc = "Radiant and glowing makeup designed for brides who want a luminous look." },
+     new MakeUp_Service { Id = 8, Name = "Special Occasion", Price = 1300, Desc = "Elegant makeup for special events like anniversaries and galas." },
+     new MakeUp_Service { Id = 9, Name = "Celebrity Look", Price = 2000, Desc = "High-fashion makeup inspired by the looks of celebrities and runway models." },
+     new MakeUp_Service { Id = 10, Name = "Simple Elegance", Price = 600, Desc = "Refined and minimalist makeup for a naturally elegant look." }
+ );
+
 
             modelBuilder.Entity<MakeUpImages>().HasData(
                 new MakeUpImages { Id = 1, MakeUpId = 1, ImageUrl = "makeUp1.jpg" },
@@ -239,18 +241,17 @@ namespace MVC_Projec2.Models
             );
 
             modelBuilder.Entity<Decor>().HasData(
-                new Decor { Id = 1, Style = "Classic", Price = 5000 },
-                new Decor { Id = 2, Style = "Modern", Price = 7000 },
-                new Decor { Id = 3, Style = "Rustic", Price = 4500 },
-                new Decor { Id = 4, Style = "Vintage", Price = 5500 },
-                new Decor { Id = 5, Style = "Industrial", Price = 6000 },
-                new Decor { Id = 6, Style = "Boho", Price = 4000 },
-                new Decor { Id = 7, Style = "Minimalist", Price = 6500 },
-                new Decor { Id = 8, Style = "Art Deco", Price = 7000 },
-                new Decor { Id = 9, Style = "Glam", Price = 8000 },
-                new Decor { Id = 10, Style = "Shabby Chic", Price = 4500 }
-            );
-
+     new Decor { Id = 1, Style = "Classic", Price = 5000, Description = "Timeless decor with elegant and traditional designs, perfect for a sophisticated atmosphere." },
+     new Decor { Id = 2, Style = "Modern", Price = 7000, Description = "Sleek and contemporary design with clean lines and minimalistic features." },
+     new Decor { Id = 3, Style = "Rustic", Price = 4500, Description = "Natural and earthy designs featuring wood, stone, and vintage elements for a cozy feel." },
+     new Decor { Id = 4, Style = "Vintage", Price = 5500, Description = "Retro-inspired decor with nostalgic and old-world charm, ideal for classic settings." },
+     new Decor { Id = 5, Style = "Industrial", Price = 6000, Description = "Rough and raw designs with exposed metals, bricks, and unfinished elements." },
+     new Decor { Id = 6, Style = "Boho", Price = 4000, Description = "Bohemian style with vibrant colors, eclectic patterns, and artistic, free-spirited elements." },
+     new Decor { Id = 7, Style = "Minimalist", Price = 6500, Description = "Simplicity at its finest, focusing on clean spaces and functional, uncluttered designs." },
+     new Decor { Id = 8, Style = "Art Deco", Price = 7000, Description = "Luxurious and glamorous style featuring bold geometric patterns and rich colors." },
+     new Decor { Id = 9, Style = "Glam", Price = 8000, Description = "High-end and dazzling decor with rich textures, metallic accents, and sophisticated lighting." },
+     new Decor { Id = 10, Style = "Shabby Chic", Price = 4500, Description = "A charming, weathered look with soft pastel colors, distressed furniture, and vintage accessories." }
+ );
             modelBuilder.Entity<DecoreImage>().HasData(
                 new DecoreImage { Id = 1, DecorId = 1, ImageUrl = "decor1.jpg" },
                 new DecoreImage { Id = 2, DecorId = 2, ImageUrl = "decor2.jpg" },
@@ -261,19 +262,19 @@ namespace MVC_Projec2.Models
                 new DecoreImage { Id = 7, DecorId = 7, ImageUrl = "decor7.jpg" },
                 new DecoreImage { Id = 8, DecorId = 8, ImageUrl = "decor8.jpg" }
                 );
-
             modelBuilder.Entity<Session>().HasData(
-               new Session { Id = 1, Type = "Photography", Duration = 2},
-               new Session { Id = 2, Type = "Videography", Duration = 3},
-               new Session { Id = 3, Type = "Engagement Shoot", Duration = 4},
-               new Session { Id = 4, Type = "Pre-Wedding Shoot", Duration = 5},
-               new Session { Id = 5, Type = "Wedding Photography", Duration = 6},
-               new Session { Id = 6, Type = "Couple Shoot", Duration = 2},
-               new Session { Id = 7, Type = "Bridal Portraits", Duration = 3},
-               new Session { Id = 8, Type = "Fashion Photography", Duration = 4},
-               new Session { Id = 9, Type = "Event Coverage", Duration = 5},
-               new Session { Id = 10, Type = "Family Shoot", Duration = 3}
+                new Session { Id = 1, Type = "Photography", Duration = 2, Location = "Cairo", Name = "Basic Photography Package", Price = 3000 },
+                new Session { Id = 2, Type = "Videography", Duration = 3, Location = "Alexandria", Name = "Videography Session", Price = 4000 },
+                new Session { Id = 3, Type = "Engagement Shoot", Duration = 4, Location = "Giza", Name = "Engagement Photography", Price = 3500 },
+                new Session { Id = 4, Type = "Pre-Wedding Shoot", Duration = 5, Location = "Sharm El Sheikh", Name = "Pre-Wedding Photoshoot", Price = 4500 },
+                new Session { Id = 5, Type = "Wedding Photography", Duration = 6, Location = "Luxor", Name = "Wedding Day Coverage", Price = 8000 },
+                new Session { Id = 6, Type = "Couple Shoot", Duration = 2, Location = "New Cairo", Name = "Couple Photography", Price = 2500 },
+                new Session { Id = 7, Type = "Bridal Portraits", Duration = 3, Location = "Tanta", Name = "Bridal Portrait Session", Price = 3000 },
+                new Session { Id = 8, Type = "Fashion Photography", Duration = 4, Location = "Mansoura", Name = "Fashion Photo Session", Price = 5000 },
+                new Session { Id = 9, Type = "Event Coverage", Duration = 5, Location = "Hurghada", Name = "Event Videography & Photography", Price = 6000 },
+                new Session { Id = 10, Type = "Family Shoot", Duration = 3, Location = "Port Said", Name = "Family Photography", Price = 3500 }
             );
+
 
             modelBuilder.Entity<SessionImages>().HasData(
                 new SessionImages { Id = 1, SessionId = 1, ImageUrl = "session1.jpg" },

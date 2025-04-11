@@ -136,37 +136,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5d2340c0-fe48-444e-9eb8-c21a10342a32",
+                            Id = "82074630-fe2b-4689-8c51-ab5a48732036",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "42e3164d-3aeb-4d1d-9248-b19d0536d064",
+                            ConcurrencyStamp = "1ffd82fc-a946-4297-8b29-50d1833d5295",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEImm+icPFxrPO880YjZ3ahav438qnCS6xdDCgGbIunzYPwqp05NocjF9bTLKusrQzA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENKv1sPw/2QZ9PHQKszrg1L5haAAHBs3YyobTNkt1rZ3yYna3g2vNu8GGL+PcHez2g==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "897e17c8-b434-46c0-a951-98ab06b99d87",
+                            SecurityStamp = "4eb97bb1-e94a-46ca-8ee6-af9d3a3cf9d9",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "e24c41d0-25ec-436d-b777-b115e6d5fec8",
+                            Id = "b20c409c-e1ff-4b34-b7af-477e4a443768",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "63193402-30dd-4f30-b5d5-f4d2b4956dc6",
+                            ConcurrencyStamp = "9f110e21-614e-4c06-a284-bcdb9cabed38",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFyGkB+iAQVuomuFqYOreCaPsvensuAB/tPuDneZcgNoJD2Jp1K7Pf2a9G0kJ57uVA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGsC29wLucp811HTH8EeL02OcaZDgAUKqVc7q07KJG8SMUPq839R2t4i3y2jOOv8zw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "58c6d9a2-8c56-419b-a666-630eb73102ae",
+                            SecurityStamp = "a0c4c242-b81b-4798-aa95-d37c1181a014",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -179,6 +179,9 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -199,61 +202,71 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Location = "Downtown",
-                            Name = "Elite Atelier"
+                            Name = "Elite Atelier",
+                            priceRange = 5000.0
                         },
                         new
                         {
                             Id = 2,
                             Location = "Uptown",
-                            Name = "Royal Designs"
+                            Name = "Royal Designs",
+                            priceRange = 3000.0
                         },
                         new
                         {
                             Id = 3,
                             Location = "City Center",
-                            Name = "Glamorous Styles"
+                            Name = "Glamorous Styles",
+                            priceRange = 5000.0
                         },
                         new
                         {
                             Id = 4,
                             Location = "Suburb",
-                            Name = "Elegant Creations"
+                            Name = "Elegant Creations",
+                            priceRange = 3000.0
                         },
                         new
                         {
                             Id = 5,
                             Location = "North Park",
-                            Name = "Chic Styles"
+                            Name = "Chic Styles",
+                            priceRange = 1500.0
                         },
                         new
                         {
                             Id = 6,
                             Location = "South Side",
-                            Name = "Vintage Touch"
+                            Name = "Vintage Touch",
+                            priceRange = 2500.0
                         },
                         new
                         {
                             Id = 7,
                             Location = "Midtown",
-                            Name = "Modern Artistry"
+                            Name = "Modern Artistry",
+                            priceRange = 5000.0
                         },
                         new
                         {
                             Id = 8,
                             Location = "East End",
-                            Name = "Exquisite Design"
+                            Name = "Exquisite Design",
+                            priceRange = 2500.0
                         },
                         new
                         {
                             Id = 9,
                             Location = "West End",
-                            Name = "Timeless Beauty"
+                            Name = "Timeless Beauty",
+                            priceRange = 5000.0
                         },
                         new
                         {
                             Id = 10,
                             Location = "Central Square",
-                            Name = "Fashion Forward"
+                            Name = "Fashion Forward",
+                            priceRange = 1500.0
                         });
                 });
 
@@ -394,27 +407,51 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 3,
+                            Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 10, 0, 17, 4, 658, DateTimeKind.Local).AddTicks(5721),
+                            Created_at = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3456),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "5d2340c0-fe48-444e-9eb8-c21a10342a32"
+                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "5d2340c0-fe48-444e-9eb8-c21a10342a32"
+                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Atelier_Id = 3,
+                            Created_at = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3780),
+                            Decor_Id = 1,
+                            Hall_Id = 2,
+                            MakeupId = 1,
+                            Session_Id = 2,
+                            Status = "Confirmed",
+                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Atelier_Id = 1,
+                            Created_at = new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Decor_Id = 2,
+                            Hall_Id = 1,
+                            MakeupId = 4,
+                            Session_Id = 1,
+                            Status = "Pending",
+                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
                         });
                 });
 
@@ -454,10 +491,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 10, 0, 17, 4, 658, DateTimeKind.Local).AddTicks(5892),
+                            CreatedAt = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(4282),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "5d2340c0-fe48-444e-9eb8-c21a10342a32"
+                            UserId = "82074630-fe2b-4689-8c51-ab5a48732036"
                         });
                 });
 
@@ -487,60 +524,70 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
+                            Description = "Timeless decor with elegant and traditional designs, perfect for a sophisticated atmosphere.",
                             Price = 5000,
                             Style = "Classic"
                         },
                         new
                         {
                             Id = 2,
+                            Description = "Sleek and contemporary design with clean lines and minimalistic features.",
                             Price = 7000,
                             Style = "Modern"
                         },
                         new
                         {
                             Id = 3,
+                            Description = "Natural and earthy designs featuring wood, stone, and vintage elements for a cozy feel.",
                             Price = 4500,
                             Style = "Rustic"
                         },
                         new
                         {
                             Id = 4,
+                            Description = "Retro-inspired decor with nostalgic and old-world charm, ideal for classic settings.",
                             Price = 5500,
                             Style = "Vintage"
                         },
                         new
                         {
                             Id = 5,
+                            Description = "Rough and raw designs with exposed metals, bricks, and unfinished elements.",
                             Price = 6000,
                             Style = "Industrial"
                         },
                         new
                         {
                             Id = 6,
+                            Description = "Bohemian style with vibrant colors, eclectic patterns, and artistic, free-spirited elements.",
                             Price = 4000,
                             Style = "Boho"
                         },
                         new
                         {
                             Id = 7,
+                            Description = "Simplicity at its finest, focusing on clean spaces and functional, uncluttered designs.",
                             Price = 6500,
                             Style = "Minimalist"
                         },
                         new
                         {
                             Id = 8,
+                            Description = "Luxurious and glamorous style featuring bold geometric patterns and rich colors.",
                             Price = 7000,
                             Style = "Art Deco"
                         },
                         new
                         {
                             Id = 9,
+                            Description = "High-end and dazzling decor with rich textures, metallic accents, and sophisticated lighting.",
                             Price = 8000,
                             Style = "Glam"
                         },
                         new
                         {
                             Id = 10,
+                            Description = "A charming, weathered look with soft pastel colors, distressed furniture, and vintage accessories.",
                             Price = 4500,
                             Style = "Shabby Chic"
                         });
@@ -648,64 +695,81 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Capacity = 500,
-                            ImageUrl = "1.jpg",
-                            Name = "Grand Hall"
+                            Location = "Cairo",
+                            Name = "Grand Hall",
+                            Price = 10000.0
                         },
                         new
                         {
                             Id = 2,
                             Capacity = 300,
-                            ImageUrl = "3.jpg",
-                            Name = "Crystal Ballroom"
+                            Location = "Alexandria",
+                            Name = "Crystal Ballroom",
+                            Price = 8000.0
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 200,
-                            ImageUrl = "5.jpg",
-                            Name = "Sunset Venue"
+                            Location = "Sharm El Sheikh",
+                            Name = "Sunset Venue",
+                            Price = 5000.0
                         },
                         new
                         {
                             Id = 4,
                             Capacity = 400,
-                            Name = "Majestic Hall"
+                            Location = "Giza",
+                            Name = "Majestic Hall",
+                            Price = 9000.0
                         },
                         new
                         {
                             Id = 5,
                             Capacity = 350,
-                            Name = "Ocean View"
+                            Location = "Hurghada",
+                            Name = "Ocean View",
+                            Price = 7500.0
                         },
                         new
                         {
                             Id = 6,
                             Capacity = 600,
-                            Name = "Skyline Pavilion"
+                            Location = "New Cairo",
+                            Name = "Skyline Pavilion",
+                            Price = 12000.0
                         },
                         new
                         {
                             Id = 7,
                             Capacity = 250,
-                            Name = "Moonlight Hall"
+                            Location = "Tanta",
+                            Name = "Moonlight Hall",
+                            Price = 6000.0
                         },
                         new
                         {
                             Id = 8,
                             Capacity = 450,
-                            Name = "Royal Suite"
+                            Location = "Mansoura",
+                            Name = "Royal Suite",
+                            Price = 11000.0
                         },
                         new
                         {
                             Id = 9,
                             Capacity = 500,
-                            Name = "Elite Venue"
+                            Location = "Port Said",
+                            Name = "Elite Venue",
+                            Price = 10500.0
                         },
                         new
                         {
                             Id = 10,
                             Capacity = 700,
-                            Name = "Luxury Retreat"
+                            Location = "Luxor",
+                            Name = "Luxury Retreat",
+                            Price = 15000.0
                         });
                 });
 
@@ -905,60 +969,70 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
+                            Desc = "Flawless makeup designed to enhance the bride's natural beauty for her special day.",
                             Name = "Bridal Makeup",
                             Price = 1500
                         },
                         new
                         {
                             Id = 2,
+                            Desc = "Bold and glamorous makeup for parties and social events.",
                             Name = "Party Glam",
                             Price = 800
                         },
                         new
                         {
                             Id = 3,
+                            Desc = "A subtle and fresh makeup style for everyday wear.",
                             Name = "Natural Look",
                             Price = 500
                         },
                         new
                         {
                             Id = 4,
+                            Desc = "Sophisticated makeup perfect for evening events and dinners.",
                             Name = "Evening Elegance",
                             Price = 1000
                         },
                         new
                         {
                             Id = 5,
+                            Desc = "Shimmery and radiant makeup for a glamorous, standout look.",
                             Name = "Glamour Shine",
                             Price = 1200
                         },
                         new
                         {
                             Id = 6,
+                            Desc = "Vibrant and creative makeup for festivals and fun events.",
                             Name = "Festival Glam",
                             Price = 700
                         },
                         new
                         {
                             Id = 7,
+                            Desc = "Radiant and glowing makeup designed for brides who want a luminous look.",
                             Name = "Bridal Glow",
                             Price = 1600
                         },
                         new
                         {
                             Id = 8,
+                            Desc = "Elegant makeup for special events like anniversaries and galas.",
                             Name = "Special Occasion",
                             Price = 1300
                         },
                         new
                         {
                             Id = 9,
+                            Desc = "High-fashion makeup inspired by the looks of celebrities and runway models.",
                             Name = "Celebrity Look",
                             Price = 2000
                         },
                         new
                         {
                             Id = 10,
+                            Desc = "Refined and minimalist makeup for a naturally elegant look.",
                             Name = "Simple Elegance",
                             Price = 600
                         });
@@ -1003,64 +1077,90 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Duration = 2,
-                            ImageUrl = "1.jpg",
+                            Location = "Cairo",
+                            Name = "Basic Photography Package",
+                            Price = 3000.0,
                             Type = "Photography"
                         },
                         new
                         {
                             Id = 2,
                             Duration = 3,
-                            ImageUrl = "2.jpg",
+                            Location = "Alexandria",
+                            Name = "Videography Session",
+                            Price = 4000.0,
                             Type = "Videography"
                         },
                         new
                         {
                             Id = 3,
                             Duration = 4,
-                            ImageUrl = "3.jpg",
+                            Location = "Giza",
+                            Name = "Engagement Photography",
+                            Price = 3500.0,
                             Type = "Engagement Shoot"
                         },
                         new
                         {
                             Id = 4,
                             Duration = 5,
-                            ImageUrl = "4.jpg",
+                            Location = "Sharm El Sheikh",
+                            Name = "Pre-Wedding Photoshoot",
+                            Price = 4500.0,
                             Type = "Pre-Wedding Shoot"
                         },
                         new
                         {
                             Id = 5,
                             Duration = 6,
+                            Location = "Luxor",
+                            Name = "Wedding Day Coverage",
+                            Price = 8000.0,
                             Type = "Wedding Photography"
                         },
                         new
                         {
                             Id = 6,
                             Duration = 2,
+                            Location = "New Cairo",
+                            Name = "Couple Photography",
+                            Price = 2500.0,
                             Type = "Couple Shoot"
                         },
                         new
                         {
                             Id = 7,
                             Duration = 3,
+                            Location = "Tanta",
+                            Name = "Bridal Portrait Session",
+                            Price = 3000.0,
                             Type = "Bridal Portraits"
                         },
                         new
                         {
                             Id = 8,
                             Duration = 4,
+                            Location = "Mansoura",
+                            Name = "Fashion Photo Session",
+                            Price = 5000.0,
                             Type = "Fashion Photography"
                         },
                         new
                         {
                             Id = 9,
                             Duration = 5,
+                            Location = "Hurghada",
+                            Name = "Event Videography & Photography",
+                            Price = 6000.0,
                             Type = "Event Coverage"
                         },
                         new
                         {
                             Id = 10,
                             Duration = 3,
+                            Location = "Port Said",
+                            Name = "Family Photography",
+                            Price = 3500.0,
                             Type = "Family Shoot"
                         });
                 });
@@ -1238,12 +1338,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5d2340c0-fe48-444e-9eb8-c21a10342a32",
+                            UserId = "82074630-fe2b-4689-8c51-ab5a48732036",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "e24c41d0-25ec-436d-b777-b115e6d5fec8",
+                            UserId = "b20c409c-e1ff-4b34-b7af-477e4a443768",
                             RoleId = "2"
                         });
                 });
