@@ -28,9 +28,12 @@ namespace MVC_Projec2
             builder.Services.AddScoped<IImageUploadService, ImageUploadServices>();
            
 
+            //builder.Services.AddDbContext<MVCProjectContext>(
+            //       options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
+            //);
             builder.Services.AddDbContext<MVCProjectContext>(
-                   options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
-            ); 
+                  options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS2"))
+           );
 
 
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  

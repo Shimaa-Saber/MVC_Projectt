@@ -266,6 +266,7 @@ namespace MVC_Projec2.Models
                 new Hall { Id = 10, Name = "Luxury Retreat", Capacity = 700, Location = "Mountain View", Price = 13000, ImageUrl = "hall3" }
             );
 
+
             modelBuilder.Entity<HallImage>().HasData(
                 new HallImage { Id = 1, HallId = 1, ImageUrl = "hall1.jpg" },
                 new HallImage { Id = 2, HallId = 1, ImageUrl = "hall2.jpg" },
@@ -294,6 +295,7 @@ namespace MVC_Projec2.Models
                  new MakeUp_Service { Id = 9, Name = "Celebrity Look", Price = 2000, Description = "Inspired by red carpet celebrities with dramatic, flawless finish.", ImageUrl = "makeUp9" },
                  new MakeUp_Service { Id = 10, Name = "Simple Elegance", Price = 600, Description = "Effortless and neat makeup for a clean and graceful appearance.", ImageUrl = "makeUp10" }
             );
+
 
             modelBuilder.Entity<MakeUpImages>().HasData(
                 new MakeUpImages { Id = 1, MakeUp_ServiceId = 1, ImageUrl = "makeUp1.jpg" },
@@ -342,7 +344,6 @@ namespace MVC_Projec2.Models
                 new DecoreImage { Id = 15, DecorId = 5, ImageUrl = "decor7.jpg" }
 
                 );
-
             modelBuilder.Entity<Session>().HasData(
                  new Session { Id = 1, Type = "Photography", Duration = 2, Price = 1000, Description = "Professional photo session for any occasion.", ImageUrl = "session1" },
                  new Session { Id = 2, Type = "Videography", Duration = 3, Price = 1500, Description = "Capture every moment with cinematic quality.", ImageUrl = "session2" },
@@ -355,6 +356,7 @@ namespace MVC_Projec2.Models
                  new Session { Id = 9, Type = "Event Coverage", Duration = 5, Price = 3000, Description = "Photography and videography coverage for events.", ImageUrl = "session9" },
                  new Session { Id = 10, Type = "Family Shoot", Duration = 3, Price = 1400, Description = "Heartwarming family photography session.", ImageUrl = "session10" }
             );
+
 
             modelBuilder.Entity<SessionImages>().HasData(
                 new SessionImages { Id = 1, SessionId = 1, ImageUrl = "session1.jpg" },
