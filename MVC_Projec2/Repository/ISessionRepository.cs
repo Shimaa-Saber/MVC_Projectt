@@ -5,6 +5,10 @@ namespace MVC_Projec2.Repository
 {
     public interface ISessionRepository:IGenericRepository<Session>
     {
+        Session GetByIdWithImages(int id);
+
+        List<Session> GetAllWithImages();
+
         IEnumerable<Session> SearchByName(string name);
     }
 }

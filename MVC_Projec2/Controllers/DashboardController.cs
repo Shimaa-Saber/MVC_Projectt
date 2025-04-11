@@ -15,7 +15,9 @@ namespace MVC_Projec2.Controllers
         private readonly ILogger<DashboardController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public DashboardController(MVCProjectContext context, ILogger<DashboardController> logger, UserManager<ApplicationUser> userManager)
+        public DashboardController(MVCProjectContext context,
+                                   ILogger<DashboardController> logger,
+                                   UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _logger = logger;
@@ -31,6 +33,10 @@ namespace MVC_Projec2.Controllers
                 var model = new DashboardViewModel
                 {
                     TotalUsers = GetTotalUsers(),
+                    TotalHalls = GetTotalHalls(),
+                    TotalSessions = GetTotalSessions(),
+                    TotalAteliers = GetTotalAteliers(),
+                    TotalMakeUpServices = GetTotalMakeUpServices(),
                     TotalBookings = GetTotalBookings(),
                     //Revenue = GetTotalRevenue(),
                     MostBookedVenue = GetMostBookedVenue(),
@@ -52,7 +58,25 @@ namespace MVC_Projec2.Controllers
             return _context.Users.Count();
         }
 
+        private int GetTotalHalls()
+        {
+            return _context.Halls.Count();
+        }
 
+        private int GetTotalSessions()
+        {
+            return _context.Sessions.Count();
+        }
+
+        private int GetTotalMakeUpServices()
+        {
+            return _context.MakeUpServices.Count();
+        }
+
+        private int GetTotalAteliers()
+        {
+            return _context.Ateliers.Count();
+        }
         public async Task<IActionResult> AssignedToAdmin(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);

@@ -11,6 +11,22 @@ namespace MVC_Projec2.Repository
             _context = context;
         }
 
+        public Session GetByIdWithImages(int id)
+        {
+            return _context.Sessions
+                .Include(a => a.Images)
+                .AsNoTracking()
+                .FirstOrDefault();
+        }
+
+        public List<Session> GetAllWithImages()
+        {
+            return _context.Sessions
+                .Include(a => a.Images)
+                .AsNoTracking()
+                .ToList();
+        }
+
         public void Delete(Session obj)
         {
             _context.Sessions.Remove(obj);

@@ -31,7 +31,7 @@ namespace MVC_Projec2.Controllers
         {
             try
             {
-                return View(_makeUpRepository.GetAll());
+                return View(_makeUpRepository.GetAllWithImages());
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace MVC_Projec2.Controllers
 
         public IActionResult Details(int id)
         {
-            var makeUp = _makeUpRepository.GetById(id);
+            var makeUp = _makeUpRepository.GetByIdWithImages(id);
             if (makeUp == null)
             {
                 return NotFound();
