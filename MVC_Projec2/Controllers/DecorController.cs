@@ -192,7 +192,6 @@ namespace MVC_Projec2.Controllers
                 decor.Style = model.Style;
                 decor.Price = model.Price;
                 decor.Description = model.Description;
-                decor.ImageUrl = model.CurrentImageUrl;
 
                 _decorRepository.Update(decor);
                 _decorRepository.Save();

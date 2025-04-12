@@ -197,7 +197,6 @@ namespace MVC_Projec2.Controllers
 
                 makeUp.Name = model.Name;
                 makeUp.Price = model.Price;
-                makeUp.ImageUrl = model.ImageUrl;
 
                 _makeUpRepository.Update(makeUp);
                 _makeUpRepository.Save();
