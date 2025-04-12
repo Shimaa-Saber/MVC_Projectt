@@ -4,6 +4,7 @@ using MVC_Projec2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    partial class MVCProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20250412172758_h2")]
+    partial class h2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,37 +139,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dcea0d54-3df8-4fae-b476-6912e5516675",
+                            Id = "c9ab8252-c86b-4e09-8b94-5e106299d156",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6bd17a9b-c9c3-4475-b536-9e04a6435435",
+                            ConcurrencyStamp = "b1d1afbf-8bae-455d-9ed0-cb75a199d4d1",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGndZEG1i9PahvZ836dtAhfzrC6HGo67hnPViDa+quGMdgl/SQK12r4LZfqCWoCABw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH+T/9oFfr1VOT7Hhr8J7dsV6lyK/AadJu/qYHb0JT0gpE3q3L0Mhcw86t3DdRtU6Q==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "87b751bf-6f1d-4011-8fc0-61e749821772",
+                            SecurityStamp = "ea18e68c-39c1-4e26-b7f6-e3f08ec24cfa",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "38c72125-e34e-452a-bb0f-ba4ac86344d4",
+                            Id = "65e3629a-d0b9-4dab-93d5-d772353a039a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "de6f04aa-cdb0-4a0b-97d7-f2bbfff5d2e0",
+                            ConcurrencyStamp = "23f2dac8-8471-4c96-88a7-93a914a29d53",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDXZIN35/YG1Ku2at64y+G19d+CoxlvY8wGvIDxL5EpRyTs5H5y2CSg/OCZbkmdmLQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENENNFMOKkyi25jWlfYdNfyBn1AyIFTdOZ12rdhM+dyywDLE+f7rZEZKYlvgS6oC/w==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "0957a77b-7dd4-4251-a69d-b548412f0c82",
+                            SecurityStamp = "47d60c33-d809-44ab-84dd-e2bad0895f93",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -278,86 +281,6 @@ namespace MVC_Projec2.Migrations
                             Location = "Central Square",
                             Name = "Fashion Forward",
                             priceRange = 7000.0
-                        },
-                        new
-                        {
-                            Id = 11,
-                            ImageUrl = "Atelier (20).jpeg",
-                            Location = "Central Square",
-                            Name = "Style Studio",
-                            priceRange = 1500.0
-                        },
-                        new
-                        {
-                            Id = 12,
-                            ImageUrl = "Atelier (21).jpeg",
-                            Location = "Central Square",
-                            Name = "Elegance Edge",
-                            priceRange = 5500.0
-                        },
-                        new
-                        {
-                            Id = 13,
-                            ImageUrl = "Atelier (22).jpeg",
-                            Location = "Central Square",
-                            Name = "Vogue Venue",
-                            priceRange = 2400.0
-                        },
-                        new
-                        {
-                            Id = 14,
-                            ImageUrl = "Atelier (23).jpeg",
-                            Location = "Central Square",
-                            Name = "Chic Charm",
-                            priceRange = 8200.0
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ImageUrl = "Atelier (24).jpeg",
-                            Location = "Central Square",
-                            Name = "Glamour Gate",
-                            priceRange = 4300.0
-                        },
-                        new
-                        {
-                            Id = 16,
-                            ImageUrl = "Atelier (25).jpeg",
-                            Location = "Central Square",
-                            Name = "Runway Room",
-                            priceRange = 4200.0
-                        },
-                        new
-                        {
-                            Id = 17,
-                            ImageUrl = "Atelier (26).jpeg",
-                            Location = "Central Square",
-                            Name = "Trendy Touch",
-                            priceRange = 3500.0
-                        },
-                        new
-                        {
-                            Id = 18,
-                            ImageUrl = "Atelier (27).jpeg",
-                            Location = "Central Square",
-                            Name = "Haute Hub",
-                            priceRange = 2900.0
-                        },
-                        new
-                        {
-                            Id = 19,
-                            ImageUrl = "Atelier (28).jpeg",
-                            Location = "Central Square",
-                            Name = "Modish Moments",
-                            priceRange = 4400.0
-                        },
-                        new
-                        {
-                            Id = 20,
-                            ImageUrl = "Atelier (29).jpeg",
-                            Location = "Central Square",
-                            Name = "Catwalk Corner",
-                            priceRange = 1100.0
                         });
                 });
 
@@ -429,19 +352,19 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 8,
                             AtelierId = 3,
-                            ImageUrl = "Atelier (1).jpeg"
+                            ImageUrl = "Atelier (23).jpeg"
                         },
                         new
                         {
                             Id = 9,
                             AtelierId = 3,
-                            ImageUrl = "Atelier (2).jpeg"
+                            ImageUrl = "Atelier (22).jpeg"
                         },
                         new
                         {
                             Id = 10,
                             AtelierId = 4,
-                            ImageUrl = "Atelier (3).jpeg"
+                            ImageUrl = "Atelier (21).jpeg"
                         },
                         new
                         {
@@ -454,186 +377,6 @@ namespace MVC_Projec2.Migrations
                             Id = 12,
                             AtelierId = 4,
                             ImageUrl = "Atelier (20).jpeg"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            AtelierId = 5,
-                            ImageUrl = "Atelier (21).jpeg"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            AtelierId = 5,
-                            ImageUrl = "Atelier (22).jpeg"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            AtelierId = 5,
-                            ImageUrl = "Atelier (23).jpeg"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            AtelierId = 6,
-                            ImageUrl = "Atelier (24).jpeg"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            AtelierId = 6,
-                            ImageUrl = "Atelier (25).jpeg"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            AtelierId = 6,
-                            ImageUrl = "Atelier (26).jpeg"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            AtelierId = 7,
-                            ImageUrl = "Atelier (27).jpeg"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            AtelierId = 7,
-                            ImageUrl = "Atelier (28).jpeg"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            AtelierId = 7,
-                            ImageUrl = "Atelier (29).jpeg"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            AtelierId = 7,
-                            ImageUrl = "Atelier (4).jpeg"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            AtelierId = 8,
-                            ImageUrl = "Atelier (5).jpeg"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            AtelierId = 8,
-                            ImageUrl = "Atelier (6).jpeg"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            AtelierId = 8,
-                            ImageUrl = "Atelier (7).jpeg"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            AtelierId = 9,
-                            ImageUrl = "Atelier (8).jpeg"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            AtelierId = 9,
-                            ImageUrl = "Atelier (9).jpeg"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            AtelierId = 9,
-                            ImageUrl = "Atelier (10).jpeg"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            AtelierId = 10,
-                            ImageUrl = "Atelier (11).jpeg"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            AtelierId = 10,
-                            ImageUrl = "Atelier (12).jpeg"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            AtelierId = 10,
-                            ImageUrl = "Atelier (13).jpeg"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            AtelierId = 11,
-                            ImageUrl = "Atelier (14).jpeg"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            AtelierId = 11,
-                            ImageUrl = "Atelier (15).jpeg"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            AtelierId = 11,
-                            ImageUrl = "Atelier (16).jpeg"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            AtelierId = 12,
-                            ImageUrl = "Atelier (17).jpeg"
-                        },
-                        new
-                        {
-                            Id = 36,
-                            AtelierId = 12,
-                            ImageUrl = "Atelier (18).jpeg"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            AtelierId = 12,
-                            ImageUrl = "Atelier (19).jpeg"
-                        },
-                        new
-                        {
-                            Id = 38,
-                            AtelierId = 13,
-                            ImageUrl = "Atelier (1).jpeg"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            AtelierId = 13,
-                            ImageUrl = "Atelier (5).jpeg"
-                        },
-                        new
-                        {
-                            Id = 40,
-                            AtelierId = 13,
-                            ImageUrl = "Atelier (9).jpeg"
-                        },
-                        new
-                        {
-                            Id = 41,
-                            AtelierId = 14,
-                            ImageUrl = "Atelier (20).jpeg"
-                        },
-                        new
-                        {
-                            Id = 42,
-                            AtelierId = 14,
-                            ImageUrl = "Atelier (15).jpeg"
                         });
                 });
 
@@ -692,13 +435,13 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(5965),
+                            Created_at = new DateTime(2025, 4, 12, 19, 27, 56, 729, DateTimeKind.Local).AddTicks(5885),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "c9ab8252-c86b-4e09-8b94-5e106299d156"
                         },
                         new
                         {
@@ -710,19 +453,19 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "c9ab8252-c86b-4e09-8b94-5e106299d156"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6122),
+                            Created_at = new DateTime(2025, 4, 12, 19, 27, 56, 729, DateTimeKind.Local).AddTicks(6078),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "c9ab8252-c86b-4e09-8b94-5e106299d156"
                         },
                         new
                         {
@@ -734,7 +477,7 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "c9ab8252-c86b-4e09-8b94-5e106299d156"
                         });
                 });
 
@@ -774,10 +517,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6196),
+                            CreatedAt = new DateTime(2025, 4, 12, 19, 27, 56, 729, DateTimeKind.Local).AddTicks(6145),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            UserId = "c9ab8252-c86b-4e09-8b94-5e106299d156"
                         });
                 });
 
@@ -1757,12 +1500,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "dcea0d54-3df8-4fae-b476-6912e5516675",
+                            UserId = "c9ab8252-c86b-4e09-8b94-5e106299d156",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "38c72125-e34e-452a-bb0f-ba4ac86344d4",
+                            UserId = "65e3629a-d0b9-4dab-93d5-d772353a039a",
                             RoleId = "2"
                         });
                 });
