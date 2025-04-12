@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    [Migration("20250411235200_newm2")]
-    partial class newm2
+    [Migration("20250412083713_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,37 +139,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5e874efa-183d-401a-8c5a-022015c455b3",
+                            Id = "4b129781-8d6f-4c45-a604-7e898856aa2b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "98f0011e-460a-46a6-8980-971ac9f9e403",
+                            ConcurrencyStamp = "b7050eb9-e577-4a5f-9821-51358100043f",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIjPWS33UVnWipxUdVMNP6F19drNPgi1eY8x7T4n1x1bbhhyHLmoBWIrAJAdg1LeNQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI/n8K/+cmWGZbBXmsMr0VoT/GyDHo2VxEW3Rt3uphG4D4ELYbNJ6fZ+/o8KQJCzLA==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "0240fead-9644-482f-a19c-8cc6fc88e866",
+                            SecurityStamp = "2478e555-9aa2-49f9-b81f-a9fac742f5d5",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "c1218f34-5729-4831-bd12-88bf2e810d96",
+                            Id = "a1e2b284-dbdf-4481-aa4f-dc591c899aba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d9aa8688-f927-4ec8-9f9d-a6342e53b373",
+                            ConcurrencyStamp = "25e64cdd-1378-470b-aaad-5cbbca93cc49",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEBrbuCxSQINinDsXTB45brtlosdEKL0+G+GJ2GNw0XQCIcHZAhfh0GE1sYIEBWiaQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENxBAdKe9f4q+zh9kUJ6VKHm8VNJ3N1VFJu2mEZCH1BCa5qBiCejhT5F5xLiKEWoxQ==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "87796a7a-23b0-4ea8-bc0b-40bc958969cd",
+                            SecurityStamp = "ccdb6229-1160-41f2-8894-da2917c1eaa8",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -435,13 +435,13 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2817),
+                            Created_at = new DateTime(2025, 4, 12, 10, 37, 11, 634, DateTimeKind.Local).AddTicks(4473),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
+                            user_id = "4b129781-8d6f-4c45-a604-7e898856aa2b"
                         },
                         new
                         {
@@ -453,19 +453,19 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
+                            user_id = "4b129781-8d6f-4c45-a604-7e898856aa2b"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2963),
+                            Created_at = new DateTime(2025, 4, 12, 10, 37, 11, 634, DateTimeKind.Local).AddTicks(4835),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
+                            user_id = "4b129781-8d6f-4c45-a604-7e898856aa2b"
                         },
                         new
                         {
@@ -477,7 +477,7 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
+                            user_id = "4b129781-8d6f-4c45-a604-7e898856aa2b"
                         });
                 });
 
@@ -517,10 +517,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(3035),
+                            CreatedAt = new DateTime(2025, 4, 12, 10, 37, 11, 634, DateTimeKind.Local).AddTicks(5426),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "5e874efa-183d-401a-8c5a-022015c455b3"
+                            UserId = "4b129781-8d6f-4c45-a604-7e898856aa2b"
                         });
                 });
 
@@ -759,7 +759,6 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -1500,12 +1499,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5e874efa-183d-401a-8c5a-022015c455b3",
+                            UserId = "4b129781-8d6f-4c45-a604-7e898856aa2b",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "c1218f34-5729-4831-bd12-88bf2e810d96",
+                            UserId = "a1e2b284-dbdf-4481-aa4f-dc591c899aba",
                             RoleId = "2"
                         });
                 });
