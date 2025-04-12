@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string ImageUrl { get; set; }
-        public int MakeUpId { get; set; }
+        public int MakeUp_ServiceId { get; set; }
         public MakeUp_Service makeUp { get; set; }
     }
 }

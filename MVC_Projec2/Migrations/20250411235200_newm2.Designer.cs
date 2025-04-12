@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    [Migration("20250411132452_init")]
-    partial class init
+    [Migration("20250411235200_newm2")]
+    partial class newm2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,37 +139,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "82074630-fe2b-4689-8c51-ab5a48732036",
+                            Id = "5e874efa-183d-401a-8c5a-022015c455b3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1ffd82fc-a946-4297-8b29-50d1833d5295",
+                            ConcurrencyStamp = "98f0011e-460a-46a6-8980-971ac9f9e403",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENKv1sPw/2QZ9PHQKszrg1L5haAAHBs3YyobTNkt1rZ3yYna3g2vNu8GGL+PcHez2g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIjPWS33UVnWipxUdVMNP6F19drNPgi1eY8x7T4n1x1bbhhyHLmoBWIrAJAdg1LeNQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "4eb97bb1-e94a-46ca-8ee6-af9d3a3cf9d9",
+                            SecurityStamp = "0240fead-9644-482f-a19c-8cc6fc88e866",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "b20c409c-e1ff-4b34-b7af-477e4a443768",
+                            Id = "c1218f34-5729-4831-bd12-88bf2e810d96",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9f110e21-614e-4c06-a284-bcdb9cabed38",
+                            ConcurrencyStamp = "d9aa8688-f927-4ec8-9f9d-a6342e53b373",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGsC29wLucp811HTH8EeL02OcaZDgAUKqVc7q07KJG8SMUPq839R2t4i3y2jOOv8zw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEBrbuCxSQINinDsXTB45brtlosdEKL0+G+GJ2GNw0XQCIcHZAhfh0GE1sYIEBWiaQ==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "a0c4c242-b81b-4798-aa95-d37c1181a014",
+                            SecurityStamp = "87796a7a-23b0-4ea8-bc0b-40bc958969cd",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -183,7 +183,8 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ImageURL")
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -204,72 +205,82 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
-                            Location = "Downtown",
+                            ImageUrl = "atelier2",
+                            Location = "Uptown",
                             Name = "Elite Atelier",
-                            priceRange = 5000.0
+                            priceRange = 9000.0
                         },
                         new
                         {
                             Id = 2,
-                            Location = "Uptown",
+                            ImageUrl = "atelier1",
+                            Location = "Downtown",
                             Name = "Royal Designs",
-                            priceRange = 3000.0
+                            priceRange = 5000.0
                         },
                         new
                         {
                             Id = 3,
-                            Location = "City Center",
+                            ImageUrl = "atelier5",
+                            Location = "Easttown",
                             Name = "Glamorous Styles",
-                            priceRange = 5000.0
+                            priceRange = 4000.0
                         },
                         new
                         {
                             Id = 4,
-                            Location = "Suburb",
+                            ImageUrl = "atelier3",
+                            Location = "Westtown",
                             Name = "Elegant Creations",
-                            priceRange = 3000.0
+                            priceRange = 12000.0
                         },
                         new
                         {
                             Id = 5,
-                            Location = "North Park",
+                            ImageUrl = "atelier4",
+                            Location = "Downtown",
                             Name = "Chic Styles",
-                            priceRange = 1500.0
+                            priceRange = 6000.0
                         },
                         new
                         {
                             Id = 6,
-                            Location = "South Side",
+                            ImageUrl = "atelier7",
+                            Location = "Uptown",
                             Name = "Vintage Touch",
-                            priceRange = 2500.0
+                            priceRange = 8000.0
                         },
                         new
                         {
                             Id = 7,
-                            Location = "Midtown",
+                            ImageUrl = "atelier5",
+                            Location = "Downtown",
                             Name = "Modern Artistry",
-                            priceRange = 5000.0
+                            priceRange = 2000.0
                         },
                         new
                         {
                             Id = 8,
+                            ImageUrl = "atelier1",
                             Location = "East End",
                             Name = "Exquisite Design",
-                            priceRange = 2500.0
+                            priceRange = 3000.0
                         },
                         new
                         {
                             Id = 9,
+                            ImageUrl = "atelier5",
                             Location = "West End",
                             Name = "Timeless Beauty",
-                            priceRange = 5000.0
+                            priceRange = 8000.0
                         },
                         new
                         {
                             Id = 10,
+                            ImageUrl = "atelier7",
                             Location = "Central Square",
                             Name = "Fashion Forward",
-                            priceRange = 1500.0
+                            priceRange = 7000.0
                         });
                 });
 
@@ -304,56 +315,68 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 2,
-                            AtelierId = 2,
+                            AtelierId = 1,
                             ImageUrl = "atelier2.jpg"
                         },
                         new
                         {
                             Id = 3,
-                            AtelierId = 3,
+                            AtelierId = 1,
                             ImageUrl = "atelier3.jpg"
                         },
                         new
                         {
                             Id = 4,
-                            AtelierId = 4,
+                            AtelierId = 2,
                             ImageUrl = "atelier4.jpg"
                         },
                         new
                         {
                             Id = 5,
-                            AtelierId = 5,
+                            AtelierId = 2,
                             ImageUrl = "atelier5.jpg"
                         },
                         new
                         {
                             Id = 6,
-                            AtelierId = 6,
+                            AtelierId = 2,
                             ImageUrl = "atelier6.jpg"
                         },
                         new
                         {
                             Id = 7,
-                            AtelierId = 7,
+                            AtelierId = 3,
                             ImageUrl = "atelier7.jpg"
                         },
                         new
                         {
                             Id = 8,
-                            AtelierId = 8,
+                            AtelierId = 3,
                             ImageUrl = "atelier8.jpg"
                         },
                         new
                         {
                             Id = 9,
-                            AtelierId = 9,
+                            AtelierId = 3,
                             ImageUrl = "atelier9.jpg"
                         },
                         new
                         {
                             Id = 10,
-                            AtelierId = 10,
+                            AtelierId = 4,
                             ImageUrl = "atelier10.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AtelierId = 4,
+                            ImageUrl = "atelier1.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AtelierId = 4,
+                            ImageUrl = "atelier8.jpg"
                         });
                 });
 
@@ -412,49 +435,49 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3456),
+                            Created_at = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2817),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         },
                         new
                         {
                             Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3780),
+                            Created_at = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2963),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         },
                         new
                         {
                             Id = 4,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         });
                 });
 
@@ -494,10 +517,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(4282),
+                            CreatedAt = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(3035),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "82074630-fe2b-4689-8c51-ab5a48732036"
+                            UserId = "5e874efa-183d-401a-8c5a-022015c455b3"
                         });
                 });
 
@@ -510,6 +533,10 @@ namespace MVC_Projec2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
@@ -527,70 +554,80 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Timeless decor with elegant and traditional designs, perfect for a sophisticated atmosphere.",
+                            Description = "Timeless elegance with ornate details and rich colors.",
+                            ImageUrl = "decor1",
                             Price = 5000,
                             Style = "Classic"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Sleek and contemporary design with clean lines and minimalistic features.",
+                            Description = "Sleek lines and neutral tones for a chic, modern vibe.",
+                            ImageUrl = "decor2",
                             Price = 7000,
                             Style = "Modern"
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Natural and earthy designs featuring wood, stone, and vintage elements for a cozy feel.",
+                            Description = "Warm and cozy decor with natural wood and earthy tones.",
+                            ImageUrl = "decor3",
                             Price = 4500,
                             Style = "Rustic"
                         },
                         new
                         {
                             Id = 4,
-                            Description = "Retro-inspired decor with nostalgic and old-world charm, ideal for classic settings.",
+                            Description = "Retro charm with antique pieces and soft pastels.",
+                            ImageUrl = "decor4",
                             Price = 5500,
                             Style = "Vintage"
                         },
                         new
                         {
                             Id = 5,
-                            Description = "Rough and raw designs with exposed metals, bricks, and unfinished elements.",
+                            Description = "Urban-inspired look with metal accents and raw finishes.",
+                            ImageUrl = "decor5",
                             Price = 6000,
                             Style = "Industrial"
                         },
                         new
                         {
                             Id = 6,
-                            Description = "Bohemian style with vibrant colors, eclectic patterns, and artistic, free-spirited elements.",
+                            Description = "Free-spirited design with bold colors and eclectic elements.",
+                            ImageUrl = "decor1",
                             Price = 4000,
                             Style = "Boho"
                         },
                         new
                         {
                             Id = 7,
-                            Description = "Simplicity at its finest, focusing on clean spaces and functional, uncluttered designs.",
+                            Description = "Clean lines, simplicity, and clutter-free design.",
+                            ImageUrl = "decor3",
                             Price = 6500,
                             Style = "Minimalist"
                         },
                         new
                         {
                             Id = 8,
-                            Description = "Luxurious and glamorous style featuring bold geometric patterns and rich colors.",
+                            Description = "Glamorous style with bold geometry and luxurious finishes.",
+                            ImageUrl = "decor6",
                             Price = 7000,
                             Style = "Art Deco"
                         },
                         new
                         {
                             Id = 9,
-                            Description = "High-end and dazzling decor with rich textures, metallic accents, and sophisticated lighting.",
+                            Description = "High-end sparkle with crystal accents and rich fabrics.",
+                            ImageUrl = "decor5",
                             Price = 8000,
                             Style = "Glam"
                         },
                         new
                         {
                             Id = 10,
-                            Description = "A charming, weathered look with soft pastel colors, distressed furniture, and vintage accessories.",
+                            Description = "Soft, feminine style with distressed furniture and florals.",
+                            ImageUrl = "decor2",
                             Price = 4500,
                             Style = "Shabby Chic"
                         });
@@ -627,44 +664,86 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 2,
-                            DecorId = 2,
+                            DecorId = 1,
                             ImageUrl = "decor2.jpg"
                         },
                         new
                         {
                             Id = 3,
-                            DecorId = 3,
+                            DecorId = 1,
                             ImageUrl = "decor3.jpg"
                         },
                         new
                         {
                             Id = 4,
-                            DecorId = 4,
+                            DecorId = 2,
                             ImageUrl = "decor4.jpg"
                         },
                         new
                         {
                             Id = 5,
-                            DecorId = 5,
+                            DecorId = 2,
                             ImageUrl = "decor5.jpg"
                         },
                         new
                         {
                             Id = 6,
-                            DecorId = 6,
+                            DecorId = 2,
                             ImageUrl = "decor6.jpg"
                         },
                         new
                         {
                             Id = 7,
-                            DecorId = 7,
+                            DecorId = 3,
                             ImageUrl = "decor7.jpg"
                         },
                         new
                         {
                             Id = 8,
-                            DecorId = 8,
-                            ImageUrl = "decor8.jpg"
+                            DecorId = 3,
+                            ImageUrl = "decor3.jpg"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DecorId = 3,
+                            ImageUrl = "decor4.jpg"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DecorId = 4,
+                            ImageUrl = "decor1.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DecorId = 4,
+                            ImageUrl = "decor7.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DecorId = 4,
+                            ImageUrl = "decor5.jpg"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DecorId = 5,
+                            ImageUrl = "decor2.jpg"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DecorId = 5,
+                            ImageUrl = "decor3.jpg"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DecorId = 5,
+                            ImageUrl = "decor7.jpg"
                         });
                 });
 
@@ -678,6 +757,10 @@ namespace MVC_Projec2.Migrations
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -698,7 +781,8 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Capacity = 500,
-                            Location = "Cairo",
+                            ImageUrl = "hall1",
+                            Location = "Downtown",
                             Name = "Grand Hall",
                             Price = 10000.0
                         },
@@ -706,23 +790,26 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 2,
                             Capacity = 300,
-                            Location = "Alexandria",
+                            ImageUrl = "hall2",
+                            Location = "City Center",
                             Name = "Crystal Ballroom",
-                            Price = 8000.0
+                            Price = 7500.0
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 200,
-                            Location = "Sharm El Sheikh",
+                            ImageUrl = "hall3",
+                            Location = "Beachside",
                             Name = "Sunset Venue",
-                            Price = 5000.0
+                            Price = 6000.0
                         },
                         new
                         {
                             Id = 4,
                             Capacity = 400,
-                            Location = "Giza",
+                            ImageUrl = "hall4",
+                            Location = "Uptown",
                             Name = "Majestic Hall",
                             Price = 9000.0
                         },
@@ -730,15 +817,17 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 5,
                             Capacity = 350,
-                            Location = "Hurghada",
+                            ImageUrl = "hall5",
+                            Location = "Coastal Road",
                             Name = "Ocean View",
-                            Price = 7500.0
+                            Price = 8500.0
                         },
                         new
                         {
                             Id = 6,
                             Capacity = 600,
-                            Location = "New Cairo",
+                            ImageUrl = "hall1",
+                            Location = "High Tower",
                             Name = "Skyline Pavilion",
                             Price = 12000.0
                         },
@@ -746,15 +835,17 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 7,
                             Capacity = 250,
-                            Location = "Tanta",
+                            ImageUrl = "hall2",
+                            Location = "Garden District",
                             Name = "Moonlight Hall",
-                            Price = 6000.0
+                            Price = 7000.0
                         },
                         new
                         {
                             Id = 8,
                             Capacity = 450,
-                            Location = "Mansoura",
+                            ImageUrl = "hall3",
+                            Location = "Palace Street",
                             Name = "Royal Suite",
                             Price = 11000.0
                         },
@@ -762,7 +853,8 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 9,
                             Capacity = 500,
-                            Location = "Port Said",
+                            ImageUrl = "hall4",
+                            Location = "Central Park",
                             Name = "Elite Venue",
                             Price = 10500.0
                         },
@@ -770,9 +862,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 10,
                             Capacity = 700,
-                            Location = "Luxor",
+                            ImageUrl = "hall3",
+                            Location = "Mountain View",
                             Name = "Luxury Retreat",
-                            Price = 15000.0
+                            Price = 13000.0
                         });
                 });
 
@@ -807,56 +900,68 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 2,
-                            HallId = 2,
+                            HallId = 1,
                             ImageUrl = "hall2.jpg"
                         },
                         new
                         {
                             Id = 3,
-                            HallId = 3,
+                            HallId = 1,
                             ImageUrl = "hall3.jpg"
                         },
                         new
                         {
                             Id = 4,
-                            HallId = 4,
+                            HallId = 2,
                             ImageUrl = "hall4.jpg"
                         },
                         new
                         {
                             Id = 5,
-                            HallId = 5,
+                            HallId = 2,
                             ImageUrl = "hall5.jpg"
                         },
                         new
                         {
                             Id = 6,
-                            HallId = 6,
+                            HallId = 2,
                             ImageUrl = "hall6.jpg"
                         },
                         new
                         {
                             Id = 7,
-                            HallId = 7,
+                            HallId = 3,
                             ImageUrl = "hall7.jpg"
                         },
                         new
                         {
                             Id = 8,
-                            HallId = 8,
+                            HallId = 3,
                             ImageUrl = "hall8.jpg"
                         },
                         new
                         {
                             Id = 9,
-                            HallId = 9,
+                            HallId = 3,
                             ImageUrl = "hall9.jpg"
                         },
                         new
                         {
                             Id = 10,
-                            HallId = 10,
+                            HallId = 4,
                             ImageUrl = "hall10.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            HallId = 4,
+                            ImageUrl = "hall5.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            HallId = 4,
+                            ImageUrl = "hall3.jpg"
                         });
                 });
 
@@ -872,12 +977,12 @@ namespace MVC_Projec2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MakeUpId")
+                    b.Property<int>("MakeUp_ServiceId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MakeUpId");
+                    b.HasIndex("MakeUp_ServiceId");
 
                     b.ToTable("MakeUpImages");
 
@@ -886,61 +991,73 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             ImageUrl = "makeUp1.jpg",
-                            MakeUpId = 1
+                            MakeUp_ServiceId = 1
                         },
                         new
                         {
                             Id = 2,
                             ImageUrl = "makeUp2.jpg",
-                            MakeUpId = 2
+                            MakeUp_ServiceId = 1
                         },
                         new
                         {
                             Id = 3,
                             ImageUrl = "makeUp3.jpg",
-                            MakeUpId = 3
+                            MakeUp_ServiceId = 1
                         },
                         new
                         {
                             Id = 4,
                             ImageUrl = "makeUp4.jpg",
-                            MakeUpId = 4
+                            MakeUp_ServiceId = 2
                         },
                         new
                         {
                             Id = 5,
                             ImageUrl = "makeUp5.jpg",
-                            MakeUpId = 5
+                            MakeUp_ServiceId = 2
                         },
                         new
                         {
                             Id = 6,
                             ImageUrl = "makeUp6.jpg",
-                            MakeUpId = 6
+                            MakeUp_ServiceId = 2
                         },
                         new
                         {
                             Id = 7,
                             ImageUrl = "makeUp7.jpg",
-                            MakeUpId = 7
+                            MakeUp_ServiceId = 3
                         },
                         new
                         {
                             Id = 8,
                             ImageUrl = "makeUp8.jpg",
-                            MakeUpId = 8
+                            MakeUp_ServiceId = 3
                         },
                         new
                         {
                             Id = 9,
                             ImageUrl = "makeUp9.jpg",
-                            MakeUpId = 9
+                            MakeUp_ServiceId = 3
                         },
                         new
                         {
                             Id = 10,
                             ImageUrl = "makeUp10.jpg",
-                            MakeUpId = 10
+                            MakeUp_ServiceId = 4
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ImageUrl = "makeUp2.jpg",
+                            MakeUp_ServiceId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ImageUrl = "makeUp7.jpg",
+                            MakeUp_ServiceId = 4
                         });
                 });
 
@@ -952,10 +1069,11 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Desc")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -972,70 +1090,80 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
-                            Desc = "Flawless makeup designed to enhance the bride's natural beauty for her special day.",
+                            Description = "Elegant and long-lasting bridal look tailored for your special day.",
+                            ImageUrl = "makeUp1",
                             Name = "Bridal Makeup",
                             Price = 1500
                         },
                         new
                         {
                             Id = 2,
-                            Desc = "Bold and glamorous makeup for parties and social events.",
+                            Description = "Bold, vibrant look perfect for parties and night-outs.",
+                            ImageUrl = "makeUp2",
                             Name = "Party Glam",
                             Price = 800
                         },
                         new
                         {
                             Id = 3,
-                            Desc = "A subtle and fresh makeup style for everyday wear.",
+                            Description = "Soft, minimal makeup enhancing your natural beauty.",
+                            ImageUrl = "makeUp3",
                             Name = "Natural Look",
                             Price = 500
                         },
                         new
                         {
                             Id = 4,
-                            Desc = "Sophisticated makeup perfect for evening events and dinners.",
+                            Description = "Sophisticated makeup style ideal for evening events.",
+                            ImageUrl = "makeUp4",
                             Name = "Evening Elegance",
                             Price = 1000
                         },
                         new
                         {
                             Id = 5,
-                            Desc = "Shimmery and radiant makeup for a glamorous, standout look.",
+                            Description = "Shiny, high-glam look with glowing highlights and contouring.",
+                            ImageUrl = "makeUp5",
                             Name = "Glamour Shine",
                             Price = 1200
                         },
                         new
                         {
                             Id = 6,
-                            Desc = "Vibrant and creative makeup for festivals and fun events.",
+                            Description = "Colorful and creative look, perfect for festivals and themed events.",
+                            ImageUrl = "makeUp6",
                             Name = "Festival Glam",
                             Price = 700
                         },
                         new
                         {
                             Id = 7,
-                            Desc = "Radiant and glowing makeup designed for brides who want a luminous look.",
+                            Description = "Radiant bridal makeup focused on glowing skin and soft tones.",
+                            ImageUrl = "makeUp7",
                             Name = "Bridal Glow",
                             Price = 1600
                         },
                         new
                         {
                             Id = 8,
-                            Desc = "Elegant makeup for special events like anniversaries and galas.",
+                            Description = "Tailored makeup style for birthdays, graduations, and formal events.",
+                            ImageUrl = "makeUp8",
                             Name = "Special Occasion",
                             Price = 1300
                         },
                         new
                         {
                             Id = 9,
-                            Desc = "High-fashion makeup inspired by the looks of celebrities and runway models.",
+                            Description = "Inspired by red carpet celebrities with dramatic, flawless finish.",
+                            ImageUrl = "makeUp9",
                             Name = "Celebrity Look",
                             Price = 2000
                         },
                         new
                         {
                             Id = 10,
-                            Desc = "Refined and minimalist makeup for a naturally elegant look.",
+                            Description = "Effortless and neat makeup for a clean and graceful appearance.",
+                            ImageUrl = "makeUp10",
                             Name = "Simple Elegance",
                             Price = 600
                         });
@@ -1049,10 +1177,14 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -1068,9 +1200,6 @@ namespace MVC_Projec2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("desc")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Sessions");
@@ -1079,91 +1208,91 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
+                            Description = "Professional photo session for any occasion.",
                             Duration = 2,
-                            Location = "Cairo",
-                            Name = "Basic Photography Package",
-                            Price = 3000.0,
+                            ImageUrl = "session1",
+                            Price = 1000.0,
                             Type = "Photography"
                         },
                         new
                         {
                             Id = 2,
+                            Description = "Capture every moment with cinematic quality.",
                             Duration = 3,
-                            Location = "Alexandria",
-                            Name = "Videography Session",
-                            Price = 4000.0,
+                            ImageUrl = "session2",
+                            Price = 1500.0,
                             Type = "Videography"
                         },
                         new
                         {
                             Id = 3,
+                            Description = "Celebrate your engagement with a memorable shoot.",
                             Duration = 4,
-                            Location = "Giza",
-                            Name = "Engagement Photography",
-                            Price = 3500.0,
+                            ImageUrl = "session3",
+                            Price = 2000.0,
                             Type = "Engagement Shoot"
                         },
                         new
                         {
                             Id = 4,
+                            Description = "Romantic photo session before your big day.",
                             Duration = 5,
-                            Location = "Sharm El Sheikh",
-                            Name = "Pre-Wedding Photoshoot",
-                            Price = 4500.0,
+                            ImageUrl = "session4",
+                            Price = 2500.0,
                             Type = "Pre-Wedding Shoot"
                         },
                         new
                         {
                             Id = 5,
+                            Description = "Full-day photography service for weddings.",
                             Duration = 6,
-                            Location = "Luxor",
-                            Name = "Wedding Day Coverage",
-                            Price = 8000.0,
+                            ImageUrl = "session5",
+                            Price = 4000.0,
                             Type = "Wedding Photography"
                         },
                         new
                         {
                             Id = 6,
+                            Description = "Capture the love and connection between you two.",
                             Duration = 2,
-                            Location = "New Cairo",
-                            Name = "Couple Photography",
-                            Price = 2500.0,
+                            ImageUrl = "session6",
+                            Price = 1200.0,
                             Type = "Couple Shoot"
                         },
                         new
                         {
                             Id = 7,
+                            Description = "Elegant portraits for the bride in her gown.",
                             Duration = 3,
-                            Location = "Tanta",
-                            Name = "Bridal Portrait Session",
-                            Price = 3000.0,
+                            ImageUrl = "session7",
+                            Price = 1800.0,
                             Type = "Bridal Portraits"
                         },
                         new
                         {
                             Id = 8,
+                            Description = "High-end fashion shoot for models or brands.",
                             Duration = 4,
-                            Location = "Mansoura",
-                            Name = "Fashion Photo Session",
-                            Price = 5000.0,
+                            ImageUrl = "session8",
+                            Price = 2200.0,
                             Type = "Fashion Photography"
                         },
                         new
                         {
                             Id = 9,
+                            Description = "Photography and videography coverage for events.",
                             Duration = 5,
-                            Location = "Hurghada",
-                            Name = "Event Videography & Photography",
-                            Price = 6000.0,
+                            ImageUrl = "session9",
+                            Price = 3000.0,
                             Type = "Event Coverage"
                         },
                         new
                         {
                             Id = 10,
+                            Description = "Heartwarming family photography session.",
                             Duration = 3,
-                            Location = "Port Said",
-                            Name = "Family Photography",
-                            Price = 3500.0,
+                            ImageUrl = "session10",
+                            Price = 1400.0,
                             Type = "Family Shoot"
                         });
                 });
@@ -1200,55 +1329,85 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 2,
                             ImageUrl = "session2.jpg",
-                            SessionId = 2
+                            SessionId = 1
                         },
                         new
                         {
                             Id = 3,
                             ImageUrl = "session3.jpg",
-                            SessionId = 3
+                            SessionId = 1
                         },
                         new
                         {
                             Id = 4,
                             ImageUrl = "session4.jpg",
-                            SessionId = 4
+                            SessionId = 2
                         },
                         new
                         {
                             Id = 5,
                             ImageUrl = "session5.jpg",
-                            SessionId = 5
+                            SessionId = 2
                         },
                         new
                         {
                             Id = 6,
                             ImageUrl = "session6.jpg",
-                            SessionId = 6
+                            SessionId = 2
                         },
                         new
                         {
                             Id = 7,
                             ImageUrl = "session7.jpg",
-                            SessionId = 7
+                            SessionId = 3
                         },
                         new
                         {
                             Id = 8,
                             ImageUrl = "session8.jpg",
-                            SessionId = 8
+                            SessionId = 3
                         },
                         new
                         {
                             Id = 9,
                             ImageUrl = "session9.jpg",
-                            SessionId = 9
+                            SessionId = 3
                         },
                         new
                         {
                             Id = 10,
                             ImageUrl = "session10.jpg",
-                            SessionId = 10
+                            SessionId = 4
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ImageUrl = "session1.jpg",
+                            SessionId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ImageUrl = "session4.jpg",
+                            SessionId = 4
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ImageUrl = "session2.jpg",
+                            SessionId = 5
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ImageUrl = "session7.jpg",
+                            SessionId = 5
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ImageUrl = "session5.jpg",
+                            SessionId = 5
                         });
                 });
 
@@ -1341,12 +1500,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "82074630-fe2b-4689-8c51-ab5a48732036",
+                            UserId = "5e874efa-183d-401a-8c5a-022015c455b3",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "b20c409c-e1ff-4b34-b7af-477e4a443768",
+                            UserId = "c1218f34-5729-4831-bd12-88bf2e810d96",
                             RoleId = "2"
                         });
                 });
@@ -1459,7 +1618,7 @@ namespace MVC_Projec2.Migrations
                 {
                     b.HasOne("MVC_Projec2.Models.MakeUp_Service", "makeUp")
                         .WithMany("Images")
-                        .HasForeignKey("MakeUpId")
+                        .HasForeignKey("MakeUp_ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

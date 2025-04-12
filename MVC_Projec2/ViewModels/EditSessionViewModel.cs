@@ -19,8 +19,7 @@ namespace MVC_Projec2.ViewModels
 
        //[AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png" }, ErrorMessage = "Only .jpg, .jpeg, .png extensions are allowed.")]
        public IFormFile? ImageFile { get; set; }
-      // public List<SessionImages> Images { get; set; } = new List<SessionImages>();
-
+       public List<SessionImages> Images { get; set; } = new List<SessionImages>();
 
     }
 }

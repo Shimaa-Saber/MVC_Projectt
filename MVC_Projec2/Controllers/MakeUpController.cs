@@ -42,7 +42,7 @@ namespace MVC_Projec2.Controllers
 
         public IActionResult Details(int id)
         {
-            var makeUp = _makeUpRepository.GetById(id);
+            var makeUp = _makeUpRepository.GetByIdWithImages(id);
             if (makeUp == null)
             {
                 return NotFound();
@@ -158,7 +158,7 @@ namespace MVC_Projec2.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
-            var makeUp = _makeUpRepository.GetById(id);
+            var makeUp = _makeUpRepository.GetByIdWithImages(id);
             if (makeUp == null)
             {
                 return NotFound();
@@ -166,7 +166,7 @@ namespace MVC_Projec2.Controllers
 
             var viewModel = new EditMakeUpViewModel
             {
-                Id = makeUp.Id,
+                Images = makeUp.Images,
                 Name = makeUp.Name,
                 Price = makeUp.Price,
                 ImageUrl = makeUp.ImageUrl,

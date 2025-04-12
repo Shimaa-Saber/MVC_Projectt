@@ -1,11 +1,7 @@
 ﻿@model IEnumerable<MVC_Projec2.Models.MakeUp_Service>
 
 @{
-    ViewData["Title"] = "Makeup Services";
-
-}
-@{
-    Layout = "_Layout2";
+    Layout = "_DashboardLayout";
 }
 
 <div class="container-fluid px-4">
@@ -64,7 +60,7 @@
                                     @* <span class="text-muted small">/session</span> *@
                                 </td>
                                 <td class="text-truncate" style="max-width: 200px;">
-                                    @item.Desc
+                                    @item.Description
                                 </td>
                                 
                                 

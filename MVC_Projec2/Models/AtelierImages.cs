@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public string ImageUrl { get; set; }
-
         public int AtelierId { get; set; }
         public Atelier Atelier { get; set; }
+
     }
 }

@@ -26,14 +26,14 @@ namespace MVC_Projec2
             builder.Services.AddScoped<ISessionRepository, SessionRepository>();
             builder.Services.AddScoped<ICommentRepository, CommentRepository>();
             builder.Services.AddScoped<IImageUploadService, ImageUploadServices>();
-           
 
-            //builder.Services.AddDbContext<MVCProjectContext>(
-            //       options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
-            //);
+
             builder.Services.AddDbContext<MVCProjectContext>(
-                  options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS2"))
-           );
+                   options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
+            );
+            // builder.Services.AddDbContext<MVCProjectContext>(
+            //       options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS2"))
+            //);
 
 
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  
@@ -75,11 +75,13 @@ namespace MVC_Projec2
             app.MapHub<CommentHub>("/commentHub");
 
 
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
-           await app.RunAsync();
+                pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+            await app.RunAsync();
         }
     }
 }

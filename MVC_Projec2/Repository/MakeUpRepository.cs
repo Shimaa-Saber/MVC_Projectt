@@ -11,6 +11,22 @@ namespace MVC_Projec2.Repository
             _context = context;
         }
 
+        public MakeUp_Service GetByIdWithImages(int id)
+        {
+            return _context.MakeUpServices
+                .Include(a => a.Images)
+                .AsNoTracking()
+                .FirstOrDefault();
+        }
+
+        public List<MakeUp_Service> GetAllWithImages()
+        {
+            return _context.MakeUpServices
+                .Include(a => a.Images)
+                .AsNoTracking()
+                .ToList();
+        }
+
         public void Delete(MakeUp_Service obj)
         {
             _context.MakeUpServices.Remove(obj);

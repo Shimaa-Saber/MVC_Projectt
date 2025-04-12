@@ -41,7 +41,7 @@ namespace MVC_Projec2.Controllers
 
         public IActionResult Details(int id)
         {
-            var session = _sessionRepository.GetById(id);
+            var session = _sessionRepository.GetByIdWithImages(id);
             if (session == null)
             {
                 return NotFound();
@@ -149,7 +149,7 @@ namespace MVC_Projec2.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
-            var session = _sessionRepository.GetById(id);
+            var session = _sessionRepository.GetByIdWithImages(id);
             if (session == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace MVC_Projec2.Controllers
 
             var viewModel = new EditSessionViewModel
             {
-                Id = session.Id,
+                Images= session.Images,
                 Type = session.Type,
                 Duration = session.Duration
             };

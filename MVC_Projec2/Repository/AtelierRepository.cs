@@ -49,5 +49,21 @@ namespace MVC_Projec2.Repository
         {
             _context.SaveChanges();
         }
+
+        public Atelier GetByIdWithImages(int id)
+        {
+            return _context.Ateliers
+                .Include(a => a.Images)
+                .AsNoTracking()
+                .FirstOrDefault();
+        }
+
+        public List<Atelier> GetAllWithImages()
+        {
+            return _context.Ateliers
+                .Include(a => a.Images)
+                .AsNoTracking()
+                .ToList();
+        }
     }
 }
