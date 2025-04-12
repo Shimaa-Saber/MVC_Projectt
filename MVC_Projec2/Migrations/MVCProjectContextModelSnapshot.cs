@@ -136,37 +136,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dcea0d54-3df8-4fae-b476-6912e5516675",
+                            Id = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6bd17a9b-c9c3-4475-b536-9e04a6435435",
+                            ConcurrencyStamp = "c52347bc-3506-4348-81c2-2231b39edaea",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGndZEG1i9PahvZ836dtAhfzrC6HGo67hnPViDa+quGMdgl/SQK12r4LZfqCWoCABw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKhR2VgP+D5SWyM2pP1/pDfOsVLVfalbAj7iKUs7ZLZTVAtDe+iEnpzUQqHD618ReA==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "87b751bf-6f1d-4011-8fc0-61e749821772",
+                            SecurityStamp = "99f7640b-1a50-4fb1-85f9-82d01d29924b",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "38c72125-e34e-452a-bb0f-ba4ac86344d4",
+                            Id = "4f06f11e-d387-4d4b-8d50-6f72589484ec",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "de6f04aa-cdb0-4a0b-97d7-f2bbfff5d2e0",
+                            ConcurrencyStamp = "d6b268ec-03ee-43cf-a09c-069fb922de4e",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDXZIN35/YG1Ku2at64y+G19d+CoxlvY8wGvIDxL5EpRyTs5H5y2CSg/OCZbkmdmLQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMl/Ed0zh2tnqXbkzT0l+q+f7gcRwSPZM3VSRVSEpYvFwRponAWglfQDry0d7O8Gyw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "0957a77b-7dd4-4251-a69d-b548412f0c82",
+                            SecurityStamp = "c02a9b3b-5c2d-401c-9a9e-fc391c4349d3",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -692,13 +692,13 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(5965),
+                            Created_at = new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8594),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a"
                         },
                         new
                         {
@@ -710,19 +710,19 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6122),
+                            Created_at = new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8741),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a"
                         },
                         new
                         {
@@ -734,7 +734,7 @@ namespace MVC_Projec2.Migrations
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            user_id = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a"
                         });
                 });
 
@@ -774,10 +774,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6196),
+                            CreatedAt = new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8799),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "dcea0d54-3df8-4fae-b476-6912e5516675"
+                            UserId = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a"
                         });
                 });
 
@@ -1468,6 +1468,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Professional photo session for any occasion.",
                             Duration = 2,
                             ImageUrl = "session1.jpg",
+                            Location = "Studio A",
+                            Name = "Photography Session",
                             Price = 1000.0,
                             Type = "Photography"
                         },
@@ -1477,6 +1479,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Capture every moment with cinematic quality.",
                             Duration = 3,
                             ImageUrl = "session2.jpg",
+                            Location = "Outdoor Locations",
+                            Name = "Cinematic Videography",
                             Price = 1500.0,
                             Type = "Videography"
                         },
@@ -1486,6 +1490,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Celebrate your engagement with a memorable shoot.",
                             Duration = 4,
                             ImageUrl = "session3.jpg",
+                            Location = "Romantic Spots",
+                            Name = "Engagement Shoot",
                             Price = 2000.0,
                             Type = "Engagement Shoot"
                         },
@@ -1495,6 +1501,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Romantic photo session before your big day.",
                             Duration = 5,
                             ImageUrl = "session4.jpg",
+                            Location = "Garden Venue",
+                            Name = "Pre-Wedding Shoot",
                             Price = 2500.0,
                             Type = "Pre-Wedding Shoot"
                         },
@@ -1504,6 +1512,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Full-day photography service for weddings.",
                             Duration = 6,
                             ImageUrl = "session5.jpg",
+                            Location = "Wedding Venue",
+                            Name = "Wedding Photography",
                             Price = 4000.0,
                             Type = "Wedding Photography"
                         },
@@ -1513,6 +1523,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Capture the love and connection between you two.",
                             Duration = 2,
                             ImageUrl = "session6.jpg",
+                            Location = "Scenic Outdoor Locations",
+                            Name = "Couple's Love Shoot",
                             Price = 1200.0,
                             Type = "Couple Shoot"
                         },
@@ -1522,6 +1534,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Elegant portraits for the bride in her gown.",
                             Duration = 3,
                             ImageUrl = "session7.jpg",
+                            Location = "Studio",
+                            Name = "Bridal Portrait Session",
                             Price = 1800.0,
                             Type = "Bridal Portraits"
                         },
@@ -1531,6 +1545,8 @@ namespace MVC_Projec2.Migrations
                             Description = "High-end fashion shoot for models or brands.",
                             Duration = 4,
                             ImageUrl = "session8.jpg",
+                            Location = "Fashion Studio",
+                            Name = "High Fashion Shoot",
                             Price = 2200.0,
                             Type = "Fashion Photography"
                         },
@@ -1540,6 +1556,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Photography and videography coverage for events.",
                             Duration = 5,
                             ImageUrl = "session9.jpg",
+                            Location = "Event Venue",
+                            Name = "Event Photography & Videography",
                             Price = 3000.0,
                             Type = "Event Coverage"
                         },
@@ -1549,6 +1567,8 @@ namespace MVC_Projec2.Migrations
                             Description = "Heartwarming family photography session.",
                             Duration = 3,
                             ImageUrl = "session3.jpg",
+                            Location = "Home or Outdoor",
+                            Name = "Family Photography",
                             Price = 1400.0,
                             Type = "Family Shoot"
                         });
@@ -1757,12 +1777,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "dcea0d54-3df8-4fae-b476-6912e5516675",
+                            UserId = "0ed6d0ad-c304-4424-8ef8-1c2144ec346a",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "38c72125-e34e-452a-bb0f-ba4ac86344d4",
+                            UserId = "4f06f11e-d387-4d4b-8d50-6f72589484ec",
                             RoleId = "2"
                         });
                 });

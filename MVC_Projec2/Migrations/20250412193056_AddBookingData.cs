@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class AddBookingData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -432,8 +432,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "38c72125-e34e-452a-bb0f-ba4ac86344d4", 0, "de6f04aa-cdb0-4a0b-97d7-f2bbfff5d2e0", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEDXZIN35/YG1Ku2at64y+G19d+CoxlvY8wGvIDxL5EpRyTs5H5y2CSg/OCZbkmdmLQ==", "9876543210", true, "0957a77b-7dd4-4251-a69d-b548412f0c82", false, "user@example.com" },
-                    { "dcea0d54-3df8-4fae-b476-6912e5516675", 0, "6bd17a9b-c9c3-4475-b536-9e04a6435435", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEGndZEG1i9PahvZ836dtAhfzrC6HGo67hnPViDa+quGMdgl/SQK12r4LZfqCWoCABw==", "0123456789", true, "87b751bf-6f1d-4011-8fc0-61e749821772", false, "admin@example.com" }
+                    { "0ed6d0ad-c304-4424-8ef8-1c2144ec346a", 0, "c52347bc-3506-4348-81c2-2231b39edaea", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKhR2VgP+D5SWyM2pP1/pDfOsVLVfalbAj7iKUs7ZLZTVAtDe+iEnpzUQqHD618ReA==", "0123456789", true, "99f7640b-1a50-4fb1-85f9-82d01d29924b", false, "admin@example.com" },
+                    { "4f06f11e-d387-4d4b-8d50-6f72589484ec", 0, "d6b268ec-03ee-43cf-a09c-069fb922de4e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEMl/Ed0zh2tnqXbkzT0l+q+f7gcRwSPZM3VSRVSEpYvFwRponAWglfQDry0d7O8Gyw==", "9876543210", true, "c02a9b3b-5c2d-401c-9a9e-fc391c4349d3", false, "user@example.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -441,16 +441,26 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "ImageUrl", "Location", "Name", "priceRange" },
                 values: new object[,]
                 {
-                    { 1, "atelier2", "Uptown", "Elite Atelier", 9000.0 },
-                    { 2, "atelier1", "Downtown", "Royal Designs", 5000.0 },
-                    { 3, "atelier5", "Easttown", "Glamorous Styles", 4000.0 },
-                    { 4, "atelier3", "Westtown", "Elegant Creations", 12000.0 },
-                    { 5, "atelier4", "Downtown", "Chic Styles", 6000.0 },
-                    { 6, "atelier7", "Uptown", "Vintage Touch", 8000.0 },
-                    { 7, "atelier5", "Downtown", "Modern Artistry", 2000.0 },
-                    { 8, "atelier1", "East End", "Exquisite Design", 3000.0 },
-                    { 9, "atelier5", "West End", "Timeless Beauty", 8000.0 },
-                    { 10, "atelier7", "Central Square", "Fashion Forward", 7000.0 }
+                    { 1, "atelier2.jpg", "Uptown", "Elite Atelier", 9000.0 },
+                    { 2, "atelier1.jpg", "Downtown", "Royal Designs", 5000.0 },
+                    { 3, "atelier5.jpg", "Easttown", "Glamorous Styles", 4000.0 },
+                    { 4, "atelier3.jpg", "Westtown", "Elegant Creations", 12000.0 },
+                    { 5, "atelier4.jpg", "Downtown", "Chic Styles", 6000.0 },
+                    { 6, "atelier7.jpg", "Uptown", "Vintage Touch", 8000.0 },
+                    { 7, "atelier5.jpg", "Downtown", "Modern Artistry", 2000.0 },
+                    { 8, "atelier1.jpg", "East End", "Exquisite Design", 3000.0 },
+                    { 9, "Atelier (3).jpeg", "West End", "Timeless Beauty", 8000.0 },
+                    { 10, "Atelier (19).jpeg", "Central Square", "Fashion Forward", 7000.0 },
+                    { 11, "Atelier (20).jpeg", "Central Square", "Style Studio", 1500.0 },
+                    { 12, "Atelier (21).jpeg", "Central Square", "Elegance Edge", 5500.0 },
+                    { 13, "Atelier (22).jpeg", "Central Square", "Vogue Venue", 2400.0 },
+                    { 14, "Atelier (23).jpeg", "Central Square", "Chic Charm", 8200.0 },
+                    { 15, "Atelier (24).jpeg", "Central Square", "Glamour Gate", 4300.0 },
+                    { 16, "Atelier (25).jpeg", "Central Square", "Runway Room", 4200.0 },
+                    { 17, "Atelier (26).jpeg", "Central Square", "Trendy Touch", 3500.0 },
+                    { 18, "Atelier (27).jpeg", "Central Square", "Haute Hub", 2900.0 },
+                    { 19, "Atelier (28).jpeg", "Central Square", "Modish Moments", 4400.0 },
+                    { 20, "Atelier (29).jpeg", "Central Square", "Catwalk Corner", 1100.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -458,16 +468,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Description", "ImageUrl", "Price", "Style" },
                 values: new object[,]
                 {
-                    { 1, "Timeless elegance with ornate details and rich colors.", "decor1", 5000, "Classic" },
-                    { 2, "Sleek lines and neutral tones for a chic, modern vibe.", "decor2", 7000, "Modern" },
-                    { 3, "Warm and cozy decor with natural wood and earthy tones.", "decor3", 4500, "Rustic" },
-                    { 4, "Retro charm with antique pieces and soft pastels.", "decor4", 5500, "Vintage" },
-                    { 5, "Urban-inspired look with metal accents and raw finishes.", "decor5", 6000, "Industrial" },
-                    { 6, "Free-spirited design with bold colors and eclectic elements.", "decor1", 4000, "Boho" },
-                    { 7, "Clean lines, simplicity, and clutter-free design.", "decor3", 6500, "Minimalist" },
-                    { 8, "Glamorous style with bold geometry and luxurious finishes.", "decor6", 7000, "Art Deco" },
-                    { 9, "High-end sparkle with crystal accents and rich fabrics.", "decor5", 8000, "Glam" },
-                    { 10, "Soft, feminine style with distressed furniture and florals.", "decor2", 4500, "Shabby Chic" }
+                    { 1, "Timeless elegance with ornate details and rich colors.", "decor1.jpg", 5000, "Classic" },
+                    { 2, "Sleek lines and neutral tones for a chic, modern vibe.", "decor2.jpg", 7000, "Modern" },
+                    { 3, "Warm and cozy decor with natural wood and earthy tones.", "decor3.jpg", 4500, "Rustic" },
+                    { 4, "Retro charm with antique pieces and soft pastels.", "decor4.jpg", 5500, "Vintage" },
+                    { 5, "Urban-inspired look with metal accents and raw finishes.", "decor5.jpg", 6000, "Industrial" },
+                    { 6, "Free-spirited design with bold colors and eclectic elements.", "decor1.jpg", 4000, "Boho" },
+                    { 7, "Clean lines, simplicity, and clutter-free design.", "decor3.jpg", 6500, "Minimalist" },
+                    { 8, "Glamorous style with bold geometry and luxurious finishes.", "decor6.jpg", 7000, "Art Deco" },
+                    { 9, "High-end sparkle with crystal accents and rich fabrics.", "decor5.jpg", 8000, "Glam" },
+                    { 10, "Soft, feminine style with distressed furniture and florals.", "decor2.jpg", 4500, "Shabby Chic" }
                 });
 
             migrationBuilder.InsertData(
@@ -475,16 +485,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Capacity", "ImageUrl", "Location", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, 500, "hall1", "Downtown", "Grand Hall", 10000.0 },
-                    { 2, 300, "hall2", "City Center", "Crystal Ballroom", 7500.0 },
-                    { 3, 200, "hall3", "Beachside", "Sunset Venue", 6000.0 },
-                    { 4, 400, "hall4", "Uptown", "Majestic Hall", 9000.0 },
-                    { 5, 350, "hall5", "Coastal Road", "Ocean View", 8500.0 },
-                    { 6, 600, "hall1", "High Tower", "Skyline Pavilion", 12000.0 },
-                    { 7, 250, "hall2", "Garden District", "Moonlight Hall", 7000.0 },
-                    { 8, 450, "hall3", "Palace Street", "Royal Suite", 11000.0 },
-                    { 9, 500, "hall4", "Central Park", "Elite Venue", 10500.0 },
-                    { 10, 700, "hall3", "Mountain View", "Luxury Retreat", 13000.0 }
+                    { 1, 500, "hall1.jpg", "Downtown", "Grand Hall", 10000.0 },
+                    { 2, 300, "hall2.jpg", "City Center", "Crystal Ballroom", 7500.0 },
+                    { 3, 200, "hall3.jpg", "Beachside", "Sunset Venue", 6000.0 },
+                    { 4, 400, "hall4.jpg", "Uptown", "Majestic Hall", 9000.0 },
+                    { 5, 350, "Hall (5).jpeg", "Coastal Road", "Ocean View", 8500.0 },
+                    { 6, 600, "hall1.jpg", "High Tower", "Skyline Pavilion", 12000.0 },
+                    { 7, 250, "hall2.jpg", "Garden District", "Moonlight Hall", 7000.0 },
+                    { 8, 450, "hall3.jpg", "Palace Street", "Royal Suite", 11000.0 },
+                    { 9, 500, "hall4.jpg", "Central Park", "Elite Venue", 10500.0 },
+                    { 10, 700, "hall3.jpg", "Mountain View", "Luxury Retreat", 13000.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -492,16 +502,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Elegant and long-lasting bridal look tailored for your special day.", "makeUp1", "Bridal Makeup", 1500 },
-                    { 2, "Bold, vibrant look perfect for parties and night-outs.", "makeUp2", "Party Glam", 800 },
-                    { 3, "Soft, minimal makeup enhancing your natural beauty.", "makeUp3", "Natural Look", 500 },
-                    { 4, "Sophisticated makeup style ideal for evening events.", "makeUp4", "Evening Elegance", 1000 },
-                    { 5, "Shiny, high-glam look with glowing highlights and contouring.", "makeUp5", "Glamour Shine", 1200 },
-                    { 6, "Colorful and creative look, perfect for festivals and themed events.", "makeUp6", "Festival Glam", 700 },
-                    { 7, "Radiant bridal makeup focused on glowing skin and soft tones.", "makeUp7", "Bridal Glow", 1600 },
-                    { 8, "Tailored makeup style for birthdays, graduations, and formal events.", "makeUp8", "Special Occasion", 1300 },
-                    { 9, "Inspired by red carpet celebrities with dramatic, flawless finish.", "makeUp9", "Celebrity Look", 2000 },
-                    { 10, "Effortless and neat makeup for a clean and graceful appearance.", "makeUp10", "Simple Elegance", 600 }
+                    { 1, "Elegant and long-lasting bridal look tailored for your special day.", "makeUp1.jpg", "Bridal Makeup", 1500 },
+                    { 2, "Bold, vibrant look perfect for parties and night-outs.", "makeUp2.jpg", "Party Glam", 800 },
+                    { 3, "Soft, minimal makeup enhancing your natural beauty.", "makeUp3.jpg", "Natural Look", 500 },
+                    { 4, "Sophisticated makeup style ideal for evening events.", "makeUp4.jpg", "Evening Elegance", 1000 },
+                    { 5, "Shiny, high-glam look with glowing highlights and contouring.", "makeUp5.jpg", "Glamour Shine", 1200 },
+                    { 6, "Colorful and creative look, perfect for festivals and themed events.", "makeUp6.jpg", "Festival Glam", 700 },
+                    { 7, "Radiant bridal makeup focused on glowing skin and soft tones.", "makeUp7.jpg", "Bridal Glow", 1600 },
+                    { 8, "Tailored makeup style for birthdays, graduations, and formal events.", "makeUp8.jpg", "Special Occasion", 1300 },
+                    { 9, "Inspired by red carpet celebrities with dramatic, flawless finish.", "MakeUp (9).jpeg", "Celebrity Look", 2000 },
+                    { 10, "Effortless and neat makeup for a clean and graceful appearance.", "MakeUp (10).jpeg", "Simple Elegance", 600 }
                 });
 
             migrationBuilder.InsertData(
@@ -509,16 +519,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Description", "Duration", "ImageUrl", "Location", "Name", "Price", "Type" },
                 values: new object[,]
                 {
-                    { 1, "Professional photo session for any occasion.", 2, "session1", null, null, 1000.0, "Photography" },
-                    { 2, "Capture every moment with cinematic quality.", 3, "session2", null, null, 1500.0, "Videography" },
-                    { 3, "Celebrate your engagement with a memorable shoot.", 4, "session3", null, null, 2000.0, "Engagement Shoot" },
-                    { 4, "Romantic photo session before your big day.", 5, "session4", null, null, 2500.0, "Pre-Wedding Shoot" },
-                    { 5, "Full-day photography service for weddings.", 6, "session5", null, null, 4000.0, "Wedding Photography" },
-                    { 6, "Capture the love and connection between you two.", 2, "session6", null, null, 1200.0, "Couple Shoot" },
-                    { 7, "Elegant portraits for the bride in her gown.", 3, "session7", null, null, 1800.0, "Bridal Portraits" },
-                    { 8, "High-end fashion shoot for models or brands.", 4, "session8", null, null, 2200.0, "Fashion Photography" },
-                    { 9, "Photography and videography coverage for events.", 5, "session9", null, null, 3000.0, "Event Coverage" },
-                    { 10, "Heartwarming family photography session.", 3, "session10", null, null, 1400.0, "Family Shoot" }
+                    { 1, "Professional photo session for any occasion.", 2, "session1.jpg", "Studio A", "Photography Session", 1000.0, "Photography" },
+                    { 2, "Capture every moment with cinematic quality.", 3, "session2.jpg", "Outdoor Locations", "Cinematic Videography", 1500.0, "Videography" },
+                    { 3, "Celebrate your engagement with a memorable shoot.", 4, "session3.jpg", "Romantic Spots", "Engagement Shoot", 2000.0, "Engagement Shoot" },
+                    { 4, "Romantic photo session before your big day.", 5, "session4.jpg", "Garden Venue", "Pre-Wedding Shoot", 2500.0, "Pre-Wedding Shoot" },
+                    { 5, "Full-day photography service for weddings.", 6, "session5.jpg", "Wedding Venue", "Wedding Photography", 4000.0, "Wedding Photography" },
+                    { 6, "Capture the love and connection between you two.", 2, "session6.jpg", "Scenic Outdoor Locations", "Couple's Love Shoot", 1200.0, "Couple Shoot" },
+                    { 7, "Elegant portraits for the bride in her gown.", 3, "session7.jpg", "Studio", "Bridal Portrait Session", 1800.0, "Bridal Portraits" },
+                    { 8, "High-end fashion shoot for models or brands.", 4, "session8.jpg", "Fashion Studio", "High Fashion Shoot", 2200.0, "Fashion Photography" },
+                    { 9, "Photography and videography coverage for events.", 5, "session9.jpg", "Event Venue", "Event Photography & Videography", 3000.0, "Event Coverage" },
+                    { 10, "Heartwarming family photography session.", 3, "session3.jpg", "Home or Outdoor", "Family Photography", 1400.0, "Family Shoot" }
                 });
 
             migrationBuilder.InsertData(
@@ -526,8 +536,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "2", "38c72125-e34e-452a-bb0f-ba4ac86344d4" },
-                    { "1", "dcea0d54-3df8-4fae-b476-6912e5516675" }
+                    { "1", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
+                    { "2", "4f06f11e-d387-4d4b-8d50-6f72589484ec" }
                 });
 
             migrationBuilder.InsertData(
@@ -542,11 +552,41 @@ namespace MVC_Projec2.Migrations
                     { 5, 2, "atelier5.jpg" },
                     { 6, 2, "atelier6.jpg" },
                     { 7, 3, "atelier7.jpg" },
-                    { 8, 3, "atelier8.jpg" },
-                    { 9, 3, "atelier9.jpg" },
-                    { 10, 4, "atelier10.jpg" },
+                    { 8, 3, "Atelier (1).jpeg" },
+                    { 9, 3, "Atelier (2).jpeg" },
+                    { 10, 4, "Atelier (3).jpeg" },
                     { 11, 4, "atelier1.jpg" },
-                    { 12, 4, "atelier8.jpg" }
+                    { 12, 4, "Atelier (20).jpeg" },
+                    { 13, 5, "Atelier (21).jpeg" },
+                    { 14, 5, "Atelier (22).jpeg" },
+                    { 15, 5, "Atelier (23).jpeg" },
+                    { 16, 6, "Atelier (24).jpeg" },
+                    { 17, 6, "Atelier (25).jpeg" },
+                    { 18, 6, "Atelier (26).jpeg" },
+                    { 19, 7, "Atelier (27).jpeg" },
+                    { 20, 7, "Atelier (28).jpeg" },
+                    { 21, 7, "Atelier (29).jpeg" },
+                    { 22, 7, "Atelier (4).jpeg" },
+                    { 23, 8, "Atelier (5).jpeg" },
+                    { 24, 8, "Atelier (6).jpeg" },
+                    { 25, 8, "Atelier (7).jpeg" },
+                    { 26, 9, "Atelier (8).jpeg" },
+                    { 27, 9, "Atelier (9).jpeg" },
+                    { 28, 9, "Atelier (10).jpeg" },
+                    { 29, 10, "Atelier (11).jpeg" },
+                    { 30, 10, "Atelier (12).jpeg" },
+                    { 31, 10, "Atelier (13).jpeg" },
+                    { 32, 11, "Atelier (14).jpeg" },
+                    { 33, 11, "Atelier (15).jpeg" },
+                    { 34, 11, "Atelier (16).jpeg" },
+                    { 35, 12, "Atelier (17).jpeg" },
+                    { 36, 12, "Atelier (18).jpeg" },
+                    { 37, 12, "Atelier (19).jpeg" },
+                    { 38, 13, "Atelier (1).jpeg" },
+                    { 39, 13, "Atelier (5).jpeg" },
+                    { 40, 13, "Atelier (9).jpeg" },
+                    { 41, 14, "Atelier (20).jpeg" },
+                    { 42, 14, "Atelier (15).jpeg" }
                 });
 
             migrationBuilder.InsertData(
@@ -554,16 +594,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(5965), 1, 2, 1, 2, "Confirmed", "dcea0d54-3df8-4fae-b476-6912e5516675" },
-                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "dcea0d54-3df8-4fae-b476-6912e5516675" },
-                    { 3, 3, new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6122), 1, 2, 1, 2, "Confirmed", "dcea0d54-3df8-4fae-b476-6912e5516675" },
-                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "dcea0d54-3df8-4fae-b476-6912e5516675" }
+                    { 1, 3, new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8594), 1, 2, 1, 2, "Confirmed", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
+                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
+                    { 3, 3, new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8741), 1, 2, 1, 2, "Confirmed", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
+                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6196), 0, 0, "dcea0d54-3df8-4fae-b476-6912e5516675" });
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8799), 0, 0, "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",
@@ -576,15 +616,15 @@ namespace MVC_Projec2.Migrations
                     { 4, 2, "decor4.jpg" },
                     { 5, 2, "decor5.jpg" },
                     { 6, 2, "decor6.jpg" },
-                    { 7, 3, "decor7.jpg" },
+                    { 7, 3, "decor2.jpg" },
                     { 8, 3, "decor3.jpg" },
                     { 9, 3, "decor4.jpg" },
                     { 10, 4, "decor1.jpg" },
-                    { 11, 4, "decor7.jpg" },
+                    { 11, 4, "decor2.jpg" },
                     { 12, 4, "decor5.jpg" },
                     { 13, 5, "decor2.jpg" },
                     { 14, 5, "decor3.jpg" },
-                    { 15, 5, "decor7.jpg" }
+                    { 15, 5, "decor4.jpg" }
                 });
 
             migrationBuilder.InsertData(
@@ -596,14 +636,14 @@ namespace MVC_Projec2.Migrations
                     { 2, 1, "hall2.jpg" },
                     { 3, 1, "hall3.jpg" },
                     { 4, 2, "hall4.jpg" },
-                    { 5, 2, "hall5.jpg" },
-                    { 6, 2, "hall6.jpg" },
-                    { 7, 3, "hall7.jpg" },
-                    { 8, 3, "hall8.jpg" },
-                    { 9, 3, "hall9.jpg" },
-                    { 10, 4, "hall10.jpg" },
-                    { 11, 4, "hall5.jpg" },
-                    { 12, 4, "hall3.jpg" }
+                    { 5, 2, "Hall (5).jpeg" },
+                    { 6, 2, "Hall (6).jpeg" },
+                    { 7, 3, "Hall (7).jpeg" },
+                    { 8, 3, "Hall (8).jpeg" },
+                    { 9, 3, "Hall (9).jpeg" },
+                    { 10, 4, "Hall (10).jpeg" },
+                    { 11, 4, "Hall (11).jpeg" },
+                    { 12, 4, "Hall (12).jpeg" }
                 });
 
             migrationBuilder.InsertData(
@@ -619,10 +659,10 @@ namespace MVC_Projec2.Migrations
                     { 6, "makeUp6.jpg", 2 },
                     { 7, "makeUp7.jpg", 3 },
                     { 8, "makeUp8.jpg", 3 },
-                    { 9, "makeUp9.jpg", 3 },
-                    { 10, "makeUp10.jpg", 4 },
-                    { 11, "makeUp2.jpg", 4 },
-                    { 12, "makeUp7.jpg", 4 }
+                    { 9, "MakeUp (1).jpeg", 3 },
+                    { 10, "MakeUp (2).jpeg", 4 },
+                    { 11, "MakeUp (3).jpeg", 4 },
+                    { 12, "MakeUp (4).jpeg", 4 }
                 });
 
             migrationBuilder.InsertData(
@@ -639,8 +679,8 @@ namespace MVC_Projec2.Migrations
                     { 7, "session7.jpg", 3 },
                     { 8, "session8.jpg", 3 },
                     { 9, "session9.jpg", 3 },
-                    { 10, "session10.jpg", 4 },
-                    { 11, "session1.jpg", 4 },
+                    { 10, "session1.jpg", 4 },
+                    { 11, "session8.jpg", 4 },
                     { 12, "session4.jpg", 4 },
                     { 13, "session2.jpg", 5 },
                     { 14, "session7.jpg", 5 },

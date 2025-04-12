@@ -455,16 +455,16 @@ namespace MVC_Projec2.Models
                 );
 
             modelBuilder.Entity<Session>().HasData(
-                 new Session { Id = 1, Type = "Photography", Duration = 2, Price = 1000, Description = "Professional photo session for any occasion.", ImageUrl = "session1.jpg" },
-                 new Session { Id = 2, Type = "Videography", Duration = 3, Price = 1500, Description = "Capture every moment with cinematic quality.", ImageUrl = "session2.jpg" },
-                 new Session { Id = 3, Type = "Engagement Shoot", Duration = 4, Price = 2000, Description = "Celebrate your engagement with a memorable shoot.", ImageUrl = "session3.jpg" },
-                 new Session { Id = 4, Type = "Pre-Wedding Shoot", Duration = 5, Price = 2500, Description = "Romantic photo session before your big day.", ImageUrl = "session4.jpg" },
-                 new Session { Id = 5, Type = "Wedding Photography", Duration = 6, Price = 4000, Description = "Full-day photography service for weddings.", ImageUrl = "session5.jpg" },
-                 new Session { Id = 6, Type = "Couple Shoot", Duration = 2, Price = 1200, Description = "Capture the love and connection between you two.", ImageUrl = "session6.jpg" },
-                 new Session { Id = 7, Type = "Bridal Portraits", Duration = 3, Price = 1800, Description = "Elegant portraits for the bride in her gown.", ImageUrl = "session7.jpg" },
-                 new Session { Id = 8, Type = "Fashion Photography", Duration = 4, Price = 2200, Description = "High-end fashion shoot for models or brands.", ImageUrl = "session8.jpg" },
-                 new Session { Id = 9, Type = "Event Coverage", Duration = 5, Price = 3000, Description = "Photography and videography coverage for events.", ImageUrl = "session9.jpg" },
-                 new Session { Id = 10, Type = "Family Shoot", Duration = 3, Price = 1400, Description = "Heartwarming family photography session.", ImageUrl = "session3.jpg" }
+                new Session { Id = 1, Name = "Photography Session", Location = "Studio A", Type = "Photography", Duration = 2, Price = 1000, Description = "Professional photo session for any occasion.", ImageUrl = "session1.jpg" },
+                new Session { Id = 2, Name = "Cinematic Videography", Location = "Outdoor Locations", Type = "Videography", Duration = 3, Price = 1500, Description = "Capture every moment with cinematic quality.", ImageUrl = "session2.jpg" },
+                new Session { Id = 3, Name = "Engagement Shoot", Location = "Romantic Spots", Type = "Engagement Shoot", Duration = 4, Price = 2000, Description = "Celebrate your engagement with a memorable shoot.", ImageUrl = "session3.jpg" },
+                new Session { Id = 4, Name = "Pre-Wedding Shoot", Location = "Garden Venue", Type = "Pre-Wedding Shoot", Duration = 5, Price = 2500, Description = "Romantic photo session before your big day.", ImageUrl = "session4.jpg" },
+                new Session { Id = 5, Name = "Wedding Photography", Location = "Wedding Venue", Type = "Wedding Photography", Duration = 6, Price = 4000, Description = "Full-day photography service for weddings.", ImageUrl = "session5.jpg" },
+                new Session { Id = 6, Name = "Couple's Love Shoot", Location = "Scenic Outdoor Locations", Type = "Couple Shoot", Duration = 2, Price = 1200, Description = "Capture the love and connection between you two.", ImageUrl = "session6.jpg" },
+                new Session { Id = 7, Name = "Bridal Portrait Session", Location = "Studio", Type = "Bridal Portraits", Duration = 3, Price = 1800, Description = "Elegant portraits for the bride in her gown.", ImageUrl = "session7.jpg" },
+                new Session { Id = 8, Name = "High Fashion Shoot", Location = "Fashion Studio", Type = "Fashion Photography", Duration = 4, Price = 2200, Description = "High-end fashion shoot for models or brands.", ImageUrl = "session8.jpg" },
+                new Session { Id = 9, Name = "Event Photography & Videography", Location = "Event Venue", Type = "Event Coverage", Duration = 5, Price = 3000, Description = "Photography and videography coverage for events.", ImageUrl = "session9.jpg" },
+                new Session { Id = 10, Name = "Family Photography", Location = "Home or Outdoor", Type = "Family Shoot", Duration = 3, Price = 1400, Description = "Heartwarming family photography session.", ImageUrl = "session3.jpg" }
             );
 
             modelBuilder.Entity<SessionImages>().HasData(

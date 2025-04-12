@@ -1,4 +1,5 @@
-﻿using MVC_Projec2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
 
 namespace MVC_Projec2.Repository
 {
@@ -17,13 +18,28 @@ namespace MVC_Projec2.Repository
 
         public List<Booking> GetAll()
         {
-            return _context.Bookings.ToList();
+            return _context.Bookings
+                  .Include(b => b.Hall)
+                  .Include(b => b.Session)
+                  .Include(b => b.Atelier)
+                  .Include(b => b.MakeUp)
+                  .Include(b => b.Decor)
+                  .AsNoTracking()
+                  .ToList();
         }
 
         public Booking GetById(int id)
         {
-            return _context.Bookings.Where(a => a.Id == id).FirstOrDefault();
+            return _context.Bookings
+                           .Include(b => b.Hall)
+                           .Include(b => b.Session)
+                           .Include(b => b.Decor)
+                           .Include(b => b.Atelier)
+                           .Include(b => b.MakeUp)
+                           .Include(b => b.user) 
+                           .FirstOrDefault(b => b.Id == id);
         }
+
 
         public void insert(Booking obj)
         {
