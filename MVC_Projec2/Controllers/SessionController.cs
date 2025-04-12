@@ -149,7 +149,7 @@ namespace MVC_Projec2.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
-            var session = _sessionRepository.GetById(id);
+            var session = _sessionRepository.GetByIdWithImages(id);
             if (session == null)
             {
                 return NotFound();

@@ -158,7 +158,7 @@ namespace MVC_Projec2.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
-            var makeUp = _makeUpRepository.GetById(id);
+            var makeUp = _makeUpRepository.GetByIdWithImages(id);
             if (makeUp == null)
             {
                 return NotFound();

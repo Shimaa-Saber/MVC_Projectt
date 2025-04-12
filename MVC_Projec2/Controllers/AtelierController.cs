@@ -158,7 +158,7 @@ namespace MVC_Projec2.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Edit(int id)
         {
-            Atelier atelier = atelierRepository.GetById(id);
+            Atelier atelier = atelierRepository.GetByIdWithImages(id);
             if (atelier == null)
             {
                 return NotFound();

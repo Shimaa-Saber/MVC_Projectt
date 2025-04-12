@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Projec2.ViewModels
 {
-    public class EditDecorViewMode
+    public class EditDecorViewModel
     {
         public int Id { get; set; }
 

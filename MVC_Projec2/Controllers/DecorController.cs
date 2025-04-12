@@ -156,7 +156,7 @@ namespace MVC_Projec2.Controllers
                 return NotFound();
             }
 
-            var viewModel = new EditDecorViewMode
+            var viewModel = new EditDecorViewModel
             {
                 Images=decor.Images,
                 Style = decor.Style,
@@ -170,7 +170,7 @@ namespace MVC_Projec2.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult SaveEdit(EditDecorViewMode model)
+        public IActionResult SaveEdit(EditDecorViewModel model)
         {
             if (!ModelState.IsValid)
             {

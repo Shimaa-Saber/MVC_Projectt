@@ -161,13 +161,13 @@ namespace MVC_Projec2.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Edit(int id)
         {
-            Hall hall = hallRepository.GetById(id);
+            Hall hall = hallRepository.GetByIdWithImages(id);
             if (hall == null)
             {
                 return NotFound();
             }
 
-            EditHallViewModel viewModel = new EditHallViewModel
+            var viewModel = new EditHallViewModel
             {
                 Images= hall.Images,
                 Name = hall.Name,
