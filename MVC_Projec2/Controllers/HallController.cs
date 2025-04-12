@@ -141,13 +141,13 @@ namespace MVC_Projec2.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public async Task<IActionResult> SaveAdd(AddHallViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             try
             {
@@ -175,7 +175,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding hall");
                 ModelState.AddModelError("", "An error occurred while adding the hall.");
-                return View(model);
+                return View("Add",model);
             }
         }
 

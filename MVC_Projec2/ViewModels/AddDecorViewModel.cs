@@ -14,8 +14,8 @@ namespace MVC_Projec2.ViewModels
 
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "At least one image is required")]
-        [MinLength(1, ErrorMessage = "At least one image is required")]
+        //[Required(ErrorMessage = "At least one image is required")]
+        //[MinLength(1, ErrorMessage = "At least one image is required")]
         [AllowedExtensions(new[] { ".jpg", ".jpeg", ".png" })]
        
         public List<IFormFile> ImageFiles { get; set; } = new();

@@ -176,7 +176,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding atalier");
                 ModelState.AddModelError("", "An error occurred while adding the atalier.");
-                return View(model);
+                return View("Add",model);
             }
         }
 

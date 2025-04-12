@@ -152,7 +152,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding MakeUp");
                 ModelState.AddModelError("", "Error creating MakeUp. Please check the image format (JPG/PNG only)");
-                return View(model);
+                return View("Add", model);
             }
         }
 

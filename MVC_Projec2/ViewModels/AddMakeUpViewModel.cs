@@ -16,9 +16,9 @@ namespace MVC_Projec2.ViewModels
 
 
         [Display(Name = "Hall Images")]
-        [Required(ErrorMessage = "At least one image is required")]
-        [MinLength(1, ErrorMessage = "At least one image is required")]
-        [MaxLength(5, ErrorMessage = "Maximum 5 images allowed")]
+        //[Required(ErrorMessage = "At least one image is required")]
+        //[MinLength(1, ErrorMessage = "At least one image is required")]
+        //[MaxLength(5, ErrorMessage = "Maximum 5 images allowed")]
         [AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png" })]
 
         public List<IFormFile> ImageFiles { get; set; } = new List<IFormFile>();

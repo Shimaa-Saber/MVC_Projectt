@@ -144,7 +144,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding decor item");
                 ModelState.AddModelError("", "Error creating decor. Please check image formats (JPG/PNG only)");
-                return View(model);
+                return View("Add",model);
             }
         }
 

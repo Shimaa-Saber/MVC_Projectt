@@ -143,7 +143,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding session");
                 ModelState.AddModelError("", "Error creating session. Please check the image format (JPG/PNG only)");
-                return View(model);
+                return View("Add", model);
             }
         }
 
