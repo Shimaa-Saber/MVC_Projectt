@@ -22,8 +22,8 @@
                     {
                         var isActive = i == 0 ? "active" : "";
                         <div class="carousel-item @isActive" id="div1">
-                            <p>@Model.makeUp.Images[i].ImageUrl</p>
-                            <img src="~/images/@Model.makeUp.Images[i].ImageUrl" id="cr" />
+@*                             <p>@Model.makeUp.Images[i].ImageUrl</p>
+ *@                            <img src="~/images/@Model.makeUp.Images[i].ImageUrl" id="cr" />
                         </div>
                     }
 
@@ -106,7 +106,7 @@
 <script src="/js/bootstrap.bundle.min.js"></script>
 
 
-<input type="hidden" id="hallId" value="@Model.makeUp.Id" />
+<input type="hidden" id="makeUpId" value="@Model.makeUp.Id" />
 <input type="hidden" id="userName" value="@User.Identity.Name" />
 <input type="hidden" id="serviceType" value="Hall" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
