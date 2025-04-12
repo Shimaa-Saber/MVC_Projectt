@@ -214,8 +214,8 @@ namespace MVC_Projec2.Models
             );
 
      modelBuilder.Entity<MakeUp_Service>().HasData(
-     new MakeUp_Service { Id = 1, Name = "Bridal Makeup", Price = 1500, Desc = "Flawless makeup designed to enhance the bride's natural beauty for her special day." },
-     new MakeUp_Service { Id = 2, Name = "Party Glam", Price = 800, Desc = "Bold and glamorous makeup for parties and social events." },
+     new MakeUp_Service { Id = 1, Name = "Bridal Makeup", Price = 1500, Desc = "Flawless makeup designed to enhance the bride's natural beauty for her special day." ,},
+     new MakeUp_Service { Id = 2, Name = "Party Glam", Price = 800, Desc = "Bold and glamorous makeup for parties and social events." ,ImageUrl= "makeUp1.jpg" },
      new MakeUp_Service { Id = 3, Name = "Natural Look", Price = 500, Desc = "A subtle and fresh makeup style for everyday wear." },
      new MakeUp_Service { Id = 4, Name = "Evening Elegance", Price = 1000, Desc = "Sophisticated makeup perfect for evening events and dinners." },
      new MakeUp_Service { Id = 5, Name = "Glamour Shine", Price = 1200, Desc = "Shimmery and radiant makeup for a glamorous, standout look." },

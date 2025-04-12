@@ -11,7 +11,7 @@
 <div class="container-fluid px-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="mt-4">Halls Management</h1>
-        <a asp-action="Create" class="btn btn-info">
+        <a asp-controller="Hall" asp-action="Add" class="btn btn-info">
             <i class="fas fa-plus"></i> Add New Hall
         </a>
     </div>
@@ -65,13 +65,13 @@
                                
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                        <a asp-controller="Hall" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
+                                        <a asp-controller="Hall" asp-action="HallDetails" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">
+                                        <a asp-controller="Hall" asp-action="DeleteHall" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>

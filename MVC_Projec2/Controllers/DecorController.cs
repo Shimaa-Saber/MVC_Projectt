@@ -204,7 +204,7 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             try
@@ -230,13 +230,13 @@ namespace MVC_Projec2.Controllers
                 _decorRepository.Save();
 
                 TempData["SuccessMessage"] = "Decor and all its images were deleted!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllDecors","Dashboard");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error deleting decor ID {DecorId}", id);
                 TempData["ErrorMessage"] = "Error deleting decor. It may have associated bookings.";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllDecors", "Dashboard");
             }
         }
 
