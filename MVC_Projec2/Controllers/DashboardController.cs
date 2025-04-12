@@ -20,6 +20,8 @@ namespace MVC_Projec2.Controllers
         private readonly IMakeUpRepository _makeUpRepository;
         private readonly ISessionRepository _sessionRepository;
         private readonly IBookingReposirtory _bookingRepo;
+        private readonly IAtelierRepository _atelierRepository;
+
 
 
         public DashboardController(MVCProjectContext context, ILogger<DashboardController> logger,
@@ -28,7 +30,8 @@ namespace MVC_Projec2.Controllers
             IDecorRepository decorRepository,
             IMakeUpRepository makeUpRepository, 
             ISessionRepository sessionRepository,
-            IBookingReposirtory bookingRepo
+            IBookingReposirtory bookingRepo,
+            IAtelierRepository atelierRepository
             )
         {
             _context = context;
@@ -39,7 +42,7 @@ namespace MVC_Projec2.Controllers
             _makeUpRepository = makeUpRepository;
             _sessionRepository = sessionRepository;
             _bookingRepo = bookingRepo;
-
+            _atelierRepository = atelierRepository;
 
         }
 
@@ -55,6 +58,7 @@ namespace MVC_Projec2.Controllers
                     TotalAteliers = GetTotalAteliers(),
                     TotalMakeUpServices = GetTotalMakeUpServices(),
                     TotalBookings = GetTotalBookings(),
+                    TotalDecores = GetTotalDecors(),
                     //Revenue = GetTotalRevenue(),
                     MostBookedVenue = GetMostBookedVenue(),
                     RecentBookings = GetRecentBookings(5)
@@ -80,6 +84,11 @@ namespace MVC_Projec2.Controllers
             return _context.Halls.Count();
         }
 
+        private int GetTotalDecors()
+        {
+            return _context.Decors.Count();
+        }
+
         private int GetTotalSessions()
         {
             return _context.Sessions.Count();
@@ -94,6 +103,7 @@ namespace MVC_Projec2.Controllers
         {
             return _context.Ateliers.Count();
         }
+
         public async Task<IActionResult> AssignedToAdmin(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -112,9 +122,6 @@ namespace MVC_Projec2.Controllers
             TempData["ErrorMessage"] = $"Failed to Assign {user.UserName}";
             return RedirectToAction("UserManagement");
         }
-
-
-
 
         public async Task<IActionResult> UserManagement()
         {
@@ -136,13 +143,10 @@ namespace MVC_Projec2.Controllers
             return View(userRoles);
         }
 
-
         private int GetTotalBookings()
         {
             return _context.Bookings.Count();
         }
-
-       
 
         private string GetMostBookedVenue()
         {
@@ -214,6 +218,20 @@ namespace MVC_Projec2.Controllers
             }
         }
 
+        public IActionResult GetAllAteliers()
+        {
+            try
+            {
+                var atelierList = _atelierRepository.GetAll();
+                return View("GetAllAteliers", atelierList);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving atelier items");
+                return View(new List<Session>());
+            }
+        }
+
 
         //[Authorize(Roles = "Admin")]
         public IActionResult ManageBookings()
@@ -260,25 +278,6 @@ namespace MVC_Projec2.Controllers
             TempData["Message"] = $"Booking #{id} status updated to {status}";
             return RedirectToAction("ManageBookings");
         }
-
-
-
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

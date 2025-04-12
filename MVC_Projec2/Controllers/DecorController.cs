@@ -30,7 +30,7 @@ namespace MVC_Projec2.Controllers
         {
             try
             {
-                return View(_decorRepository.GetByIdWithImages);
+                return View(_decorRepository.GetAll);
             }
             catch (Exception ex)
             {
@@ -103,7 +103,6 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-
         [Authorize(Roles = "Admin")]
         public IActionResult AddDecor()
         {
@@ -159,11 +158,12 @@ namespace MVC_Projec2.Controllers
 
             var viewModel = new EditDecorViewMode
             {
-                Id = decor.Id,
+                Images=decor.Images,
                 Style = decor.Style,
                 Price = decor.Price,
                 Description = decor.Description,
-                
+                CurrentImageUrl= decor.ImageUrl,
+
             };
 
             return View(viewModel);
@@ -189,6 +189,7 @@ namespace MVC_Projec2.Controllers
                 decor.Style = model.Style;
                 decor.Price = model.Price;
                 decor.Description = model.Description;
+                decor.ImageUrl = model.CurrentImageUrl;
 
                 _decorRepository.Update(decor);
                 _decorRepository.Save();

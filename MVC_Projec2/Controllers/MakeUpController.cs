@@ -31,7 +31,7 @@ namespace MVC_Projec2.Controllers
         {
             try
             {
-                return View(_makeUpRepository.GetAllWithImages());
+                return View(_makeUpRepository.GetAll());
             }
             catch (Exception ex)
             {
@@ -166,7 +166,7 @@ namespace MVC_Projec2.Controllers
 
             var viewModel = new EditMakeUpViewModel
             {
-                Id = makeUp.Id,
+                Images = makeUp.Images,
                 Name = makeUp.Name,
                 Price = makeUp.Price,
                 ImageUrl = makeUp.ImageUrl,

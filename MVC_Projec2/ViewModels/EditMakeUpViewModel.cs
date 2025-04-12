@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MVC_Projec2.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Projec2.ViewModels
 {
@@ -21,5 +22,7 @@ namespace MVC_Projec2.ViewModels
 
         [Required(ErrorMessage = "Session image is required")]
         public IFormFile ImageFile { get; set; }
+        public List<MakeUpImages> Images { get; set; } = new List<MakeUpImages>();
+
     }
 }

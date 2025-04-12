@@ -75,11 +75,13 @@ namespace MVC_Projec2
             app.MapHub<CommentHub>("/commentHub");
 
 
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
-           await app.RunAsync();
+                pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+            await app.RunAsync();
         }
     }
 }

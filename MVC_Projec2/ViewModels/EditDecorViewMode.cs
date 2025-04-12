@@ -1,4 +1,5 @@
 ﻿using MVC_Projec2.Custom_Validation;
+using MVC_Projec2.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Projec2.ViewModels
@@ -21,5 +22,7 @@ namespace MVC_Projec2.ViewModels
         [AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png" })]
        
         public IFormFile NewImageFile { get; set; }
+        public List<DecoreImage> Images { get; set; } = new List<DecoreImage>();
+
     }
 }

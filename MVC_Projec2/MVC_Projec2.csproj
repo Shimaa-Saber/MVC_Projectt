@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Decor\" />
+    <Folder Include="Views\MakeUp\" />
+    <Folder Include="Views\Session\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

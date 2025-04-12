@@ -29,12 +29,13 @@ namespace MVC_Projec2.Controllers
 
         public IActionResult GetAll()
         {
-            return View(hallRepository.GetAllWithImages());
+            return View(hallRepository.GetAll());
         }
 
         public IActionResult HallDetails(int id)
         {
             Hall hall = hallRepository.GetByIdWithImages(id);
+            List<HallImage> lst= hall.Images;
             if (hall == null)
             {
                 return NotFound();
@@ -168,11 +169,12 @@ namespace MVC_Projec2.Controllers
 
             EditHallViewModel viewModel = new EditHallViewModel
             {
-                Id = hall.Id,
+                Images= hall.Images,
                 Name = hall.Name,
                 Capacity = hall.Capacity,
                 Location = hall.Location,
                 Price = (double)hall.Price,
+                
             };
 
             return View(viewModel);

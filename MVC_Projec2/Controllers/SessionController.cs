@@ -30,7 +30,7 @@ namespace MVC_Projec2.Controllers
         {
             try
             {
-                return View(_sessionRepository.GetAllWithImages());
+                return View(_sessionRepository.GetAll());
             }
             catch (Exception ex)
             {
@@ -157,7 +157,7 @@ namespace MVC_Projec2.Controllers
 
             var viewModel = new EditSessionViewModel
             {
-                Id = session.Id,
+                Images= session.Images,
                 Type = session.Type,
                 Duration = session.Duration
             };

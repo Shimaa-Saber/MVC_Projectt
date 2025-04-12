@@ -44,18 +44,45 @@
             padding: 20px;
         }
     </style>
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <div class="sidebar">
         <h4 class="mb-4">Dashboard</h4>
-        <a href="/Dashboard/Index"><i class="fas fa-chart-line"></i> Dashboard</a>
-        <a href="/Sessions/Index"><i class="fas fa-clock"></i> Sessions</a>
-        <a href="/Halls/Index"><i class="fas fa-building"></i> Halls</a>
-        <a href="/Makeup/Index"><i class="fas fa-magic"></i> Makeup</a>
-        <a href="/Atelier/Index"><i class="fas fa-store"></i> Atelier</a>
+
+        <a href="/Dashboard/Index">
+            <i class="fas fa-chart-line"></i> Dashboard
+        </a>
+
+        <a href="/Dashboard/ManageBookings">
+            <i class="fas fa-calendar-alt"></i> Manage Bookings
+        </a>
+
+        <a href="/Dashboard/UserManagement">
+            <i class="fas fa-user-friends"></i> User Management
+        </a>
+
+        <a href="/Dashboard/GetAllSessions">
+            <i class="fas fa-camera-retro"></i> Sessions
+        </a>
+
+        <a href="/Dashboard/GetAll">
+            <i class="fas fa-church"></i> Halls
+        </a>
+
+        <a href="/Dashboard/GetAllMackeups">
+            <i class="fas fa-air-freshener"></i> Makeup
+        </a>
+
+        <a href="/Dashboard/GetAllAteliers">
+            <i class="fas fa-female"></i> Ateliers
+        </a>
     </div>
+
     <div class="main-content">
         @RenderBody()
     </div>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
