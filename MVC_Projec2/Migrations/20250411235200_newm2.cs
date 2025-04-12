@@ -8,11 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
     public partial class newm2 : Migration
-========
-    public partial class init : Migration
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -65,15 +61,9 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     priceRange = table.Column<double>(type: "float", nullable: true)
-========
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    priceRange = table.Column<double>(type: "float", nullable: true),
-                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true)
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 },
                 constraints: table =>
                 {
@@ -87,10 +77,7 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Style = table.Column<string>(type: "nvarchar(max)", nullable: false),
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-========
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                     Price = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -108,12 +95,8 @@ namespace MVC_Projec2.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Capacity = table.Column<int>(type: "int", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     Price = table.Column<double>(type: "float", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
-========
-                    Price = table.Column<double>(type: "float", nullable: true)
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 },
                 constraints: table =>
                 {
@@ -128,13 +111,8 @@ namespace MVC_Projec2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
-========
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Desc = table.Column<string>(type: "nvarchar(max)", nullable: true)
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 },
                 constraints: table =>
                 {
@@ -149,19 +127,11 @@ namespace MVC_Projec2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
-========
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<double>(type: "float", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    desc = table.Column<string>(type: "nvarchar(max)", nullable: true)
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 },
                 constraints: table =>
                 {
@@ -364,23 +334,14 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     MakeUp_ServiceId = table.Column<int>(type: "int", nullable: false)
-========
-                    MakeUpId = table.Column<int>(type: "int", nullable: false)
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MakeUpImages", x => x.Id);
                     table.ForeignKey(
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                         name: "FK_MakeUpImages_MakeUpServices_MakeUp_ServiceId",
                         column: x => x.MakeUp_ServiceId,
-========
-                        name: "FK_MakeUpImages_MakeUpServices_MakeUpId",
-                        column: x => x.MakeUpId,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                         principalTable: "MakeUpServices",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -471,18 +432,12 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
-                    { "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5", 0, "d4b484af-d984-4ed0-89dd-935bca0ccf80", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKJ57ECCM+XZV0yqYa6y9Uo1v1IeLvqz5mYh9L58dn76T0pQQQ+QNIfYIK+rfM6VqA==", "0123456789", true, "c6547c26-c110-43fc-aa7c-3d3f1601fef1", false, "admin@example.com" },
-                    { "ef236cc0-ee5a-4681-af7a-7ce1c5065db5", 0, "9dd9741f-52cb-4d82-9488-1f9cb434e2c5", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEPSAqHGNI20fRnXmq9xdCWKE+1FE4DHhEfX6UqR/yWoZMUJbOURv4xhNyp5rPs76OA==", "9876543210", true, "0336f93d-fa0e-4fb3-8e98-51d2a608b1e2", false, "user@example.com" }
-========
-                    { "82074630-fe2b-4689-8c51-ab5a48732036", 0, "1ffd82fc-a946-4297-8b29-50d1833d5295", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAENKv1sPw/2QZ9PHQKszrg1L5haAAHBs3YyobTNkt1rZ3yYna3g2vNu8GGL+PcHez2g==", "0123456789", true, "4eb97bb1-e94a-46ca-8ee6-af9d3a3cf9d9", false, "admin@example.com" },
-                    { "b20c409c-e1ff-4b34-b7af-477e4a443768", 0, "9f110e21-614e-4c06-a284-bcdb9cabed38", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEGsC29wLucp811HTH8EeL02OcaZDgAUKqVc7q07KJG8SMUPq839R2t4i3y2jOOv8zw==", "9876543210", true, "a0c4c242-b81b-4798-aa95-d37c1181a014", false, "user@example.com" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
+                    { "5e874efa-183d-401a-8c5a-022015c455b3", 0, "98f0011e-460a-46a6-8980-971ac9f9e403", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEIjPWS33UVnWipxUdVMNP6F19drNPgi1eY8x7T4n1x1bbhhyHLmoBWIrAJAdg1LeNQ==", "0123456789", true, "0240fead-9644-482f-a19c-8cc6fc88e866", false, "admin@example.com" },
+                    { "c1218f34-5729-4831-bd12-88bf2e810d96", 0, "d9aa8688-f927-4ec8-9f9d-a6342e53b373", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEEBrbuCxSQINinDsXTB45brtlosdEKL0+G+GJ2GNw0XQCIcHZAhfh0GE1sYIEBWiaQ==", "9876543210", true, "87796a7a-23b0-4ea8-bc0b-40bc958969cd", false, "user@example.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Ateliers",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 columns: new[] { "Id", "ImageUrl", "Location", "Name", "priceRange" },
                 values: new object[,]
                 {
@@ -496,26 +451,10 @@ namespace MVC_Projec2.Migrations
                     { 8, "atelier1", "East End", "Exquisite Design", 3000.0 },
                     { 9, "atelier5", "West End", "Timeless Beauty", 8000.0 },
                     { 10, "atelier7", "Central Square", "Fashion Forward", 7000.0 }
-========
-                columns: new[] { "Id", "ImageURL", "Location", "Name", "priceRange" },
-                values: new object[,]
-                {
-                    { 1, null, "Downtown", "Elite Atelier", 5000.0 },
-                    { 2, null, "Uptown", "Royal Designs", 3000.0 },
-                    { 3, null, "City Center", "Glamorous Styles", 5000.0 },
-                    { 4, null, "Suburb", "Elegant Creations", 3000.0 },
-                    { 5, null, "North Park", "Chic Styles", 1500.0 },
-                    { 6, null, "South Side", "Vintage Touch", 2500.0 },
-                    { 7, null, "Midtown", "Modern Artistry", 5000.0 },
-                    { 8, null, "East End", "Exquisite Design", 2500.0 },
-                    { 9, null, "West End", "Timeless Beauty", 5000.0 },
-                    { 10, null, "Central Square", "Fashion Forward", 1500.0 }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
                 table: "Decors",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 columns: new[] { "Id", "Description", "ImageUrl", "Price", "Style" },
                 values: new object[,]
                 {
@@ -529,26 +468,10 @@ namespace MVC_Projec2.Migrations
                     { 8, "Glamorous style with bold geometry and luxurious finishes.", "decor6", 7000, "Art Deco" },
                     { 9, "High-end sparkle with crystal accents and rich fabrics.", "decor5", 8000, "Glam" },
                     { 10, "Soft, feminine style with distressed furniture and florals.", "decor2", 4500, "Shabby Chic" }
-========
-                columns: new[] { "Id", "Description", "Price", "Style" },
-                values: new object[,]
-                {
-                    { 1, "Timeless decor with elegant and traditional designs, perfect for a sophisticated atmosphere.", 5000, "Classic" },
-                    { 2, "Sleek and contemporary design with clean lines and minimalistic features.", 7000, "Modern" },
-                    { 3, "Natural and earthy designs featuring wood, stone, and vintage elements for a cozy feel.", 4500, "Rustic" },
-                    { 4, "Retro-inspired decor with nostalgic and old-world charm, ideal for classic settings.", 5500, "Vintage" },
-                    { 5, "Rough and raw designs with exposed metals, bricks, and unfinished elements.", 6000, "Industrial" },
-                    { 6, "Bohemian style with vibrant colors, eclectic patterns, and artistic, free-spirited elements.", 4000, "Boho" },
-                    { 7, "Simplicity at its finest, focusing on clean spaces and functional, uncluttered designs.", 6500, "Minimalist" },
-                    { 8, "Luxurious and glamorous style featuring bold geometric patterns and rich colors.", 7000, "Art Deco" },
-                    { 9, "High-end and dazzling decor with rich textures, metallic accents, and sophisticated lighting.", 8000, "Glam" },
-                    { 10, "A charming, weathered look with soft pastel colors, distressed furniture, and vintage accessories.", 4500, "Shabby Chic" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
                 table: "Halls",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 columns: new[] { "Id", "Capacity", "ImageUrl", "Location", "Name", "Price" },
                 values: new object[,]
                 {
@@ -562,26 +485,10 @@ namespace MVC_Projec2.Migrations
                     { 8, 450, "hall3", "Palace Street", "Royal Suite", 11000.0 },
                     { 9, 500, "hall4", "Central Park", "Elite Venue", 10500.0 },
                     { 10, 700, "hall3", "Mountain View", "Luxury Retreat", 13000.0 }
-========
-                columns: new[] { "Id", "Capacity", "Location", "Name", "Price" },
-                values: new object[,]
-                {
-                    { 1, 500, "Cairo", "Grand Hall", 10000.0 },
-                    { 2, 300, "Alexandria", "Crystal Ballroom", 8000.0 },
-                    { 3, 200, "Sharm El Sheikh", "Sunset Venue", 5000.0 },
-                    { 4, 400, "Giza", "Majestic Hall", 9000.0 },
-                    { 5, 350, "Hurghada", "Ocean View", 7500.0 },
-                    { 6, 600, "New Cairo", "Skyline Pavilion", 12000.0 },
-                    { 7, 250, "Tanta", "Moonlight Hall", 6000.0 },
-                    { 8, 450, "Mansoura", "Royal Suite", 11000.0 },
-                    { 9, 500, "Port Said", "Elite Venue", 10500.0 },
-                    { 10, 700, "Luxor", "Luxury Retreat", 15000.0 }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
                 table: "MakeUpServices",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 columns: new[] { "Id", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
@@ -595,26 +502,10 @@ namespace MVC_Projec2.Migrations
                     { 8, "Tailored makeup style for birthdays, graduations, and formal events.", "makeUp8", "Special Occasion", 1300 },
                     { 9, "Inspired by red carpet celebrities with dramatic, flawless finish.", "makeUp9", "Celebrity Look", 2000 },
                     { 10, "Effortless and neat makeup for a clean and graceful appearance.", "makeUp10", "Simple Elegance", 600 }
-========
-                columns: new[] { "Id", "Desc", "ImageUrl", "Name", "Price" },
-                values: new object[,]
-                {
-                    { 1, "Flawless makeup designed to enhance the bride's natural beauty for her special day.", null, "Bridal Makeup", 1500 },
-                    { 2, "Bold and glamorous makeup for parties and social events.", null, "Party Glam", 800 },
-                    { 3, "A subtle and fresh makeup style for everyday wear.", null, "Natural Look", 500 },
-                    { 4, "Sophisticated makeup perfect for evening events and dinners.", null, "Evening Elegance", 1000 },
-                    { 5, "Shimmery and radiant makeup for a glamorous, standout look.", null, "Glamour Shine", 1200 },
-                    { 6, "Vibrant and creative makeup for festivals and fun events.", null, "Festival Glam", 700 },
-                    { 7, "Radiant and glowing makeup designed for brides who want a luminous look.", null, "Bridal Glow", 1600 },
-                    { 8, "Elegant makeup for special events like anniversaries and galas.", null, "Special Occasion", 1300 },
-                    { 9, "High-fashion makeup inspired by the looks of celebrities and runway models.", null, "Celebrity Look", 2000 },
-                    { 10, "Refined and minimalist makeup for a naturally elegant look.", null, "Simple Elegance", 600 }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
                 table: "Sessions",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 columns: new[] { "Id", "Description", "Duration", "ImageUrl", "Location", "Name", "Price", "Type" },
                 values: new object[,]
                 {
@@ -628,21 +519,6 @@ namespace MVC_Projec2.Migrations
                     { 8, "High-end fashion shoot for models or brands.", 4, "session8", null, null, 2200.0, "Fashion Photography" },
                     { 9, "Photography and videography coverage for events.", 5, "session9", null, null, 3000.0, "Event Coverage" },
                     { 10, "Heartwarming family photography session.", 3, "session10", null, null, 1400.0, "Family Shoot" }
-========
-                columns: new[] { "Id", "Duration", "ImageUrl", "Location", "Name", "Price", "Type", "desc" },
-                values: new object[,]
-                {
-                    { 1, 2, null, "Cairo", "Basic Photography Package", 3000.0, "Photography", null },
-                    { 2, 3, null, "Alexandria", "Videography Session", 4000.0, "Videography", null },
-                    { 3, 4, null, "Giza", "Engagement Photography", 3500.0, "Engagement Shoot", null },
-                    { 4, 5, null, "Sharm El Sheikh", "Pre-Wedding Photoshoot", 4500.0, "Pre-Wedding Shoot", null },
-                    { 5, 6, null, "Luxor", "Wedding Day Coverage", 8000.0, "Wedding Photography", null },
-                    { 6, 2, null, "New Cairo", "Couple Photography", 2500.0, "Couple Shoot", null },
-                    { 7, 3, null, "Tanta", "Bridal Portrait Session", 3000.0, "Bridal Portraits", null },
-                    { 8, 4, null, "Mansoura", "Fashion Photo Session", 5000.0, "Fashion Photography", null },
-                    { 9, 5, null, "Hurghada", "Event Videography & Photography", 6000.0, "Event Coverage", null },
-                    { 10, 3, null, "Port Said", "Family Photography", 3500.0, "Family Shoot", null }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
@@ -650,13 +526,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
-                    { "1", "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5" },
-                    { "2", "ef236cc0-ee5a-4681-af7a-7ce1c5065db5" }
-========
-                    { "1", "82074630-fe2b-4689-8c51-ab5a48732036" },
-                    { "2", "b20c409c-e1ff-4b34-b7af-477e4a443768" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
+                    { "1", "5e874efa-183d-401a-8c5a-022015c455b3" },
+                    { "2", "c1218f34-5729-4831-bd12-88bf2e810d96" }
                 });
 
             migrationBuilder.InsertData(
@@ -665,7 +536,6 @@ namespace MVC_Projec2.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "atelier1.jpg" },
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     { 2, 1, "atelier2.jpg" },
                     { 3, 1, "atelier3.jpg" },
                     { 4, 2, "atelier4.jpg" },
@@ -677,17 +547,6 @@ namespace MVC_Projec2.Migrations
                     { 10, 4, "atelier10.jpg" },
                     { 11, 4, "atelier1.jpg" },
                     { 12, 4, "atelier8.jpg" }
-========
-                    { 2, 2, "atelier2.jpg" },
-                    { 3, 3, "atelier3.jpg" },
-                    { 4, 4, "atelier4.jpg" },
-                    { 5, 5, "atelier5.jpg" },
-                    { 6, 6, "atelier6.jpg" },
-                    { 7, 7, "atelier7.jpg" },
-                    { 8, 8, "atelier8.jpg" },
-                    { 9, 9, "atelier9.jpg" },
-                    { 10, 10, "atelier10.jpg" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
@@ -695,27 +554,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
-                    { 1, 3, new DateTime(2025, 4, 12, 0, 53, 3, 719, DateTimeKind.Local).AddTicks(12), 1, 2, 1, 2, "Confirmed", "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5" },
-                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5" },
-                    { 3, 3, new DateTime(2025, 4, 12, 0, 53, 3, 719, DateTimeKind.Local).AddTicks(204), 1, 2, 1, 2, "Confirmed", "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5" },
-                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5" }
-========
-                    { 1, 3, new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3456), 1, 2, 1, 2, "Confirmed", "82074630-fe2b-4689-8c51-ab5a48732036" },
-                    { 2, 1, new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "82074630-fe2b-4689-8c51-ab5a48732036" },
-                    { 3, 3, new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3780), 1, 2, 1, 2, "Confirmed", "82074630-fe2b-4689-8c51-ab5a48732036" },
-                    { 4, 1, new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "82074630-fe2b-4689-8c51-ab5a48732036" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
+                    { 1, 3, new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2817), 1, 2, 1, 2, "Confirmed", "5e874efa-183d-401a-8c5a-022015c455b3" },
+                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "5e874efa-183d-401a-8c5a-022015c455b3" },
+                    { 3, 3, new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2963), 1, 2, 1, 2, "Confirmed", "5e874efa-183d-401a-8c5a-022015c455b3" },
+                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "5e874efa-183d-401a-8c5a-022015c455b3" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 0, 53, 3, 719, DateTimeKind.Local).AddTicks(280), 0, 0, "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5" });
-========
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(4282), 0, 0, "82074630-fe2b-4689-8c51-ab5a48732036" });
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(3035), 0, 0, "5e874efa-183d-401a-8c5a-022015c455b3" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",
@@ -723,7 +571,6 @@ namespace MVC_Projec2.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "decor1.jpg" },
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     { 2, 1, "decor2.jpg" },
                     { 3, 1, "decor3.jpg" },
                     { 4, 2, "decor4.jpg" },
@@ -738,15 +585,6 @@ namespace MVC_Projec2.Migrations
                     { 13, 5, "decor2.jpg" },
                     { 14, 5, "decor3.jpg" },
                     { 15, 5, "decor7.jpg" }
-========
-                    { 2, 2, "decor2.jpg" },
-                    { 3, 3, "decor3.jpg" },
-                    { 4, 4, "decor4.jpg" },
-                    { 5, 5, "decor5.jpg" },
-                    { 6, 6, "decor6.jpg" },
-                    { 7, 7, "decor7.jpg" },
-                    { 8, 8, "decor8.jpg" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
@@ -755,7 +593,6 @@ namespace MVC_Projec2.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "hall1.jpg" },
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     { 2, 1, "hall2.jpg" },
                     { 3, 1, "hall3.jpg" },
                     { 4, 2, "hall4.jpg" },
@@ -767,22 +604,10 @@ namespace MVC_Projec2.Migrations
                     { 10, 4, "hall10.jpg" },
                     { 11, 4, "hall5.jpg" },
                     { 12, 4, "hall3.jpg" }
-========
-                    { 2, 2, "hall2.jpg" },
-                    { 3, 3, "hall3.jpg" },
-                    { 4, 4, "hall4.jpg" },
-                    { 5, 5, "hall5.jpg" },
-                    { 6, 6, "hall6.jpg" },
-                    { 7, 7, "hall7.jpg" },
-                    { 8, 8, "hall8.jpg" },
-                    { 9, 9, "hall9.jpg" },
-                    { 10, 10, "hall10.jpg" }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
                 table: "MakeUpImages",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 columns: new[] { "Id", "ImageUrl", "MakeUp_ServiceId" },
                 values: new object[,]
                 {
@@ -798,21 +623,6 @@ namespace MVC_Projec2.Migrations
                     { 10, "makeUp10.jpg", 4 },
                     { 11, "makeUp2.jpg", 4 },
                     { 12, "makeUp7.jpg", 4 }
-========
-                columns: new[] { "Id", "ImageUrl", "MakeUpId" },
-                values: new object[,]
-                {
-                    { 1, "makeUp1.jpg", 1 },
-                    { 2, "makeUp2.jpg", 2 },
-                    { 3, "makeUp3.jpg", 3 },
-                    { 4, "makeUp4.jpg", 4 },
-                    { 5, "makeUp5.jpg", 5 },
-                    { 6, "makeUp6.jpg", 6 },
-                    { 7, "makeUp7.jpg", 7 },
-                    { 8, "makeUp8.jpg", 8 },
-                    { 9, "makeUp9.jpg", 9 },
-                    { 10, "makeUp10.jpg", 10 }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.InsertData(
@@ -821,7 +631,6 @@ namespace MVC_Projec2.Migrations
                 values: new object[,]
                 {
                     { 1, "session1.jpg", 1 },
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                     { 2, "session2.jpg", 1 },
                     { 3, "session3.jpg", 1 },
                     { 4, "session4.jpg", 2 },
@@ -836,17 +645,6 @@ namespace MVC_Projec2.Migrations
                     { 13, "session2.jpg", 5 },
                     { 14, "session7.jpg", 5 },
                     { 15, "session5.jpg", 5 }
-========
-                    { 2, "session2.jpg", 2 },
-                    { 3, "session3.jpg", 3 },
-                    { 4, "session4.jpg", 4 },
-                    { 5, "session5.jpg", 5 },
-                    { 6, "session6.jpg", 6 },
-                    { 7, "session7.jpg", 7 },
-                    { 8, "session8.jpg", 8 },
-                    { 9, "session9.jpg", 9 },
-                    { 10, "session10.jpg", 10 }
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
                 });
 
             migrationBuilder.CreateIndex(
@@ -939,15 +737,9 @@ namespace MVC_Projec2.Migrations
                 column: "HallId");
 
             migrationBuilder.CreateIndex(
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.cs
                 name: "IX_MakeUpImages_MakeUp_ServiceId",
                 table: "MakeUpImages",
                 column: "MakeUp_ServiceId");
-========
-                name: "IX_MakeUpImages_MakeUpId",
-                table: "MakeUpImages",
-                column: "MakeUpId");
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.cs
 
             migrationBuilder.CreateIndex(
                 name: "IX_SessionImages_SessionId",

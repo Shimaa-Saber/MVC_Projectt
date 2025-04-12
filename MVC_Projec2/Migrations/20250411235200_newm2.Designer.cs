@@ -12,13 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-    [Migration("20250411225305_newm2")]
+    [Migration("20250411235200_newm2")]
     partial class newm2
-========
-    [Migration("20250411132452_init")]
-    partial class init
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -144,63 +139,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            Id = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5",
+                            Id = "5e874efa-183d-401a-8c5a-022015c455b3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d4b484af-d984-4ed0-89dd-935bca0ccf80",
-========
-                            Id = "82074630-fe2b-4689-8c51-ab5a48732036",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "1ffd82fc-a946-4297-8b29-50d1833d5295",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            ConcurrencyStamp = "98f0011e-460a-46a6-8980-971ac9f9e403",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            PasswordHash = "AQAAAAIAAYagAAAAEKJ57ECCM+XZV0yqYa6y9Uo1v1IeLvqz5mYh9L58dn76T0pQQQ+QNIfYIK+rfM6VqA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIjPWS33UVnWipxUdVMNP6F19drNPgi1eY8x7T4n1x1bbhhyHLmoBWIrAJAdg1LeNQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "c6547c26-c110-43fc-aa7c-3d3f1601fef1",
-========
-                            PasswordHash = "AQAAAAIAAYagAAAAENKv1sPw/2QZ9PHQKszrg1L5haAAHBs3YyobTNkt1rZ3yYna3g2vNu8GGL+PcHez2g==",
-                            PhoneNumber = "0123456789",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "4eb97bb1-e94a-46ca-8ee6-af9d3a3cf9d9",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            SecurityStamp = "0240fead-9644-482f-a19c-8cc6fc88e866",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            Id = "ef236cc0-ee5a-4681-af7a-7ce1c5065db5",
+                            Id = "c1218f34-5729-4831-bd12-88bf2e810d96",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9dd9741f-52cb-4d82-9488-1f9cb434e2c5",
-========
-                            Id = "b20c409c-e1ff-4b34-b7af-477e4a443768",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "9f110e21-614e-4c06-a284-bcdb9cabed38",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            ConcurrencyStamp = "d9aa8688-f927-4ec8-9f9d-a6342e53b373",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            PasswordHash = "AQAAAAIAAYagAAAAEPSAqHGNI20fRnXmq9xdCWKE+1FE4DHhEfX6UqR/yWoZMUJbOURv4xhNyp5rPs76OA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEBrbuCxSQINinDsXTB45brtlosdEKL0+G+GJ2GNw0XQCIcHZAhfh0GE1sYIEBWiaQ==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "0336f93d-fa0e-4fb3-8e98-51d2a608b1e2",
-========
-                            PasswordHash = "AQAAAAIAAYagAAAAEGsC29wLucp811HTH8EeL02OcaZDgAUKqVc7q07KJG8SMUPq839R2t4i3y2jOOv8zw==",
-                            PhoneNumber = "9876543210",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "a0c4c242-b81b-4798-aa95-d37c1181a014",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            SecurityStamp = "87796a7a-23b0-4ea8-bc0b-40bc958969cd",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -214,15 +183,8 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-========
-                    b.Property<string>("ImageURL")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -243,100 +205,58 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier2",
                             Location = "Uptown",
                             Name = "Elite Atelier",
                             priceRange = 9000.0
-========
-                            Location = "Downtown",
-                            Name = "Elite Atelier",
-                            priceRange = 5000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 2,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier1",
                             Location = "Downtown",
                             Name = "Royal Designs",
                             priceRange = 5000.0
-========
-                            Location = "Uptown",
-                            Name = "Royal Designs",
-                            priceRange = 3000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier5",
                             Location = "Easttown",
                             Name = "Glamorous Styles",
                             priceRange = 4000.0
-========
-                            Location = "City Center",
-                            Name = "Glamorous Styles",
-                            priceRange = 5000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 4,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier3",
                             Location = "Westtown",
                             Name = "Elegant Creations",
                             priceRange = 12000.0
-========
-                            Location = "Suburb",
-                            Name = "Elegant Creations",
-                            priceRange = 3000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 5,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier4",
                             Location = "Downtown",
                             Name = "Chic Styles",
                             priceRange = 6000.0
-========
-                            Location = "North Park",
-                            Name = "Chic Styles",
-                            priceRange = 1500.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 6,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier7",
                             Location = "Uptown",
                             Name = "Vintage Touch",
                             priceRange = 8000.0
-========
-                            Location = "South Side",
-                            Name = "Vintage Touch",
-                            priceRange = 2500.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 7,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "atelier5",
                             Location = "Downtown",
                             Name = "Modern Artistry",
                             priceRange = 2000.0
-========
-                            Location = "Midtown",
-                            Name = "Modern Artistry",
-                            priceRange = 5000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
@@ -344,11 +264,7 @@ namespace MVC_Projec2.Migrations
                             ImageUrl = "atelier1",
                             Location = "East End",
                             Name = "Exquisite Design",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             priceRange = 3000.0
-========
-                            priceRange = 2500.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
@@ -356,11 +272,7 @@ namespace MVC_Projec2.Migrations
                             ImageUrl = "atelier5",
                             Location = "West End",
                             Name = "Timeless Beauty",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             priceRange = 8000.0
-========
-                            priceRange = 5000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
@@ -368,11 +280,7 @@ namespace MVC_Projec2.Migrations
                             ImageUrl = "atelier7",
                             Location = "Central Square",
                             Name = "Fashion Forward",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             priceRange = 7000.0
-========
-                            priceRange = 1500.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         });
                 });
 
@@ -527,81 +435,49 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            Created_at = new DateTime(2025, 4, 12, 0, 53, 3, 719, DateTimeKind.Local).AddTicks(12),
-========
-                            Created_at = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3456),
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            Created_at = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2817),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            user_id = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5"
-========
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         },
                         new
                         {
                             Id = 2,
                             Atelier_Id = 1,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Created_at = new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
-========
-                            Created_at = new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local),
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            user_id = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5"
-========
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            Created_at = new DateTime(2025, 4, 12, 0, 53, 3, 719, DateTimeKind.Local).AddTicks(204),
-========
-                            Created_at = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(3780),
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            Created_at = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(2963),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            user_id = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5"
-========
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         },
                         new
                         {
                             Id = 4,
                             Atelier_Id = 1,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Created_at = new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
-========
-                            Created_at = new DateTime(2025, 4, 11, 0, 0, 0, 0, DateTimeKind.Local),
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            user_id = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5"
-========
-                            user_id = "82074630-fe2b-4689-8c51-ab5a48732036"
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            user_id = "5e874efa-183d-401a-8c5a-022015c455b3"
                         });
                 });
 
@@ -641,17 +517,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            CreatedAt = new DateTime(2025, 4, 12, 0, 53, 3, 719, DateTimeKind.Local).AddTicks(280),
+                            CreatedAt = new DateTime(2025, 4, 12, 1, 51, 57, 880, DateTimeKind.Local).AddTicks(3035),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5"
-========
-                            CreatedAt = new DateTime(2025, 4, 11, 15, 24, 50, 604, DateTimeKind.Local).AddTicks(4282),
-                            ServiceId = 0,
-                            ServiceType = 0,
-                            UserId = "82074630-fe2b-4689-8c51-ab5a48732036"
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            UserId = "5e874efa-183d-401a-8c5a-022015c455b3"
                         });
                 });
 
@@ -685,120 +554,80 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Timeless elegance with ornate details and rich colors.",
                             ImageUrl = "decor1",
-========
-                            Description = "Timeless decor with elegant and traditional designs, perfect for a sophisticated atmosphere.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 5000,
                             Style = "Classic"
                         },
                         new
                         {
                             Id = 2,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Sleek lines and neutral tones for a chic, modern vibe.",
                             ImageUrl = "decor2",
-========
-                            Description = "Sleek and contemporary design with clean lines and minimalistic features.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 7000,
                             Style = "Modern"
                         },
                         new
                         {
                             Id = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Warm and cozy decor with natural wood and earthy tones.",
                             ImageUrl = "decor3",
-========
-                            Description = "Natural and earthy designs featuring wood, stone, and vintage elements for a cozy feel.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 4500,
                             Style = "Rustic"
                         },
                         new
                         {
                             Id = 4,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Retro charm with antique pieces and soft pastels.",
                             ImageUrl = "decor4",
-========
-                            Description = "Retro-inspired decor with nostalgic and old-world charm, ideal for classic settings.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 5500,
                             Style = "Vintage"
                         },
                         new
                         {
                             Id = 5,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Urban-inspired look with metal accents and raw finishes.",
                             ImageUrl = "decor5",
-========
-                            Description = "Rough and raw designs with exposed metals, bricks, and unfinished elements.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 6000,
                             Style = "Industrial"
                         },
                         new
                         {
                             Id = 6,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Free-spirited design with bold colors and eclectic elements.",
                             ImageUrl = "decor1",
-========
-                            Description = "Bohemian style with vibrant colors, eclectic patterns, and artistic, free-spirited elements.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 4000,
                             Style = "Boho"
                         },
                         new
                         {
                             Id = 7,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Clean lines, simplicity, and clutter-free design.",
                             ImageUrl = "decor3",
-========
-                            Description = "Simplicity at its finest, focusing on clean spaces and functional, uncluttered designs.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 6500,
                             Style = "Minimalist"
                         },
                         new
                         {
                             Id = 8,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Glamorous style with bold geometry and luxurious finishes.",
                             ImageUrl = "decor6",
-========
-                            Description = "Luxurious and glamorous style featuring bold geometric patterns and rich colors.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 7000,
                             Style = "Art Deco"
                         },
                         new
                         {
                             Id = 9,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "High-end sparkle with crystal accents and rich fabrics.",
                             ImageUrl = "decor5",
-========
-                            Description = "High-end and dazzling decor with rich textures, metallic accents, and sophisticated lighting.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 8000,
                             Style = "Glam"
                         },
                         new
                         {
                             Id = 10,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Soft, feminine style with distressed furniture and florals.",
                             ImageUrl = "decor2",
-========
-                            Description = "A charming, weathered look with soft pastel colors, distressed furniture, and vintage accessories.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Price = 4500,
                             Style = "Shabby Chic"
                         });
@@ -952,12 +781,8 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Capacity = 500,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall1",
                             Location = "Downtown",
-========
-                            Location = "Cairo",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Grand Hall",
                             Price = 10000.0
                         },
@@ -965,42 +790,26 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 2,
                             Capacity = 300,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall2",
                             Location = "City Center",
                             Name = "Crystal Ballroom",
                             Price = 7500.0
-========
-                            Location = "Alexandria",
-                            Name = "Crystal Ballroom",
-                            Price = 8000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 200,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall3",
                             Location = "Beachside",
                             Name = "Sunset Venue",
                             Price = 6000.0
-========
-                            Location = "Sharm El Sheikh",
-                            Name = "Sunset Venue",
-                            Price = 5000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 4,
                             Capacity = 400,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall4",
                             Location = "Uptown",
-========
-                            Location = "Giza",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Majestic Hall",
                             Price = 9000.0
                         },
@@ -1008,27 +817,17 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 5,
                             Capacity = 350,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall5",
                             Location = "Coastal Road",
                             Name = "Ocean View",
                             Price = 8500.0
-========
-                            Location = "Hurghada",
-                            Name = "Ocean View",
-                            Price = 7500.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 6,
                             Capacity = 600,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall1",
                             Location = "High Tower",
-========
-                            Location = "New Cairo",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Skyline Pavilion",
                             Price = 12000.0
                         },
@@ -1036,27 +835,17 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 7,
                             Capacity = 250,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall2",
                             Location = "Garden District",
                             Name = "Moonlight Hall",
                             Price = 7000.0
-========
-                            Location = "Tanta",
-                            Name = "Moonlight Hall",
-                            Price = 6000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         },
                         new
                         {
                             Id = 8,
                             Capacity = 450,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall3",
                             Location = "Palace Street",
-========
-                            Location = "Mansoura",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Royal Suite",
                             Price = 11000.0
                         },
@@ -1064,12 +853,8 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 9,
                             Capacity = 500,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall4",
                             Location = "Central Park",
-========
-                            Location = "Port Said",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Elite Venue",
                             Price = 10500.0
                         },
@@ -1077,16 +862,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 10,
                             Capacity = 700,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "hall3",
                             Location = "Mountain View",
                             Name = "Luxury Retreat",
                             Price = 13000.0
-========
-                            Location = "Luxor",
-                            Name = "Luxury Retreat",
-                            Price = 15000.0
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         });
                 });
 
@@ -1290,11 +1069,7 @@ namespace MVC_Projec2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                     b.Property<string>("Description")
-========
-                    b.Property<string>("Desc")
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
@@ -1315,120 +1090,80 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 1,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Elegant and long-lasting bridal look tailored for your special day.",
                             ImageUrl = "makeUp1",
-========
-                            Desc = "Flawless makeup designed to enhance the bride's natural beauty for her special day.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Bridal Makeup",
                             Price = 1500
                         },
                         new
                         {
                             Id = 2,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Bold, vibrant look perfect for parties and night-outs.",
                             ImageUrl = "makeUp2",
-========
-                            Desc = "Bold and glamorous makeup for parties and social events.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Party Glam",
                             Price = 800
                         },
                         new
                         {
                             Id = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Soft, minimal makeup enhancing your natural beauty.",
                             ImageUrl = "makeUp3",
-========
-                            Desc = "A subtle and fresh makeup style for everyday wear.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Natural Look",
                             Price = 500
                         },
                         new
                         {
                             Id = 4,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Sophisticated makeup style ideal for evening events.",
                             ImageUrl = "makeUp4",
-========
-                            Desc = "Sophisticated makeup perfect for evening events and dinners.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Evening Elegance",
                             Price = 1000
                         },
                         new
                         {
                             Id = 5,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Shiny, high-glam look with glowing highlights and contouring.",
                             ImageUrl = "makeUp5",
-========
-                            Desc = "Shimmery and radiant makeup for a glamorous, standout look.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Glamour Shine",
                             Price = 1200
                         },
                         new
                         {
                             Id = 6,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Colorful and creative look, perfect for festivals and themed events.",
                             ImageUrl = "makeUp6",
-========
-                            Desc = "Vibrant and creative makeup for festivals and fun events.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Festival Glam",
                             Price = 700
                         },
                         new
                         {
                             Id = 7,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Radiant bridal makeup focused on glowing skin and soft tones.",
                             ImageUrl = "makeUp7",
-========
-                            Desc = "Radiant and glowing makeup designed for brides who want a luminous look.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Bridal Glow",
                             Price = 1600
                         },
                         new
                         {
                             Id = 8,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Tailored makeup style for birthdays, graduations, and formal events.",
                             ImageUrl = "makeUp8",
-========
-                            Desc = "Elegant makeup for special events like anniversaries and galas.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Special Occasion",
                             Price = 1300
                         },
                         new
                         {
                             Id = 9,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Inspired by red carpet celebrities with dramatic, flawless finish.",
                             ImageUrl = "makeUp9",
-========
-                            Desc = "High-fashion makeup inspired by the looks of celebrities and runway models.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Celebrity Look",
                             Price = 2000
                         },
                         new
                         {
                             Id = 10,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             Description = "Effortless and neat makeup for a clean and graceful appearance.",
                             ImageUrl = "makeUp10",
-========
-                            Desc = "Refined and minimalist makeup for a naturally elegant look.",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Name = "Simple Elegance",
                             Price = 600
                         });
@@ -1449,10 +1184,7 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                         .IsRequired()
-========
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -1468,9 +1200,6 @@ namespace MVC_Projec2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("desc")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Sessions");
@@ -1481,14 +1210,8 @@ namespace MVC_Projec2.Migrations
                             Id = 1,
                             Description = "Professional photo session for any occasion.",
                             Duration = 2,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session1",
                             Price = 1000.0,
-========
-                            Location = "Cairo",
-                            Name = "Basic Photography Package",
-                            Price = 3000.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Photography"
                         },
                         new
@@ -1496,14 +1219,8 @@ namespace MVC_Projec2.Migrations
                             Id = 2,
                             Description = "Capture every moment with cinematic quality.",
                             Duration = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session2",
                             Price = 1500.0,
-========
-                            Location = "Alexandria",
-                            Name = "Videography Session",
-                            Price = 4000.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Videography"
                         },
                         new
@@ -1511,14 +1228,8 @@ namespace MVC_Projec2.Migrations
                             Id = 3,
                             Description = "Celebrate your engagement with a memorable shoot.",
                             Duration = 4,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session3",
                             Price = 2000.0,
-========
-                            Location = "Giza",
-                            Name = "Engagement Photography",
-                            Price = 3500.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Engagement Shoot"
                         },
                         new
@@ -1526,14 +1237,8 @@ namespace MVC_Projec2.Migrations
                             Id = 4,
                             Description = "Romantic photo session before your big day.",
                             Duration = 5,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session4",
                             Price = 2500.0,
-========
-                            Location = "Sharm El Sheikh",
-                            Name = "Pre-Wedding Photoshoot",
-                            Price = 4500.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Pre-Wedding Shoot"
                         },
                         new
@@ -1541,14 +1246,8 @@ namespace MVC_Projec2.Migrations
                             Id = 5,
                             Description = "Full-day photography service for weddings.",
                             Duration = 6,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session5",
                             Price = 4000.0,
-========
-                            Location = "Luxor",
-                            Name = "Wedding Day Coverage",
-                            Price = 8000.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Wedding Photography"
                         },
                         new
@@ -1556,14 +1255,8 @@ namespace MVC_Projec2.Migrations
                             Id = 6,
                             Description = "Capture the love and connection between you two.",
                             Duration = 2,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session6",
                             Price = 1200.0,
-========
-                            Location = "New Cairo",
-                            Name = "Couple Photography",
-                            Price = 2500.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Couple Shoot"
                         },
                         new
@@ -1571,14 +1264,8 @@ namespace MVC_Projec2.Migrations
                             Id = 7,
                             Description = "Elegant portraits for the bride in her gown.",
                             Duration = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session7",
                             Price = 1800.0,
-========
-                            Location = "Tanta",
-                            Name = "Bridal Portrait Session",
-                            Price = 3000.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Bridal Portraits"
                         },
                         new
@@ -1586,14 +1273,8 @@ namespace MVC_Projec2.Migrations
                             Id = 8,
                             Description = "High-end fashion shoot for models or brands.",
                             Duration = 4,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session8",
                             Price = 2200.0,
-========
-                            Location = "Mansoura",
-                            Name = "Fashion Photo Session",
-                            Price = 5000.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Fashion Photography"
                         },
                         new
@@ -1601,14 +1282,8 @@ namespace MVC_Projec2.Migrations
                             Id = 9,
                             Description = "Photography and videography coverage for events.",
                             Duration = 5,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session9",
                             Price = 3000.0,
-========
-                            Location = "Hurghada",
-                            Name = "Event Videography & Photography",
-                            Price = 6000.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Event Coverage"
                         },
                         new
@@ -1616,14 +1291,8 @@ namespace MVC_Projec2.Migrations
                             Id = 10,
                             Description = "Heartwarming family photography session.",
                             Duration = 3,
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             ImageUrl = "session10",
                             Price = 1400.0,
-========
-                            Location = "Port Said",
-                            Name = "Family Photography",
-                            Price = 3500.0,
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                             Type = "Family Shoot"
                         });
                 });
@@ -1708,7 +1377,6 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 10,
                             ImageUrl = "session10.jpg",
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
                             SessionId = 4
                         },
                         new
@@ -1740,9 +1408,6 @@ namespace MVC_Projec2.Migrations
                             Id = 15,
                             ImageUrl = "session5.jpg",
                             SessionId = 5
-========
-                            SessionId = 10
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
                         });
                 });
 
@@ -1835,20 +1500,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            UserId = "d5fd2a94-ca6b-4116-9058-f9b8b402c2a5",
-========
-                            UserId = "82074630-fe2b-4689-8c51-ab5a48732036",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            UserId = "5e874efa-183d-401a-8c5a-022015c455b3",
                             RoleId = "1"
                         },
                         new
                         {
-<<<<<<<< HEAD:MVC_Projec2/Migrations/20250411225305_newm2.Designer.cs
-                            UserId = "ef236cc0-ee5a-4681-af7a-7ce1c5065db5",
-========
-                            UserId = "b20c409c-e1ff-4b34-b7af-477e4a443768",
->>>>>>>> main:MVC_Projec2/Migrations/20250411132452_init.Designer.cs
+                            UserId = "c1218f34-5729-4831-bd12-88bf2e810d96",
                             RoleId = "2"
                         });
                 });
