@@ -137,7 +137,7 @@ namespace MVC_Projec2.Controllers
                 _sessionRepository.Save();
 
                 TempData["SuccessMessage"] = "Session created successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllSessions", "Dashboard");
             }
             catch (Exception ex)
             {
@@ -193,7 +193,7 @@ namespace MVC_Projec2.Controllers
                 _sessionRepository.Save();
 
                 TempData["SuccessMessage"] = "Session updated successfully!";
-                return RedirectToAction(nameof(GetAll));  
+                return RedirectToAction("GetAllSessions", "Dashboard");  
             }
             catch (Exception ex)
             {

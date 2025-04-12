@@ -170,7 +170,7 @@ namespace MVC_Projec2.Controllers
                 atelierRepository.Save();
 
                 TempData["SuccessMessage"] = "Atalier added successfully!";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAllAteliers", "Dashboard");
             }
             catch (Exception ex)
             {
@@ -228,7 +228,7 @@ namespace MVC_Projec2.Controllers
                 atelierRepository.Save();
 
                 TempData["SuccessMessage"] = "Atelier updated successfully!";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAllAteliers", "Dashboard");
             }
             catch (Exception ex)
             {

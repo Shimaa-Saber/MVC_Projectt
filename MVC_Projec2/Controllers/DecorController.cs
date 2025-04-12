@@ -138,7 +138,7 @@ namespace MVC_Projec2.Controllers
                 _decorRepository.Save();
 
                 TempData["SuccessMessage"] = $"Decor created with {model.ImageFiles.Count} images!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllDecors","Dashboard");
             }
             catch (Exception ex)
             {
@@ -198,7 +198,7 @@ namespace MVC_Projec2.Controllers
                 _decorRepository.Save();
 
                 TempData["SuccessMessage"] = "Decor updated successfully (images not modified)";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAllDecors", "Dashboard");
             }
             catch (Exception ex)
             {

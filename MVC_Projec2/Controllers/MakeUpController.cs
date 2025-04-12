@@ -146,7 +146,7 @@ namespace MVC_Projec2.Controllers
                 _makeUpRepository.Save();
 
                 TempData["SuccessMessage"] = "MakeUp Service created successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllMackeups", "Dashboard");
             }
             catch (Exception ex)
             {
@@ -203,7 +203,7 @@ namespace MVC_Projec2.Controllers
                 _makeUpRepository.Save();
 
                 TempData["SuccessMessage"] = "MakeUp_Service updated successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllMackeups", "Dashboard");
             }
             catch (Exception ex)
             {

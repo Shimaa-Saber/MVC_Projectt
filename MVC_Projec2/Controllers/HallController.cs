@@ -169,7 +169,7 @@ namespace MVC_Projec2.Controllers
                 hallRepository.Save();
 
                 TempData["SuccessMessage"] = "Hall added successfully!";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAll","Dashboard");
             }
             catch (Exception ex)
             {
@@ -230,7 +230,7 @@ namespace MVC_Projec2.Controllers
                 hallRepository.Save();
 
                 TempData["SuccessMessage"] = "Hall updated successfully!";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAll", "Dashboard");
             }
             catch (Exception ex)
             {

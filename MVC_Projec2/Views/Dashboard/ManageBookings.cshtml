@@ -85,7 +85,8 @@
                                     else
                                     {
                                         <div class="btn-group" role="group">
-                                            <a href="#" class="btn btn-sm btn-outline-secondary disabled">
+                                            <a asp-controller="Booking" asp-action="Details" asp-route-id="@booking.Id"
+                                               class="btn btn-sm btn-outline-secondary">
                                                 <i class="fas fa-info-circle"></i> Details
                                             </a>
                                         </div>
