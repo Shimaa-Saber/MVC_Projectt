@@ -52,6 +52,8 @@ namespace MVC_Projec2.Controllers
 
         }
 
+
+
         [HttpPost]
         public IActionResult AddComment(AtelierCommentViewModel model)
         {
@@ -75,6 +77,29 @@ namespace MVC_Projec2.Controllers
 
             return RedirectToAction("AtelierDetails", new { id = model.Atelier.Id });
         }
+
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var Atilers = atelierRepository.SearchByName(searchValue);
+                return View("GetAll", Atilers);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching Atilers");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
+
+
 
         [Authorize(Roles = "Admin")]
         public IActionResult DeleteAtelier(int id)
@@ -101,14 +126,14 @@ namespace MVC_Projec2.Controllers
                 atelierRepository.Delete(atelier);
                 atelierRepository.Save();
 
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAllAteliers", "Dashboard");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error deleting atelier");
                 ModelState.AddModelError("", "An error occurred while deleting the atelier. Please try again.");
 
-                return View("GetAll");
+                return View("GetAllAteliers", "Dashboard");
             }
         }
 

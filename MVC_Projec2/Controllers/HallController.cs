@@ -54,6 +54,27 @@ namespace MVC_Projec2.Controllers
             }
         }
 
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var halls = hallRepository.SearchByName(searchValue);
+                return View("GetAll", halls);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching halls");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
+
         [HttpPost]
         public IActionResult AddComment(HallCommentViewModel model)
         {

@@ -96,7 +96,7 @@ namespace MVC_Projec2.Migrations
                     Capacity = table.Column<int>(type: "int", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -432,8 +432,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "4b129781-8d6f-4c45-a604-7e898856aa2b", 0, "b7050eb9-e577-4a5f-9821-51358100043f", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEI/n8K/+cmWGZbBXmsMr0VoT/GyDHo2VxEW3Rt3uphG4D4ELYbNJ6fZ+/o8KQJCzLA==", "0123456789", true, "2478e555-9aa2-49f9-b81f-a9fac742f5d5", false, "admin@example.com" },
-                    { "a1e2b284-dbdf-4481-aa4f-dc591c899aba", 0, "25e64cdd-1378-470b-aaad-5cbbca93cc49", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAENxBAdKe9f4q+zh9kUJ6VKHm8VNJ3N1VFJu2mEZCH1BCa5qBiCejhT5F5xLiKEWoxQ==", "9876543210", true, "ccdb6229-1160-41f2-8894-da2917c1eaa8", false, "user@example.com" }
+                    { "38c72125-e34e-452a-bb0f-ba4ac86344d4", 0, "de6f04aa-cdb0-4a0b-97d7-f2bbfff5d2e0", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEDXZIN35/YG1Ku2at64y+G19d+CoxlvY8wGvIDxL5EpRyTs5H5y2CSg/OCZbkmdmLQ==", "9876543210", true, "0957a77b-7dd4-4251-a69d-b548412f0c82", false, "user@example.com" },
+                    { "dcea0d54-3df8-4fae-b476-6912e5516675", 0, "6bd17a9b-c9c3-4475-b536-9e04a6435435", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEGndZEG1i9PahvZ836dtAhfzrC6HGo67hnPViDa+quGMdgl/SQK12r4LZfqCWoCABw==", "0123456789", true, "87b751bf-6f1d-4011-8fc0-61e749821772", false, "admin@example.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -526,8 +526,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1", "4b129781-8d6f-4c45-a604-7e898856aa2b" },
-                    { "2", "a1e2b284-dbdf-4481-aa4f-dc591c899aba" }
+                    { "2", "38c72125-e34e-452a-bb0f-ba4ac86344d4" },
+                    { "1", "dcea0d54-3df8-4fae-b476-6912e5516675" }
                 });
 
             migrationBuilder.InsertData(
@@ -554,16 +554,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 12, 10, 37, 11, 634, DateTimeKind.Local).AddTicks(4473), 1, 2, 1, 2, "Confirmed", "4b129781-8d6f-4c45-a604-7e898856aa2b" },
-                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "4b129781-8d6f-4c45-a604-7e898856aa2b" },
-                    { 3, 3, new DateTime(2025, 4, 12, 10, 37, 11, 634, DateTimeKind.Local).AddTicks(4835), 1, 2, 1, 2, "Confirmed", "4b129781-8d6f-4c45-a604-7e898856aa2b" },
-                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "4b129781-8d6f-4c45-a604-7e898856aa2b" }
+                    { 1, 3, new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(5965), 1, 2, 1, 2, "Confirmed", "dcea0d54-3df8-4fae-b476-6912e5516675" },
+                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "dcea0d54-3df8-4fae-b476-6912e5516675" },
+                    { 3, 3, new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6122), 1, 2, 1, 2, "Confirmed", "dcea0d54-3df8-4fae-b476-6912e5516675" },
+                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "dcea0d54-3df8-4fae-b476-6912e5516675" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 10, 37, 11, 634, DateTimeKind.Local).AddTicks(5426), 0, 0, "4b129781-8d6f-4c45-a604-7e898856aa2b" });
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 13, 12, 26, 67, DateTimeKind.Local).AddTicks(6196), 0, 0, "dcea0d54-3df8-4fae-b476-6912e5516675" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",
