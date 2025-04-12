@@ -78,7 +78,7 @@ namespace MVC_Projec2.Controllers
             return RedirectToAction("HallDetails", new { id = model.Hall.Id });
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult DeleteHall(int id)
         {
             try
@@ -103,14 +103,14 @@ namespace MVC_Projec2.Controllers
                 hallRepository.Delete(hall);
                 hallRepository.Save();
 
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAll", "Dashboard");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error deleting hall");
                 ModelState.AddModelError("", "An error occurred while deleting the hall. Please try again.");
 
-                return View("GetAll");
+                return View("GetAll", "Dashboard");
             }
         }
 

@@ -212,7 +212,7 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             try
@@ -237,14 +237,14 @@ namespace MVC_Projec2.Controllers
                 _makeUpRepository.Save();
 
                 TempData["SuccessMessage"] = "MakeUp_Service and its image were deleted successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllMackeups", "Dashboard");
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error deleting MakeUp_Service ID {SessionId}", id);
 
                 TempData["ErrorMessage"] = "Error deleting MakeUp_Service. Please try again.";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllMackeups", "Dashboard");
             }
         }
     }

@@ -36,6 +36,7 @@ namespace MVC_Projec2.Controllers
                 ApplicationUser userApp = new ApplicationUser();
                 userApp.FullName = userFromREquest.FullName;
                 userApp.Email = userFromREquest.Email;
+                userApp.UserName = userFromREquest.FullName.Replace(" ", "");
                 userApp.PhoneNumber = userFromREquest.PhoneNumber;
                 userApp.PasswordHash = userFromREquest.Password;
                 userApp.PasswordHash = userFromREquest.ConfirmPassword;
@@ -47,7 +48,7 @@ namespace MVC_Projec2.Controllers
                     await userManager.AddToRoleAsync(userApp, "User");
                     await signInManager.SignInAsync(userApp,isPersistent: false);
              
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 foreach (var item in result.Errors)
                 {
@@ -66,28 +67,51 @@ namespace MVC_Projec2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(login userFRomREquest)
+        public async Task<IActionResult> Login(login userFromRequest)
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser appFromDb =
-                    await userManager.FindByNameAsync(userFRomREquest.UserName);
+                ApplicationUser appFromDb = await userManager.FindByNameAsync(userFromRequest.UserName);
+
                 if (appFromDb != null)
                 {
-                    bool found = await userManager.CheckPasswordAsync(appFromDb, userFRomREquest.Password);
-                    if (found)
-                    {
-                        List<Claim> claims = new List<Claim>();
-                        claims.Add(new Claim("FullName", appFromDb.FullName));
+                    bool isPasswordValid = await userManager.CheckPasswordAsync(appFromDb, userFromRequest.Password);
 
-                        await signInManager.SignInWithClaimsAsync(appFromDb, userFRomREquest.RememberMe, claims);
-                      
-                        return RedirectToAction("Index", "Home");
+                    if (isPasswordValid)
+                    {
+                        
+                        var userRoles = await userManager.GetRolesAsync(appFromDb);
+
+                        
+                        var claims = new List<Claim>
+                {
+                    new Claim("FullName", appFromDb.FullName ?? string.Empty)
+                };
+
+                       
+                        foreach (var role in userRoles)
+                        {
+                            claims.Add(new Claim(ClaimTypes.Role, role));
+                        }
+
+                        await signInManager.SignInWithClaimsAsync(appFromDb, userFromRequest.RememberMe, claims);
+
+                       
+                        if (userRoles.Contains("Admin"))
+                        {
+                            return RedirectToAction("Index", "Dashboard");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                     }
                 }
-                ModelState.AddModelError("", "Invalid Account");
+
+                ModelState.AddModelError("", "Invalid username or password");
             }
-            return View("Login", userFRomREquest);
+
+            return View("Login", userFromRequest);
         }
     }
 }
