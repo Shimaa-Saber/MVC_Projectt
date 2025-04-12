@@ -31,7 +31,7 @@ namespace MVC_Projec2.Controllers
 
             try
             {
-                return View(_decorRepository.GetAll);
+                return View(_decorRepository.GetAll());
             }
             catch (Exception ex)
             {
