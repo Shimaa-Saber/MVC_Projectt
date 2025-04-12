@@ -1,0 +1,28 @@
+#hall img
+{
+    height: 34rem;
+}
+#hallCard{
+    height: 400px;
+    width: 310px;
+    border-radius: 10px;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2), 0 7px 21px 0 rgba(41, 41, 41, 0.19);
+}
+#hallCard img{
+     height: 300px;
+     width: 300px;
+     border-radius: 7px;
+}
+i{
+    color: #71a17f;
+}
+
+#hallCard:hover{
+    box-shadow: 2px 5px 2px 5px rgb(160, 160, 252);
+}
+h1,p,strong{
+    color: #3c734c;
+}
+.col-lg-3 {
+    width:30%
+}

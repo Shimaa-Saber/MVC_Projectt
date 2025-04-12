@@ -155,7 +155,8 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public IActionResult Edit(int id)
         {
             Atelier atelier = atelierRepository.GetByIdWithImages(id);
@@ -177,14 +178,15 @@ namespace MVC_Projec2.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult UpdateHall(EditAtelierViewModel model)
+        public IActionResult SaveEdit(EditAtelierViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Edit", model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("Edit", model);
+            //}
 
             try
             {

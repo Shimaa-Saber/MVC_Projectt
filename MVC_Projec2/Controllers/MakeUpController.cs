@@ -155,7 +155,8 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public async Task<IActionResult> Edit(int id)
         {
             var makeUp = _makeUpRepository.GetByIdWithImages(id);
@@ -175,14 +176,15 @@ namespace MVC_Projec2.Controllers
             return View(viewModel);
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(EditMakeUpViewModel model)
+        //[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> SaveEdit(EditMakeUpViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             try
             {

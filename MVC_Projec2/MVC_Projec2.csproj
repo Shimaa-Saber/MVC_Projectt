@@ -7,21 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Decor\**" />
-    <Compile Remove="Views\MakeUp\**" />
-    <Compile Remove="Views\Session\**" />
-    <Content Remove="Views\Decor\**" />
-    <Content Remove="Views\MakeUp\**" />
-    <Content Remove="Views\Session\**" />
-    <EmbeddedResource Remove="Views\Decor\**" />
-    <EmbeddedResource Remove="Views\MakeUp\**" />
-    <EmbeddedResource Remove="Views\Session\**" />
-    <None Remove="Views\Decor\**" />
-    <None Remove="Views\MakeUp\**" />
-    <None Remove="Views\Session\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.14">

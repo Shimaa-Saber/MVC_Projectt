@@ -146,7 +146,9 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+
+        [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var session = _sessionRepository.GetByIdWithImages(id);
@@ -166,13 +168,14 @@ namespace MVC_Projec2.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(EditSessionViewModel model)
+        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
+        public async Task<IActionResult> SaveEdit(EditSessionViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             try
             {

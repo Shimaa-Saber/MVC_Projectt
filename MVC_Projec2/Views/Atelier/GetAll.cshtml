@@ -1,0 +1,39 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Atelier>
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+
+<link rel="stylesheet" href="/css/hallStyle.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+<div class="container-fluid">
+    <div class="row" id="hall">
+        <img src="/images/halls (3).jpg" alt="">
+    </div>
+    <div class="row text-center justify-content-center">
+        <h1 class="mt-3">The most famous and best wedding Decor in Egypt</h1>
+        @foreach (Atelier atelier in Model)
+        {
+            <div class="col-lg-3 col-md-5 col-sm-12 mt-3 me-3">
+                <div id="hallCard">
+                    <img src="/images/@atelier.ImageUrl" alt="" class="mt-1">
+                    <p class="m-2">@atelier.Name</p>
+                    <hr class="m-2">
+                    <strong class="m-2">View / request price</strong>
+                    <a asp-controller="Atelier" asp-action="Detail" asp-route-id="@atelier.Id"><i class="fa-solid fa-circle-arrow-right" style="font-size: 20px;"></i></a>
+                    @*                     <a href="/Hall/HallDetailes/@hall.Id"><i class="fa-solid fa-circle-arrow-right" style="font-size: 20px;"></i></a>
+ *@                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+
+

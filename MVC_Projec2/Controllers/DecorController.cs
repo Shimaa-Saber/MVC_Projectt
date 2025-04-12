@@ -28,6 +28,7 @@ namespace MVC_Projec2.Controllers
 
         public IActionResult GetAll()
         {
+
             try
             {
                 return View(_decorRepository.GetAll);
@@ -147,7 +148,8 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public IActionResult Edit(int id)
         {
             var decor = _decorRepository.GetByIdWithImages(id);
@@ -169,13 +171,14 @@ namespace MVC_Projec2.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public IActionResult SaveEdit(EditDecorViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             try
             {
