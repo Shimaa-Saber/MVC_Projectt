@@ -200,7 +200,6 @@ namespace MVC_Projec2.Controllers
                 atelier.priceRange = model.priceRange;
                 atelier.Location = model.Location;
                 atelier.ImageUrl = model.ImageUrl;
-
                 atelierRepository.Update(atelier);
                 atelierRepository.Save();
 

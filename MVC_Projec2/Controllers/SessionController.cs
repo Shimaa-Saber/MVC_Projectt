@@ -24,6 +24,7 @@ namespace MVC_Projec2.Controllers
                 this._sessionRepository = sessionRepository;
                 this._imageUploadService = imageUploadService;
                 this._logger = logger;
+                this._commentRepository = commentRepository;
             }
 
         public IActionResult GetAll()

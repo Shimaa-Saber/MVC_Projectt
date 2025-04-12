@@ -23,6 +23,7 @@ namespace MVC_Projec2.Controllers
             ILogger<SessionController> logger)
         {
             this._makeUpRepository = makeUpRepository;
+            this._commentRepository = commentRepository;
             this._imageUploadService = imageUploadService;
             this._logger = logger;
         }
