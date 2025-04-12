@@ -105,7 +105,7 @@ namespace MVC_Projec2.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        public IActionResult AddSession()
+        public IActionResult Add()
         {
             return View();
         }

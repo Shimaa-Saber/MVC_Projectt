@@ -1,0 +1,54 @@
+﻿@model MVC_Projec2.Models.Booking
+
+@{
+    ViewData["Title"] = "Details Booking";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h3 class="mb-0">@ViewData["Title"]</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Booking ID:</dt>
+                <dd class="col-sm-9">@Model.Id</dd>
+
+                <dt class="col-sm-3">Hall:</dt>
+                <dd class="col-sm-9">@Model.Hall?.Name</dd>
+
+                <dt class="col-sm-3">Session:</dt>
+                <dd class="col-sm-9">@Model.Session?.Name</dd>
+
+                <dt class="col-sm-3">Atelier:</dt>
+                <dd class="col-sm-9">@Model.Atelier?.Name</dd>
+
+                <dt class="col-sm-3">Makeup:</dt>
+                <dd class="col-sm-9">@Model.MakeUp?.Name</dd>
+
+                <dt class="col-sm-3">Decor:</dt>
+                <dd class="col-sm-9">@Model.Decor?.Style</dd>
+
+                @* <dt class="col-sm-3">Booking Date:</dt> *@
+                @* <dd class="col-sm-9">@Model.BookingDate.ToString("yyyy-MM-dd")</dd> *@
+
+                <dt class="col-sm-3">Status:</dt>
+                <dd class="col-sm-9">
+                    <span class="badge @(Model.Status == "Pending" ? "bg-warning" : "bg-success")">
+                        @Model.Status
+                    </span>
+                </dd>
+            </dl>
+
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mx-2">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

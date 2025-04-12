@@ -1,7 +1,7 @@
-﻿@model MVC_Projec2.ViewModels.AddHallViewModel
+﻿@model MVC_Projec2.ViewModels.AddMakeUpViewModel
 
 @{
-    ViewData["Title"] = "Add Hall";
+    ViewData["Title"] = "Add MakeUp Service";
 }
 
 <div class="container mt-5">
@@ -9,29 +9,17 @@
         <div class="col-md-8">
             <div class="card shadow-lg rounded-4">
                 <div class="card-header text-success bg-light fst-italic text-center fs-3">
-                    Add New Hall
+                    Add New MakeUp
                 </div>
 
-                <form asp-action="SaveAdd" enctype="multipart/form-data">
+                <form asp-action="Create" enctype="multipart/form-data">
                     <div class="card-body">
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
                         <div class="mb-3">
-                            <label asp-for="Name" class="form-label">Hall Name</label>
+                            <label asp-for="Name" class="form-label">Name</label>
                             <input asp-for="Name" class="form-control" />
                             <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Capacity" class="form-label">Capacity</label>
-                            <input asp-for="Capacity" class="form-control" />
-                            <span asp-validation-for="Capacity" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Location" class="form-label">Location</label>
-                            <input asp-for="Location" class="form-control" />
-                            <span asp-validation-for="Location" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
@@ -41,8 +29,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="ImageFiles" class="form-label">Upload Hall Images</label>
-                            <input asp-for="ImageFiles" class="form-control" type="file" multiple />
+                            <label asp-for="ImageFiles" class="form-label">Upload Image</label>
+                            <input asp-for="ImageFiles" class="form-control" type="file" />
                             <span asp-validation-for="ImageFiles" class="text-danger"></span>
                         </div>
                     </div>

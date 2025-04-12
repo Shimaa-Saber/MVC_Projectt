@@ -1,7 +1,7 @@
-﻿@model MVC_Projec2.ViewModels.AddHallViewModel
+﻿@model MVC_Projec2.ViewModels.AddAtelierViewModel
 
 @{
-    ViewData["Title"] = "Add Hall";
+    ViewData["Title"] = "Add Atelier";
 }
 
 <div class="container mt-5">
@@ -9,23 +9,17 @@
         <div class="col-md-8">
             <div class="card shadow-lg rounded-4">
                 <div class="card-header text-success bg-light fst-italic text-center fs-3">
-                    Add New Hall
+                    Add New MakeUp
                 </div>
 
-                <form asp-action="SaveAdd" enctype="multipart/form-data">
+                <form asp-action="Create" enctype="multipart/form-data">
                     <div class="card-body">
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
                         <div class="mb-3">
-                            <label asp-for="Name" class="form-label">Hall Name</label>
+                            <label asp-for="Name" class="form-label">Name</label>
                             <input asp-for="Name" class="form-control" />
                             <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Capacity" class="form-label">Capacity</label>
-                            <input asp-for="Capacity" class="form-control" />
-                            <span asp-validation-for="Capacity" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
@@ -35,15 +29,15 @@
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="Price" class="form-label">Price</label>
-                            <input asp-for="Price" class="form-control" />
-                            <span asp-validation-for="Price" class="text-danger"></span>
+                            <label asp-for="priceRange" class="form-label">Price</label>
+                            <input asp-for="priceRange" class="form-control" />
+                            <span asp-validation-for="priceRange" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="ImageFiles" class="form-label">Upload Hall Images</label>
-                            <input asp-for="ImageFiles" class="form-control" type="file" multiple />
-                            <span asp-validation-for="ImageFiles" class="text-danger"></span>
+                            <label asp-for="ImageUrl" class="form-label">Upload Image</label>
+                            <input asp-for="ImageUrl" class="form-control" type="file" />
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
                         </div>
                     </div>
 
