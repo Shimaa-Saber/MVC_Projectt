@@ -158,7 +158,8 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public IActionResult Edit(int id)
         {
             Hall hall = hallRepository.GetByIdWithImages(id);
@@ -180,14 +181,16 @@ namespace MVC_Projec2.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = "Admin")]
+
+        [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult UpdateHall(EditHallViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Edit", model); 
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("Edit", model); 
+            //}
 
             try
             {

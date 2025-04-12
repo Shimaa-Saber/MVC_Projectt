@@ -1,8 +1,185 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="overflow-hidden">
+    <section id="Home">
+        <div class="row">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/1 (38).jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/1 (33).jpg" class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/2 (3).jpg" class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/1 (30).jpg" class="d-block w-100 " alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </section>
+
+    <section id="Services">
+        <div class="container-fluid bg-secondary-subtle p-2">
+            <div class="container p-2 mt-5">
+                <div class="row text-center justify-content-center">
+                    <h1 style="color: #3c734c;">Our services</h1>
+                </div>
+                <div class="row text-center justify-content-center">
+                    <div class="col-lg-3 col-md-5 col-sm-12 me-2 mt-3">
+                        <div class="card  bg-opacity-25" id="card1">
+                            <div class="cardDiv bg-light bg-opacity-75 text-center">
+                                <strong>Halls</strong>
+                            </div>
+                            <div class="arrow">
+                                @*                                 <a asp-action="GetAll" asp-controller="Hall"> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i </a>
+ *@                                <a href="Hall/GetAll"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-12 me-2 mt-3">
+                        <div class="card  bg-opacity-25" id="card2">
+                            <div class="cardDiv bg-light bg-opacity-75 text-center ">
+                                <strong>MakeUp</strong>
+                            </div>
+                            <div class="arrow">
+                                @*                                 <a asp-action="GetAll" asp-controller="Hall"> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i </a>
+ *@                                <a href="MakeUp/GetAll"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-12 me-2 mt-3">
+                        <div class="card  bg-opacity-25" id="card3">
+                            <div class="cardDiv bg-light bg-opacity-75 text-center">
+                                <strong>Session</strong>
+                            </div>
+                            <div class="arrow">
+                                @*                                 <a asp-action="GetAll" asp-controller="Hall"> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i </a>
+ *@                                <a href="Session/GetAll"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-12 me-2 mt-3">
+                        <div class="card  bg-opacity-25" id="card4">
+                            <div class="cardDiv bg-light bg-opacity-75 text-center">
+                                <strong>Decor</strong>
+                            </div>
+                            <div class="arrow">
+                                @*                                <a asp-action="GetAll" asp-controller="Hall"> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i </a>
+ *@                                <a href="Decor/GetAll"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-12 me-2 mt-3">
+                        <div class="card  bg-opacity-25" id="card5">
+                            <div class="cardDiv bg-light bg-opacity-75 text-center">
+                                <strong>Atelier</strong>
+                            </div>
+                            <div class="arrow">
+                                @*                                 <a asp-action="GetAll" asp-controller="Hall"> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i </a>
+ *@                                <a href="Atelier/GetAll"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 30px; color: gray;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container mb-5">
+            <div class="heading">
+                <h2>About <span>Us</span></h2>
+            </div>
+            <h3>Your Dream Wedding Begins Here</h3>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 me-2 mt-3">
+                    <div class="card">
+                        <img src="/images/about.jpeg" alt="Wedding Image">
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-sm-12 me-2 mt-3">
+                    <p>
+                        Welcome to our specialized wedding services website! We are dedicated to making your special
+                        day truly memorable by offering a comprehensive range of services tailored to meet all your
+                        wedding planning needs.
+                        <br><br>
+                        Our website is designed to provide you with everything you need for a perfect wedding
+                        experience. On the Home page, you can find the latest updates, offers, and insights into our
+                        services. The Contact Us page is your direct line to our team for any questions,
+                        consultations, or personalized assistance you might require.
+                        <br><br>
+                    </p>
+
+                    <button id="about-btn">Learn More.</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <p class="mb-4 text-center mb-4 col-12 ">
+                You can use the following contact information if you encounter any issues or have
+                any inquiries about our services. Your feedback and requests are also welcome ,  feel free to reach out to us
+                either by direct call or by filling out the form below.
+            </p>
+            <div class="row">
+                <div class="col-lg-5 col-5 col-sm-12 me-2 mt-3">
+                    <div class="contact-box">
+                        <h3 style="color: #3c734c;" class="mb-4">Main Office</h3>
+                        <p><strong>Address:</strong> 123 Example Street, New York, USA</p>
+                        <p><strong>Phone:</strong> +1 123 456 7890</p>
+                        <p><strong>Email:</strong> support@example.com</p>
+                        <p><strong>WhatsApp:</strong> +1 987 654 3210</p>
+                        <p><strong>Working Hours:</strong> 9 AM - 5 PM</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5 col-sm-12 me-2 mt-3">
+                    <h3 style="color: #3c734c;">Send a Message</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Write your message here"></textarea>
+                        </div>
+                        <button type="submit" class="btn w-100 bg-success bg-opacity-75">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
