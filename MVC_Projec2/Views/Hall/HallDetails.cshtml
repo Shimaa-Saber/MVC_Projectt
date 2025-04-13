@@ -63,7 +63,7 @@
                 <div id="text"><strong>Location : @Model.Hall.Location</strong></div>
                 <div id="text"><strong>Price :@Model.Hall.Price</strong></div>
                 <div id="text"><strong>Capacity : @Model.Hall.Capacity</strong></div>
-                <form asp-controller="Hall" asp-action="GetAll" method="post">
+                <form asp-controller="Booking" asp-action="Create" method="post">
                     <button id="btn" class="btn">Book Now</button>
                 </form>
             </div>

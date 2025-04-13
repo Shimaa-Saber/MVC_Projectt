@@ -62,7 +62,7 @@
                 <div id="text"><strong>Price : @Model.Session.Price</strong></div>
 
                 <div id="text"><strong>Description :<p>@Model.Session.Description</p></strong></div>
-                <form asp-controller="Session" asp-action="GetAll" method="post">
+                <form asp-controller="Booking" asp-action="Create" method="post">
                     <button id="btn" class="btn">Book Now</button>
                 </form>
             </div>

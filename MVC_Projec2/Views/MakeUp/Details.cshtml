@@ -61,7 +61,7 @@
                 <h2>@Model.makeUp.Name</h2>
                 <div id="text"><strong>Price :@Model.makeUp.Price</strong></div>
                 <div id="text"><strong>Description : @Model.makeUp.Description</strong></div>
-                <form asp-controller="MakeUp" asp-action="GetAll" method="post">
+                <form asp-controller="Booking" asp-action="Create" method="post">
                     <button id="btn" class="btn">Book Now</button>
                 </form>
             </div>
