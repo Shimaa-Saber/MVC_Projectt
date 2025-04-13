@@ -104,7 +104,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var Atilers = atelierRepository.SearchByName(searchValue);
-                return View("GetAll", Atilers);
+                return View("SearchName", Atilers);
             }
             catch (Exception ex)
             {

@@ -75,7 +75,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var halls = hallRepository.SearchByName(searchValue);
-                return View("GetAll", halls);
+                return View("SearchName", halls);
             }
             catch (Exception ex)
             {

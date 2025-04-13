@@ -1,6 +1,6 @@
 #hall img
 {
-    height: 34rem;
+    height: 500px;
 }
 #hallCard{
     height: 400px;
@@ -26,3 +26,58 @@ h1,p,strong{
 .col-lg-3 {
     width:30%
 }
+
+
+/* Search */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 2px solid green;
+    border-radius: 30px;
+    padding: 10px 20px;
+    width: 400px;
+    transition: all 0.3s ease;
+}
+
+    .search-box input {
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+        flex: 1;
+        color: #333333;
+        font-style: italic;
+    }
+
+    .search-box i {
+        font-size: 20px;
+        color: green;
+        margin-right: 10px;
+    }
+
+    .search-box:hover {
+        box-shadow: 0 0 10px rgb(136, 168, 136);
+    }
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #f5c6cb;
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.2);
+}
+
+

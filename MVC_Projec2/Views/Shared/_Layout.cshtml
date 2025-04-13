@@ -13,23 +13,29 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
    
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
-    @RenderSection("Styles", required: false)
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+            <div class="container-fluid d-flex justify-content-between">
                 <a asp-controller="Home" asp-action="Index" class="navbar-brand">
                     <img src="~/images/n1.jpg" asp-append-version="true" style="border-radius: 50px; width: 50px; height: 50px; margin-left: 50px;" alt="Logo" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                 <h4>Zaffa</h4>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -59,10 +65,34 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" asp-controller="Home" asp-action="Search" method="get">
-                        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <!-- MY Booking button -->
+                    <form asp-action="Index" asp-controller="Booking" method="get">
+                        <button type="submit" class="btn btn-outline-secondary me-2">
+                            MY Booking
+                        </button>
                     </form>
+
+                    <!-- Login button -->
+                    <form asp-action="Login" asp-controller="Account" method="get">
+                        <button type="submit" class="btn btn-outline-secondary me-2" id="Login">
+                            <i class="bi bi-lock"></i> Login
+                        </button>
+                    </form>
+
+                    <!-- Register button -->
+                    <form asp-action="Register" asp-controller="Account" method="get">
+                        <button type="submit" class="btn btn-outline-secondary me-2" id="Register">
+                            <i class="bi bi-person-plus"></i> Registration
+                        </button>
+                    </form>
+
+                    <!-- Logout button -->
+                    <form asp-action="Logout" asp-controller="Account" method="post" id="LogoutForm">
+                        <button type="submit" class="btn btn-outline-secondary me-2" id="Logout">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </button>
+                    </form>
+
                 </div>
             </div>
         </nav>
@@ -94,3 +124,23 @@
     <script src="~/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
 </body>
 </html>
+
+
+<script>
+    function handleLogin() {
+
+        document.getElementById("Login").style.display = "none";
+        document.getElementById("Register").style.display = "none";
+        document.getElementById("Logout").style.display = "inline";
+    }
+
+    function handleLogout() {
+        document.getElementById("Login").style.display = "inline";
+        document.getElementById("Register").style.display = "inline";
+        document.getElementById("Logout").style.display = "none";
+    }
+
+</script>
+<script src="~/js/bootstrap.bundle.min.js"></script>
+
+ 

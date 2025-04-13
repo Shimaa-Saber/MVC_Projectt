@@ -1,29 +1,25 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<Decor>
+@model List<MakeUp_Service>
 @{
-    ViewData["Title"] = "GetAll";
+    ViewData["Title"] = "SearchMakeUp";
 }
 
-
+<link rel="stylesheet" href="/css/DetailsStyle.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/hallStyle.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 
 
 <div class="container-fluid">
-    <div class="row" id="hall">
-        <img src="/images/halls (3).jpg" alt="">
-    </div>
     <div class="row text-center justify-content-center">
-        <h1 class="mt-5 mb-5">The most famous and best wedding Decor in Egypt</h1>
+        <h1 class="mt-5 mb-5">Search Results for Decor</h1>
 
         <!-- Search -->
 
         <div class="search-container">
-            <form asp-controller="Decor" asp-action="Search" method="get" class="search-box">
+            <form asp-controller="MakeUpe" asp-action="Search" method="get" class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" name="searchValue" placeholder="Search by Decor name..." />
+                <input type="text" name="searchValue" placeholder="Search by makeUp name..." />
             </form>
         </div>
 
@@ -36,22 +32,29 @@
         }
 
 
-
-        @foreach (Decor decor in Model)
+        @foreach (MakeUp_Service makeUp in Model)
         {
             <div class="col-lg-3 col-md-5 col-sm-12 mt-3 me-3">
                 <div id="hallCard">
-                    <img src="/images/@decor.ImageUrl" alt="" class="mt-1">
-                    <p class="m-2">@decor.Style</p>
+                    <img src="/images/@makeUp.ImageUrl" alt="" class="mt-1">
+                    <p class="m-2">@makeUp.Name</p>
                     <hr class="m-2">
                     <strong class="m-2">View / request price</strong>
-                    <a asp-controller="Decor" asp-action="DecorDetails" asp-route-id="@decor.Id"><i class="fa-solid fa-circle-arrow-right" style="font-size: 20px;"></i></a>
+                    <a asp-controller="MakeUp" asp-action="Details" asp-route-id="@makeUp.Id"><i class="fa-solid fa-circle-arrow-right" style="font-size: 20px;"></i></a>
                     @*                     <a href="/Hall/HallDetailes/@hall.Id"><i class="fa-solid fa-circle-arrow-right" style="font-size: 20px;"></i></a>
  *@                </div>
             </div>
         }
+
+    </div>
+
+    <div class="row text-center justify-content-center">
+        <form asp-controller="Atelier" asp-action="GetAll" method="post">
+            <button id="btn" class="btn mt-5 w-25">Back to All MakeUpe</button>
+        </form>
     </div>
 </div>
+
 
 
 
