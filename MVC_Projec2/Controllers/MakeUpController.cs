@@ -70,7 +70,6 @@ namespace MVC_Projec2.Controllers
             return View(viewModel);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> AddComment(MakeUpCommentViewModel model)
         {
