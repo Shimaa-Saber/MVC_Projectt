@@ -114,11 +114,12 @@ input[placeholder] {
     color: rgb(46, 86, 46);
     font-style: italic;
   }
-  
-.navbar button:hover {
-    background: #3c734c;
-    color: white;
-    border: 1px solid white;
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index:  1030;
 }
 #about {
     width: 100%;
@@ -267,3 +268,4 @@ h3{
 .copyright{
     color: white;
 }
+
