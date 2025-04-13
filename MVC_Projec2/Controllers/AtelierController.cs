@@ -137,13 +137,13 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> SaveAdd(AddAtelierViewModel model)
         {
             if (!ModelState.IsValid)

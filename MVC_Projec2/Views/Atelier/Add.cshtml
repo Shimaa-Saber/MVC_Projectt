@@ -12,7 +12,7 @@
                     <h2 class="h4 mb-0 text-center"><i class="fas fa-tshirt me-2"></i>Add New Atelier</h2>
                 </div>
 
-                <form asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <form asp-controller="Atelier" asp-action="SaveAdd" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <div class="card-body p-4" style="overflow-y: auto;">
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4"></div>
 

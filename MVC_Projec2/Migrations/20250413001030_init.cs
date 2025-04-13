@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-    public partial class AddBookingData : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,7 +61,7 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     priceRange = table.Column<double>(type: "float", nullable: true)
                 },
@@ -77,7 +77,7 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Style = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -96,7 +96,7 @@ namespace MVC_Projec2.Migrations
                     Capacity = table.Column<int>(type: "int", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -111,7 +111,7 @@ namespace MVC_Projec2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -127,7 +127,7 @@ namespace MVC_Projec2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -432,8 +432,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "0ed6d0ad-c304-4424-8ef8-1c2144ec346a", 0, "c52347bc-3506-4348-81c2-2231b39edaea", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKhR2VgP+D5SWyM2pP1/pDfOsVLVfalbAj7iKUs7ZLZTVAtDe+iEnpzUQqHD618ReA==", "0123456789", true, "99f7640b-1a50-4fb1-85f9-82d01d29924b", false, "admin@example.com" },
-                    { "4f06f11e-d387-4d4b-8d50-6f72589484ec", 0, "d6b268ec-03ee-43cf-a09c-069fb922de4e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEMl/Ed0zh2tnqXbkzT0l+q+f7gcRwSPZM3VSRVSEpYvFwRponAWglfQDry0d7O8Gyw==", "9876543210", true, "c02a9b3b-5c2d-401c-9a9e-fc391c4349d3", false, "user@example.com" }
+                    { "69518546-5dd8-47ec-bd8d-dae8e17e273a", 0, "7c7c536a-2b71-47bb-9c1f-ab40681839b2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEMPm3zO2FCJEiBEPpq28zltMjIz6z4u2CBdfj0bR1rmOnkVN1hW9zbUJAbpuVTImBA==", "0123456789", true, "5959bbcc-12ef-4f0a-8bf6-b977974dc769", false, "admin@example.com" },
+                    { "ec1493e0-aa69-40cd-a49b-5653d962109b", 0, "f4b5c2f9-c7ae-4273-a7f6-3df705293f98", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEEPiLf50g2NEEG5PG1g8JXM6amyltAbvNMlxMPhaCqZ/kkZZZtxiLOovtqhNyTUVAA==", "9876543210", true, "c400ac79-7a82-4d8d-83b5-8e96c8936570", false, "user@example.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -536,8 +536,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { "2", "4f06f11e-d387-4d4b-8d50-6f72589484ec" }
+                    { "1", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
+                    { "2", "ec1493e0-aa69-40cd-a49b-5653d962109b" }
                 });
 
             migrationBuilder.InsertData(
@@ -594,16 +594,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8594), 1, 2, 1, 2, "Confirmed", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { 3, 3, new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8741), 1, 2, 1, 2, "Confirmed", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" }
+                    { 1, 3, new DateTime(2025, 4, 13, 2, 10, 28, 270, DateTimeKind.Local).AddTicks(9627), 1, 2, 1, 2, "Confirmed", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
+                    { 2, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
+                    { 3, 3, new DateTime(2025, 4, 13, 2, 10, 28, 271, DateTimeKind.Local).AddTicks(91), 1, 2, 1, 2, "Confirmed", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
+                    { 4, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "69518546-5dd8-47ec-bd8d-dae8e17e273a" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8799), 0, 0, "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" });
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 13, 2, 10, 28, 271, DateTimeKind.Local).AddTicks(206), 0, 0, "69518546-5dd8-47ec-bd8d-dae8e17e273a" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",

@@ -19,7 +19,7 @@
         }
 
         public async Task<string> UploadImageAsync(IFormFile imageFile)
-        {
+        { 
          
             var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "halls");
             Directory.CreateDirectory(uploadsFolder);

@@ -33,7 +33,7 @@ namespace MVC_Projec2.Controllers
 
         public IActionResult Create()
         {
-            LoadDropDowns();
+           // LoadDropDowns();
             ViewData["Message"] = "Create a new Booking";
             return View();
         }
@@ -49,7 +49,7 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction("Index");
             }
 
-            LoadDropDowns();
+           // LoadDropDowns();
             ViewData["Error"] = "Invalid data!";
             return View(booking);
         }
