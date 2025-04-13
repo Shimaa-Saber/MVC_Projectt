@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
-
-
 
 namespace MVC_Projec2
 {
@@ -26,25 +23,34 @@ namespace MVC_Projec2
             builder.Services.AddScoped<ISessionRepository, SessionRepository>();
             builder.Services.AddScoped<ICommentRepository, CommentRepository>();
             builder.Services.AddScoped<IImageUploadService, ImageUploadServices>();
-
+           
 
             builder.Services.AddDbContext<MVCProjectContext>(
                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS"))
             );
-            // builder.Services.AddDbContext<MVCProjectContext>(
-            //       options => options.UseSqlServer(builder.Configuration.GetConnectionString("CS2"))
-            //);
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
 
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()  
+            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                             .AddEntityFrameworkStores<MVCProjectContext>()
                             .AddDefaultTokenProviders();
 
+            //builder.Services.AddSignalR();
+            builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true;
+});
 
-            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
+            // Ensure RoleInitializer is working correctly
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -59,11 +65,11 @@ namespace MVC_Projec2
                 }
             }
 
+            // Middleware to handle exceptions globally
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
 
             app.UseStaticFiles();
 
@@ -72,15 +78,16 @@ namespace MVC_Projec2
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapHub<CommentHub>("/commentHub");
+            // Ensure CORS is applied
+            app.UseCors("AllowAll");
 
+            app.MapHub<CommentHub>("/commentHub");
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            //app.MapControllerRoute(
-            //    name: "default",
-            //    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+            // Run the app
             await app.RunAsync();
         }
     }

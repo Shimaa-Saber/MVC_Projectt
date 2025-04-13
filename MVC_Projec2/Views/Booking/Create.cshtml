@@ -4,81 +4,84 @@
     ViewData["Title"] = "Create New Booking";
 }
 
-<div class="container mt-4">
-    <div class="card shadow">
-        <div class="card-header bg-success text-white">
-            <h3 class="mb-0">@ViewData["Title"]</h3>
-        </div>
-        <div class="card-body">
-            <form asp-action="Create" class="needs-validation" novalidate>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label asp-for="Hall_Id" class="form-label">Hall</label>
-                        <select asp-for="Hall_Id" asp-items="@(ViewData["Halls"] as SelectList)" class="form-select" required>
-                            <option value="">Select Hall</option>
-                        </select>
-                        <span asp-validation-for="Hall_Id" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label asp-for="Session_Id" class="form-label">Session</label>
-                        <select asp-for="Session_Id" asp-items="@(ViewData["Sessions"] as SelectList)" class="form-select" required>
-                            <option value="">Select Session</option>
-                        </select>
-                        <span asp-validation-for="Session_Id" class="text-danger"></span>
-                    </div>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow rounded-4">
+                <div class="card-header bg-success text-white text-center rounded-top-4">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
                 </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label asp-for="Atelier_Id" class="form-label">Atelier</label>
-                        <select asp-for="Atelier_Id" asp-items="@(ViewData["Ateliers"] as SelectList)" class="form-select">
-                            <option value="">Select Atelier</option>
-                        </select>
-                        <span asp-validation-for="Atelier_Id" class="text-danger"></span>
-                    </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Hall_Id" class="form-label">Hall</label>
+                                <select asp-for="Hall_Id" asp-items="@(ViewData["Halls"] as SelectList)" class="form-select" required>
+                                    <option value="">Select Hall</option>
+                                </select>
+                                <span asp-validation-for="Hall_Id" class="text-danger"></span>
+                            </div>
 
-                    <div class="col-md-6">
-                        <label asp-for="MakeupId" class="form-label">Makeup Service</label>
-                        <select asp-for="MakeupId" asp-items="@(ViewData["MakeUps"] as SelectList)" class="form-select">
-                            <option value="">Select Makeup Service</option>
-                        </select>
-                        <span asp-validation-for="MakeupId" class="text-danger"></span>
-                    </div>
+                            <div class="col-md-6">
+                                <label asp-for="Session_Id" class="form-label">Session</label>
+                                <select asp-for="Session_Id" asp-items="@(ViewData["Sessions"] as SelectList)" class="form-select" required>
+                                    <option value="">Select Session</option>
+                                </select>
+                                <span asp-validation-for="Session_Id" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Atelier_Id" class="form-label">Atelier</label>
+                                <select asp-for="Atelier_Id" asp-items="@(ViewData["Ateliers"] as SelectList)" class="form-select">
+                                    <option value="">Select Atelier</option>
+                                </select>
+                                <span asp-validation-for="Atelier_Id" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="MakeupId" class="form-label">Makeup Service</label>
+                                <select asp-for="MakeupId" asp-items="@(ViewData["MakeUps"] as SelectList)" class="form-select">
+                                    <option value="">Select Makeup Service</option>
+                                </select>
+                                <span asp-validation-for="MakeupId" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Decor_Id" class="form-label">Decor</label>
+                                <select asp-for="Decor_Id" asp-items="@(ViewData["Decors"] as SelectList)" class="form-select">
+                                    <option value="">Select Decor</option>
+                                </select>
+                                <span asp-validation-for="Decor_Id" class="text-danger"></span>
+                            </div>
+
+                            @* لو حبيتي ترجعي حقل التاريخ ضيفي الكود ده *@
+                            @* 
+                            <div class="col-md-6">
+                                <label asp-for="BookingDate" class="form-label">Booking Date</label>
+                                <input asp-for="BookingDate" type="date" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                <span asp-validation-for="BookingDate" class="text-danger"></span>
+                            </div>
+                            *@
+                        </div>
+
+                        @if (ViewData["Error"] != null)
+                        {
+                            <div class="alert alert-danger mt-4">@ViewData["Error"]</div>
+                        }
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success px-4">
+                                <i class="fas fa-save"></i> Save Booking
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary mx-2">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label asp-for="Decor_Id" class="form-label">Decor</label>
-                        <select asp-for="Decor_Id" asp-items="@(ViewData["Decors"] as SelectList)" class="form-select">
-                            <option value="">Select Decor</option>
-                        </select>
-                        <span asp-validation-for="Decor_Id" class="text-danger"></span>
-                    </div>
-
-                    @* <div class="col-md-6"> *@
-                    @*     <label asp-for="BookingDate" class="form-label">Booking Date</label> *@
-                    @*     <input asp-for="BookingDate" type="date" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" /> *@
-                    @*     <span asp-validation-for="BookingDate" class="text-danger"></span> *@
-                    @* </div> *@
-                </div>
-
-                @if (ViewData["Error"] != null)
-                {
-                    <div class="alert alert-danger mb-4">@ViewData["Error"]</div>
-                }
-
-                <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-success px-4">
-                        <i class="fas fa-save"></i> Save Booking
-                    </button>
-                    <a asp-action="Index" class="btn btn-outline-secondary mx-2">
-                        <i class="fas fa-times"></i> Cancel
-                    </a>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
@@ -88,12 +91,15 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     <script>
-        document.querySelector('input[type="date"]').addEventListener('change', function() {
-            if (new Date(this.value) < new Date()) {
-                this.setCustomValidity('Cannot select past date');
-            } else {
-                this.setCustomValidity('');
-            }
-        });
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
+            dateInput.addEventListener('change', function () {
+                if (new Date(this.value) < new Date().setHours(0,0,0,0)) {
+                    this.setCustomValidity('Cannot select past date');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+        }
     </script>
 }

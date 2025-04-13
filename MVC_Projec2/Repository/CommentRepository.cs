@@ -1,4 +1,5 @@
-﻿using MVC_Projec2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Projec2.Models;
 
 namespace MVC_Projec2.Repository
 {
@@ -29,6 +30,7 @@ namespace MVC_Projec2.Repository
         public List<Comment> GetCommentsByService(int serviceId, ServiceType serviceType)
         {
             return _context.Comments
+                .Include(c => c.User)
                 .Where(c => c.ServiceId == serviceId && c.ServiceType == serviceType)
                 .OrderByDescending(c => c.CreatedAt)
                 .ToList();
@@ -37,6 +39,7 @@ namespace MVC_Projec2.Repository
         public List<Comment> GetCommentsByUser(string userId)
         {
             return _context.Comments
+                .Include(c => c.User) 
                 .Where(c => c.UserId == userId)
                 .OrderByDescending(c => c.CreatedAt)
                 .ToList();
