@@ -12,7 +12,9 @@ namespace MVC_Projec2.Hubs
         private readonly ILogger<CommentHub> _logger;
 
 
-        public CommentHub(ILogger<CommentHub> logger, ICommentRepository commentRepo, UserManager<ApplicationUser> userManager)
+        public CommentHub(ILogger<CommentHub> logger,
+                          ICommentRepository commentRepo,
+                          UserManager<ApplicationUser> userManager)
         {
             _commentRepo = commentRepo;
             _userManager = userManager;

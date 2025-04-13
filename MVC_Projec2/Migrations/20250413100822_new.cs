@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -358,8 +358,8 @@ namespace MVC_Projec2.Migrations
                     Atelier_Id = table.Column<int>(type: "int", nullable: true),
                     MakeupId = table.Column<int>(type: "int", nullable: true),
                     Decor_Id = table.Column<int>(type: "int", nullable: true),
-                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -369,8 +369,7 @@ namespace MVC_Projec2.Migrations
                         name: "FK_Bookings_AspNetUsers_user_id",
                         column: x => x.user_id,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Bookings_Ateliers_Atelier_Id",
                         column: x => x.Atelier_Id,
@@ -432,8 +431,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "69518546-5dd8-47ec-bd8d-dae8e17e273a", 0, "7c7c536a-2b71-47bb-9c1f-ab40681839b2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEMPm3zO2FCJEiBEPpq28zltMjIz6z4u2CBdfj0bR1rmOnkVN1hW9zbUJAbpuVTImBA==", "0123456789", true, "5959bbcc-12ef-4f0a-8bf6-b977974dc769", false, "admin@example.com" },
-                    { "ec1493e0-aa69-40cd-a49b-5653d962109b", 0, "f4b5c2f9-c7ae-4273-a7f6-3df705293f98", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEEPiLf50g2NEEG5PG1g8JXM6amyltAbvNMlxMPhaCqZ/kkZZZtxiLOovtqhNyTUVAA==", "9876543210", true, "c400ac79-7a82-4d8d-83b5-8e96c8936570", false, "user@example.com" }
+                    { "09970960-568f-421a-855d-9c2e22205af2", 0, "b65df7bb-22a7-458d-a45c-1b3e9b1839d6", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEJjlvyUgIDaLHTZqCpMD4gHnkv9e887fOkJiDjF2xGoJwtY5efw4JiNI6SRUpKbmyQ==", "0123456789", true, "8a1ac1fa-3358-4d40-b9e7-a890c9aac316", false, "admin@example.com" },
+                    { "8aa98e10-33a4-412a-8cd4-edb609f077d5", 0, "0a03c815-7c19-4e35-9da9-b5b3eb47c04a", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEIP/W0E/SkD5mRD9O4dSxOz6kjNG8YMgiCr7zdTs/ZGegstn0eDd/puIbkqQNC6+bg==", "9876543210", true, "fe9b6409-a3f8-4a53-ae69-0f77d155b1d1", false, "user@example.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -536,8 +535,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
-                    { "2", "ec1493e0-aa69-40cd-a49b-5653d962109b" }
+                    { "1", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { "2", "8aa98e10-33a4-412a-8cd4-edb609f077d5" }
                 });
 
             migrationBuilder.InsertData(
@@ -594,16 +593,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 13, 2, 10, 28, 270, DateTimeKind.Local).AddTicks(9627), 1, 2, 1, 2, "Confirmed", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
-                    { 2, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
-                    { 3, 3, new DateTime(2025, 4, 13, 2, 10, 28, 271, DateTimeKind.Local).AddTicks(91), 1, 2, 1, 2, "Confirmed", "69518546-5dd8-47ec-bd8d-dae8e17e273a" },
-                    { 4, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "69518546-5dd8-47ec-bd8d-dae8e17e273a" }
+                    { 1, 3, new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(8980), 1, 2, 1, 2, "Confirmed", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { 2, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { 3, 3, new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9117), 1, 2, 1, 2, "Confirmed", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { 4, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "09970960-568f-421a-855d-9c2e22205af2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 13, 2, 10, 28, 271, DateTimeKind.Local).AddTicks(206), 0, 0, "69518546-5dd8-47ec-bd8d-dae8e17e273a" });
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9188), 0, 0, "09970960-568f-421a-855d-9c2e22205af2" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",
