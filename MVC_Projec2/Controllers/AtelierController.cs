@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -9,16 +12,22 @@ namespace MVC_Projec2.Controllers
 {
     public class AtelierController : Controller
     {
-        IAtelierRepository atelierRepository;
+        private readonly IAtelierRepository atelierRepository;
+        private readonly IHubContext<CommentHub> _hubContext;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<HallController> _logger;
         private readonly ICommentRepository _commentRepository;
 
-        public AtelierController(ICommentRepository commentRepository,
+        public AtelierController(
+                              UserManager<ApplicationUser> userManager,
+                              IHubContext<CommentHub> hubContext,
+                              ICommentRepository commentRepository,
                               IAtelierRepository  atelierRepository,
                               IImageUploadService imageUpload,
                               ILogger<HallController> logger)
         {
+            this._hubContext = hubContext;
             this._commentRepository = commentRepository;
             this.atelierRepository = atelierRepository;
             this._imageUploadService = imageUpload;
@@ -52,30 +61,37 @@ namespace MVC_Projec2.Controllers
 
         }
 
-
-
         [HttpPost]
-        public IActionResult AddComment(AtelierCommentViewModel model)
+        public async Task<IActionResult> AddComment(AtelierCommentViewModel model)
         {
             if (string.IsNullOrEmpty(model.CommentText))
             {
                 ModelState.AddModelError("", "Please provide a comment.");
-                return RedirectToAction("AtelierDetails", new { id = model.Atelier.Id });
+                return RedirectToAction("Details", new { id = model.Atelier.Id });
+            }
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return Unauthorized();
             }
 
             var comment = new Comment
             {
                 Content = model.CommentText,
-                ServiceId = model.Atelier.Id,
                 CreatedAt = DateTime.Now,
-                UserId = User.Identity.Name,
-                ServiceType = ServiceType.Atelier
+                ServiceType = ServiceType.Atelier,
+                UserId = user.Id,
+                ServiceId = model.Atelier.Id
             };
 
             _commentRepository.insert(comment);
             _commentRepository.Save();
 
-            return RedirectToAction("AtelierDetails", new { id = model.Atelier.Id });
+
+            await _hubContext.Clients.All.SendAsync("NewCommentNotify", user.UserName, model.CommentText, model.Atelier.Id, "Atelier");
+
+            return RedirectToAction("Detail", new { id = model.Atelier.Id });
         }
 
         public IActionResult Search(string searchValue)
@@ -97,8 +113,6 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction("GetAll");
             }
         }
-
-
 
 
         [Authorize(Roles = "Admin")]
@@ -137,13 +151,13 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> SaveAdd(AddAtelierViewModel model)
         {
             if (!ModelState.IsValid)
@@ -176,7 +190,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding atalier");
                 ModelState.AddModelError("", "An error occurred while adding the atalier.");
-                return View(model);
+                return View("Add",model);
             }
         }
 

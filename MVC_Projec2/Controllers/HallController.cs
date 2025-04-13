@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -11,20 +14,28 @@ namespace MVC_Projec2.Controllers
 {
     public class HallController : Controller
     {
+        private readonly IHubContext<CommentHub> _hubContext;
         private readonly IHallRepository hallRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<HallController> _logger;
         private readonly ICommentRepository _commentRepository;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HallController(ICommentRepository commentRepository,
+
+        public HallController(UserManager<ApplicationUser> userManager,
+                              IHubContext<CommentHub> hubContext,
+                              ICommentRepository commentRepository,
                               IHallRepository hallRepo,
                               IImageUploadService imageUpload,
                               ILogger<HallController> logger)
         {
+            this._hubContext = hubContext;
             this._commentRepository = commentRepository;
             this.hallRepository = hallRepo;
             this._imageUploadService = imageUpload;
-            _logger = logger;
+            this._logger = logger;
+            this._userManager = userManager;
+
         }
 
         public IActionResult GetAll()
@@ -74,9 +85,8 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-
         [HttpPost]
-        public IActionResult AddComment(HallCommentViewModel model)
+        public async Task<IActionResult> AddComment(HallCommentViewModel model)
         {
             if (string.IsNullOrEmpty(model.CommentText))
             {
@@ -84,17 +94,26 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction("HallDetails", new { id = model.Hall.Id });
             }
 
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
             var comment = new Comment
             {
                 Content = model.CommentText,
-                ServiceId = model.Hall.Id,
                 CreatedAt = DateTime.Now,
-                UserId = User.Identity.Name,
-                ServiceType = ServiceType.Hall
+                ServiceType = ServiceType.Decor,
+                UserId = user.Id,
+                ServiceId = model.Hall.Id
             };
 
             _commentRepository.insert(comment);
             _commentRepository.Save();
+
+
+            await _hubContext.Clients.All.SendAsync("NewCommentNotify", user.UserName, model.CommentText, model.Hall.Id, "Hall");
 
             return RedirectToAction("HallDetails", new { id = model.Hall.Id });
         }
@@ -135,19 +154,19 @@ namespace MVC_Projec2.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public async Task<IActionResult> SaveAdd(AddHallViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             try
             {
@@ -175,7 +194,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding hall");
                 ModelState.AddModelError("", "An error occurred while adding the hall.");
-                return View(model);
+                return View("Add",model);
             }
         }
 

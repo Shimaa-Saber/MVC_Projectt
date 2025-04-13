@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -9,21 +12,29 @@ namespace MVC_Projec2.Controllers
 {
     public class DecorController : Controller
     {
+        private readonly IHubContext<CommentHub> _hubContext;
         private readonly ICommentRepository _commentRepository;
         private readonly IDecorRepository _decorRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<DecorController> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
+
 
         public DecorController(
+            UserManager<ApplicationUser> userManager,
+            IHubContext<CommentHub> hubContext,
             ICommentRepository commentRepository,
             IDecorRepository decorRepository,
             IImageUploadService imageUploadService,
             ILogger<DecorController> logger)
         {
+            this._hubContext = hubContext;
             this._commentRepository = commentRepository;
             this._decorRepository = decorRepository;
             this._imageUploadService = imageUploadService;
             this._logger = logger;
+            this._userManager = userManager;
+            
         }
 
         public IActionResult GetAll()
@@ -61,25 +72,34 @@ namespace MVC_Projec2.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddComment(DecorCommentViewModel model)
+        public async Task<IActionResult> AddComment(DecorCommentViewModel model)
         {
             if (string.IsNullOrEmpty(model.CommentText))
             {
                 ModelState.AddModelError("", "Please provide a comment.");
-                return RedirectToAction("DecorDetails", new { id = model.Decor.Id });
+                return RedirectToAction("DecoreDetails", new { id = model.Decor.Id });
+            }
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return Unauthorized();
             }
 
             var comment = new Comment
             {
                 Content = model.CommentText,
                 CreatedAt = DateTime.Now,
-                ServiceType = ServiceType.MakeUp,
-                UserId = User.Identity.Name,
+                ServiceType = ServiceType.Decor,
+                UserId = user.Id,
                 ServiceId = model.Decor.Id
             };
 
             _commentRepository.insert(comment);
             _commentRepository.Save();
+
+
+            await _hubContext.Clients.All.SendAsync("NewCommentNotify", user.UserName, model.CommentText, model.Decor.Id, "Decor");
 
             return RedirectToAction("DecorDetails", new { id = model.Decor.Id });
         }
@@ -144,7 +164,7 @@ namespace MVC_Projec2.Controllers
             {
                 _logger.LogError(ex, "Error adding decor item");
                 ModelState.AddModelError("", "Error creating decor. Please check image formats (JPG/PNG only)");
-                return View(model);
+                return View("Add",model);
             }
         }
 

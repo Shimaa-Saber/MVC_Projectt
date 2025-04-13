@@ -26,17 +26,17 @@ namespace MVC_Projec2.Models
 
        
         [ForeignKey("user")]
-        public string user_id { get; set; }
-        public string Status { get; set; }
+        public string? user_id { get; set; }
+        public string ?Status { get; set; }
         public DateTime Created_at { get; set; }
 
 
         
-        public virtual ApplicationUser user { get; set; }
-        public virtual Hall Hall { get; set; }
-        public virtual Session Session { get; set; }
-        public virtual Atelier Atelier { get; set; }
-        public virtual MakeUp_Service MakeUp { get; set; }
-        public virtual Decor Decor { get; set; }
+        public virtual ApplicationUser? user { get; set; }
+        public virtual Hall ?Hall { get; set; }
+        public virtual Session? Session { get; set; }
+        public virtual Atelier ?Atelier { get; set; }
+        public virtual MakeUp_Service? MakeUp { get; set; }
+        public virtual Decor? Decor { get; set; }
     }
 }

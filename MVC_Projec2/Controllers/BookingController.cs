@@ -44,6 +44,7 @@ namespace MVC_Projec2.Controllers
             if (ModelState.IsValid)
             {
                 booking.Created_at = DateTime.Now;
+                booking.Status = "Pending";
                 _bookingRepo.insert(booking);
                 _bookingRepo.Save();
                 return RedirectToAction("Index");

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-    public partial class AddBookingData : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,7 +61,7 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     priceRange = table.Column<double>(type: "float", nullable: true)
                 },
@@ -77,7 +77,7 @@ namespace MVC_Projec2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Style = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -96,7 +96,7 @@ namespace MVC_Projec2.Migrations
                     Capacity = table.Column<int>(type: "int", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -111,7 +111,7 @@ namespace MVC_Projec2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -127,7 +127,7 @@ namespace MVC_Projec2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -358,8 +358,8 @@ namespace MVC_Projec2.Migrations
                     Atelier_Id = table.Column<int>(type: "int", nullable: true),
                     MakeupId = table.Column<int>(type: "int", nullable: true),
                     Decor_Id = table.Column<int>(type: "int", nullable: true),
-                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Created_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -369,8 +369,7 @@ namespace MVC_Projec2.Migrations
                         name: "FK_Bookings_AspNetUsers_user_id",
                         column: x => x.user_id,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Bookings_Ateliers_Atelier_Id",
                         column: x => x.Atelier_Id,
@@ -432,8 +431,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "0ed6d0ad-c304-4424-8ef8-1c2144ec346a", 0, "c52347bc-3506-4348-81c2-2231b39edaea", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKhR2VgP+D5SWyM2pP1/pDfOsVLVfalbAj7iKUs7ZLZTVAtDe+iEnpzUQqHD618ReA==", "0123456789", true, "99f7640b-1a50-4fb1-85f9-82d01d29924b", false, "admin@example.com" },
-                    { "4f06f11e-d387-4d4b-8d50-6f72589484ec", 0, "d6b268ec-03ee-43cf-a09c-069fb922de4e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEMl/Ed0zh2tnqXbkzT0l+q+f7gcRwSPZM3VSRVSEpYvFwRponAWglfQDry0d7O8Gyw==", "9876543210", true, "c02a9b3b-5c2d-401c-9a9e-fc391c4349d3", false, "user@example.com" }
+                    { "09970960-568f-421a-855d-9c2e22205af2", 0, "b65df7bb-22a7-458d-a45c-1b3e9b1839d6", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEJjlvyUgIDaLHTZqCpMD4gHnkv9e887fOkJiDjF2xGoJwtY5efw4JiNI6SRUpKbmyQ==", "0123456789", true, "8a1ac1fa-3358-4d40-b9e7-a890c9aac316", false, "admin@example.com" },
+                    { "8aa98e10-33a4-412a-8cd4-edb609f077d5", 0, "0a03c815-7c19-4e35-9da9-b5b3eb47c04a", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEIP/W0E/SkD5mRD9O4dSxOz6kjNG8YMgiCr7zdTs/ZGegstn0eDd/puIbkqQNC6+bg==", "9876543210", true, "fe9b6409-a3f8-4a53-ae69-0f77d155b1d1", false, "user@example.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -536,8 +535,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { "2", "4f06f11e-d387-4d4b-8d50-6f72589484ec" }
+                    { "1", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { "2", "8aa98e10-33a4-412a-8cd4-edb609f077d5" }
                 });
 
             migrationBuilder.InsertData(
@@ -594,16 +593,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8594), 1, 2, 1, 2, "Confirmed", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { 2, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { 3, 3, new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8741), 1, 2, 1, 2, "Confirmed", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" },
-                    { 4, 1, new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" }
+                    { 1, 3, new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(8980), 1, 2, 1, 2, "Confirmed", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { 2, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { 3, 3, new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9117), 1, 2, 1, 2, "Confirmed", "09970960-568f-421a-855d-9c2e22205af2" },
+                    { 4, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "09970960-568f-421a-855d-9c2e22205af2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 12, 21, 30, 55, 150, DateTimeKind.Local).AddTicks(8799), 0, 0, "0ed6d0ad-c304-4424-8ef8-1c2144ec346a" });
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9188), 0, 0, "09970960-568f-421a-855d-9c2e22205af2" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",
