@@ -68,6 +68,7 @@ namespace MVC_Projec2.Hubs
             try
             {
                 _commentRepo.insert(comment);
+                _commentRepo.Save();
                 await Clients.All.SendAsync("NewCommentNotify", userName, commentText, modelId, modelType);
             }
             catch (Exception ex)
