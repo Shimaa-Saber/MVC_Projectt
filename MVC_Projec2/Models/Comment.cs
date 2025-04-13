@@ -21,7 +21,7 @@ namespace MVC_Projec2.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser? User { get; set; }
 
         public int ServiceId { get; set; }
         public ServiceType ServiceType { get; set; }

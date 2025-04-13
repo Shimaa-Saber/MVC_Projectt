@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -11,17 +14,23 @@ namespace MVC_Projec2.Controllers
 {
     public class MakeUpController : Controller
     {
+        private readonly IHubContext<CommentHub> _hubContext;
         private readonly ICommentRepository _commentRepository;
         private readonly IMakeUpRepository _makeUpRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<SessionController> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
+
 
         public MakeUpController(
+            UserManager<ApplicationUser> userManager,
+            IHubContext<CommentHub> hubContext,
             ICommentRepository commentRepository,
             IMakeUpRepository makeUpRepository,
             IImageUploadService imageUploadService,
             ILogger<SessionController> logger)
         {
+            this._hubContext = hubContext;
             this._makeUpRepository = makeUpRepository;
             this._commentRepository = commentRepository;
             this._imageUploadService = imageUploadService;
@@ -61,6 +70,7 @@ namespace MVC_Projec2.Controllers
             return View(viewModel);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> AddComment(MakeUpCommentViewModel model)
         {
@@ -70,28 +80,28 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction("Details", new { id = model.makeUp.Id });
             }
 
-            try
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
             {
-                var newComment = new Comment
-                {
-                    Content = model.CommentText,
-                    CreatedAt = DateTime.Now,
-                    ServiceType = ServiceType.MakeUp,
-                    UserId = User.Identity.Name,
-                    ServiceId= model.makeUp.Id
-                };
-                _commentRepository.insert(newComment);
-                _commentRepository.Save();
+                return Unauthorized();
+            }
 
-                TempData["SuccessMessage"] = "Comment added successfully!";
-                return RedirectToAction("Details", new { id = model.makeUp.Id });
-            }
-            catch (Exception ex)
+            var comment = new Comment
             {
-                _logger.LogError(ex, "Error adding comment for MakeUp Service ID {MakeUpId}", model.makeUp.Id);
-                ModelState.AddModelError("", "Error adding comment.");
-                return RedirectToAction("Details", new { id = model.makeUp.Id });
-            }
+                Content = model.CommentText,
+                CreatedAt = DateTime.Now,
+                ServiceType = ServiceType.Decor,
+                UserId = user.Id,
+                ServiceId = model.makeUp.Id
+            };
+
+            _commentRepository.insert(comment);
+            _commentRepository.Save();
+
+
+            await _hubContext.Clients.All.SendAsync("NewCommentNotify", user.UserName, model.CommentText, model.makeUp.Id, "MakeUp");
+
+            return RedirectToAction("Details", new { id = model.makeUp.Id });
         }
 
         public IActionResult Search(string searchValue)
@@ -248,5 +258,6 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction("GetAllMackeups", "Dashboard");
             }
         }
+
     }
 }

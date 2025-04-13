@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using MVC_Projec2.Hubs;
 using MVC_Projec2.Models;
 using MVC_Projec2.Repository;
 using MVC_Projec2.Services;
@@ -10,22 +13,30 @@ namespace MVC_Projec2.Controllers
 {
     public class SessionController : Controller
     {
+        private readonly IHubContext<CommentHub> _hubContext;
         private readonly ICommentRepository _commentRepository;
         private readonly ISessionRepository _sessionRepository;
         private readonly IImageUploadService _imageUploadService;
         private readonly ILogger<SessionController> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
+
 
         public SessionController(
+               UserManager<ApplicationUser> userManager,
+               IHubContext<CommentHub> hubContext,
                ICommentRepository commentRepository,
                ISessionRepository sessionRepository,
                IImageUploadService imageUploadService,
                ILogger<SessionController> logger)
             {
+                this._hubContext = hubContext;
                 this._sessionRepository = sessionRepository;
                 this._imageUploadService = imageUploadService;
                 this._logger = logger;
                 this._commentRepository = commentRepository;
-            }
+                this._userManager = userManager;
+
+        }
 
         public IActionResult GetAll()
         {
@@ -61,7 +72,7 @@ namespace MVC_Projec2.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddComment(SessionCommentViewModel model)
+        public async Task<IActionResult> AddComment(SessionCommentViewModel model)
         {
             if (string.IsNullOrEmpty(model.CommentText))
             {
@@ -69,17 +80,26 @@ namespace MVC_Projec2.Controllers
                 return RedirectToAction("Details", new { id = model.Session.Id });
             }
 
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
             var comment = new Comment
             {
                 Content = model.CommentText,
                 CreatedAt = DateTime.Now,
-                ServiceType = ServiceType.MakeUp,
-                UserId = User.Identity.Name,
+                ServiceType = ServiceType.Decor,
+                UserId = user.Id,
                 ServiceId = model.Session.Id
             };
 
             _commentRepository.insert(comment);
             _commentRepository.Save();
+
+
+            await _hubContext.Clients.All.SendAsync("NewCommentNotify", user.UserName, model.CommentText, model.Session.Id, "Session");
 
             return RedirectToAction("Details", new { id = model.Session.Id });
         }

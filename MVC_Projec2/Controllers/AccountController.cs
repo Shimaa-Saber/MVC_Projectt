@@ -7,8 +7,6 @@ using System.Security.Claims;
 namespace MVC_Projec2.Controllers
 {
     public class AccountController : Controller
-
-
     {
 
         private readonly UserManager<ApplicationUser> userManager;
@@ -57,7 +55,6 @@ namespace MVC_Projec2.Controllers
             }
             return View("Register", userFromREquest);
         }
-
 
 
         public IActionResult Login()
