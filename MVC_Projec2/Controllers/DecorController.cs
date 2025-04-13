@@ -94,7 +94,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var decors = _decorRepository.SearchByName(searchValue);
-                return View("GetAll", decors);
+                return View("SearchName", decors);
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace MVC_Projec2.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult AddDecor()
+        public IActionResult Add()
         {
             return View();
         }
@@ -138,7 +138,7 @@ namespace MVC_Projec2.Controllers
                 _decorRepository.Save();
 
                 TempData["SuccessMessage"] = $"Decor created with {model.ImageFiles.Count} images!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllDecors","Dashboard");
             }
             catch (Exception ex)
             {
@@ -197,7 +197,7 @@ namespace MVC_Projec2.Controllers
                 _decorRepository.Save();
 
                 TempData["SuccessMessage"] = "Decor updated successfully (images not modified)";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAllDecors", "Dashboard");
             }
             catch (Exception ex)
             {

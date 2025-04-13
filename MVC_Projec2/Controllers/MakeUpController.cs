@@ -104,7 +104,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var makeUp_s = _makeUpRepository.SearchByName(searchValue);
-                return View("GetAll", makeUp_s);
+                return View("SearchName", makeUp_s);
             }
             catch (Exception ex)
             {
@@ -115,7 +115,7 @@ namespace MVC_Projec2.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult AddSession()
+        public IActionResult Add()
         {
             return View();
         }
@@ -146,7 +146,7 @@ namespace MVC_Projec2.Controllers
                 _makeUpRepository.Save();
 
                 TempData["SuccessMessage"] = "MakeUp Service created successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllMackeups", "Dashboard");
             }
             catch (Exception ex)
             {
@@ -202,7 +202,7 @@ namespace MVC_Projec2.Controllers
                 _makeUpRepository.Save();
 
                 TempData["SuccessMessage"] = "MakeUp_Service updated successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllMackeups", "Dashboard");
             }
             catch (Exception ex)
             {

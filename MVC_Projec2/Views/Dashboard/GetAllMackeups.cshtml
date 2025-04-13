@@ -7,7 +7,7 @@
 <div class="container-fluid px-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="mt-4">Makeup Services</h1>
-        <a asp-controller="MakeUp" asp-action="AddSession" class="btn btn-info">
+        <a asp-controller="MakeUp" asp-action="Add" class="btn btn-info">
             <i class="fas fa-plus"></i> Add New Service
         </a>
     </div>
@@ -45,9 +45,9 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="mr-3">
-                                            <img src="@item.ImageUrl" class="img-thumbnail" style="width:60px;height:60px;object-fit:cover" alt="Makeup service preview">
-                                        </div>
+                                        @* <div class="mr-3"> *@
+                                        @*     <img src="@item.ImageUrl" class="img-thumbnail" style="width:60px;height:60px;object-fit:cover" alt="Makeup service preview"> *@
+                                        @* </div> *@
                                        
                                         <div>
                                             <strong>@item.Name</strong>

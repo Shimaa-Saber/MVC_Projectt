@@ -7,6 +7,8 @@
 
 <link rel="stylesheet" href="/css/hallStyle.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 
 
 <div class="container-fluid">
@@ -15,6 +17,26 @@
     </div>
     <div class="row text-center justify-content-center">
         <h1 class="mt-5 mb-5">The most famous and best wedding Decor in Egypt</h1>
+
+        <!-- Search -->
+
+        <div class="search-container">
+            <form asp-controller="Decor" asp-action="Search" method="get" class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" name="searchValue" placeholder="Search by Decor name..." />
+            </form>
+        </div>
+
+        <!-- Error -->
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert-error">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+
+
         @foreach (Decor decor in Model)
         {
             <div class="col-lg-3 col-md-5 col-sm-12 mt-3 me-3">

@@ -1,0 +1,106 @@
+﻿@model MVC_Projec2.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">@ViewData["Title"]</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="Hall_Id" class="form-label">Hall</label>
+                        <select asp-for="Hall_Id" class="form-select" asp-items="ViewBag.Hall_Id">
+                            <option value="">Select Hall</option>
+                        </select>
+                        <span asp-validation-for="Hall_Id" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Session_Id" class="form-label">Session</label>
+                        <select asp-for="Session_Id" class="form-select" asp-items="ViewBag.Session_Id">
+                            <option value="">Select Session</option>
+                        </select>
+                        <span asp-validation-for="Session_Id" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="Atelier_Id" class="form-label">Atelier</label>
+                        <select asp-for="Atelier_Id" class="form-select" asp-items="ViewBag.Atelier_Id">
+                            <option value="">Select Atelier</option>
+                        </select>
+                        <span asp-validation-for="Atelier_Id" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="MakeupId" class="form-label">Makeup Service</label>
+                        <select asp-for="MakeupId" class="form-select" asp-items="ViewBag.MakeupId">
+                            <option value="">Select Makeup</option>
+                        </select>
+                        <span asp-validation-for="MakeupId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="Decor_Id" class="form-label">Decor Style</label>
+                        <select asp-for="Decor_Id" class="form-select" asp-items="ViewBag.Decor_Id">
+                            <option value="">Select Decor</option>
+                        </select>
+                        <span asp-validation-for="Decor_Id" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Status" class="form-label">Status</label>
+                        <select asp-for="Status" class="form-select">
+                            <option value="Pending">Pending</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    @* <div class="col-md-6"> *@
+                    @*     <label asp-for="BookingDate" class="form-label">Booking Date</label> *@
+                    @*     <input asp-for="BookingDate" class="form-control" type="date" /> *@
+                    @*     <span asp-validation-for="BookingDate" class="text-danger"></span> *@
+                    @* </div> *@
+
+                    <div class="col-md-6">
+                        <label asp-for="user_id" class="form-label">User</label>
+                        <select asp-for="user_id" class="form-select" asp-items="ViewBag.user_id">
+                            <option value="">Select User</option>
+                        </select>
+                        <span asp-validation-for="user_id" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary mx-2">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,58 @@
+﻿@model MVC_Projec2.ViewModels.AddAtelierViewModel
+
+@{
+    ViewData["Title"] = "Add Atelier";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-header text-success bg-light fst-italic text-center fs-3">
+                    Add New MakeUp
+                </div>
+
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Location" class="form-label">Location</label>
+                            <input asp-for="Location" class="form-control" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="priceRange" class="form-label">Price</label>
+                            <input asp-for="priceRange" class="form-control" />
+                            <span asp-validation-for="priceRange" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImageUrl" class="form-label">Upload Image</label>
+                            <input asp-for="ImageUrl" class="form-control" type="file" />
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-success px-4">Add</button>
+                            <a asp-action="GetAll" class="btn btn-outline-success px-4">Back to List</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

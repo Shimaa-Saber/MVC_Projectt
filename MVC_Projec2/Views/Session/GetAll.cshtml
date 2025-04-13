@@ -4,9 +4,10 @@
     ViewData["Title"] = "GetAll";
 }
 
-
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/hallStyle.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
 
 <div class="container-fluid">
     <div class="row" id="hall">
@@ -14,6 +15,23 @@
     </div>
     <div class="row text-center justify-content-center">
         <h1 class="mt-5 mb-5">The most famous and best wedding Session in Egypt</h1>
+
+        <div class="search-container">
+            <form asp-controller="Session" asp-action="Search" method="get" class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" name="searchValue" placeholder="Search by session name..." />
+            </form>
+        </div>
+
+        <!-- Error -->
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert-error">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+
         @foreach (Session session in Model)
         {
             <div class="col-lg-3 col-md-5 col-sm-12 mt-3 me-3">

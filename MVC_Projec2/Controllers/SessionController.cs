@@ -94,7 +94,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var sessions = _sessionRepository.SearchByName(searchValue);
-                return View("GetAll", sessions);
+                return View("SearchName", sessions);
             }
             catch (Exception ex)
             {
@@ -106,7 +106,7 @@ namespace MVC_Projec2.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        public IActionResult AddSession()
+        public IActionResult Add()
         {
             return View();
         }
@@ -137,7 +137,7 @@ namespace MVC_Projec2.Controllers
                 _sessionRepository.Save();
 
                 TempData["SuccessMessage"] = "Session created successfully!";
-                return RedirectToAction(nameof(GetAll));
+                return RedirectToAction("GetAllSessions", "Dashboard");
             }
             catch (Exception ex)
             {
@@ -193,7 +193,7 @@ namespace MVC_Projec2.Controllers
                 _sessionRepository.Save();
 
                 TempData["SuccessMessage"] = "Session updated successfully!";
-                return RedirectToAction(nameof(GetAll));  
+                return RedirectToAction("GetAllSessions", "Dashboard");  
             }
             catch (Exception ex)
             {

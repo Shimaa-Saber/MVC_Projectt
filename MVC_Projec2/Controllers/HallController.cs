@@ -54,6 +54,27 @@ namespace MVC_Projec2.Controllers
             }
         }
 
+        public IActionResult Search(string searchValue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                return RedirectToAction("GetAll");
+            }
+
+            try
+            {
+                var halls = hallRepository.SearchByName(searchValue);
+                return View("SearchName", halls);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error searching halls");
+                TempData["ErrorMessage"] = "An error occurred during search";
+                return RedirectToAction("GetAll");
+            }
+        }
+
+
         [HttpPost]
         public IActionResult AddComment(HallCommentViewModel model)
         {
@@ -148,7 +169,7 @@ namespace MVC_Projec2.Controllers
                 hallRepository.Save();
 
                 TempData["SuccessMessage"] = "Hall added successfully!";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAll","Dashboard");
             }
             catch (Exception ex)
             {
@@ -209,7 +230,7 @@ namespace MVC_Projec2.Controllers
                 hallRepository.Save();
 
                 TempData["SuccessMessage"] = "Hall updated successfully!";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("GetAll", "Dashboard");
             }
             catch (Exception ex)
             {
