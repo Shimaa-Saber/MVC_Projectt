@@ -110,5 +110,12 @@ namespace MVC_Projec2.Controllers
 
             return View("Login", userFromRequest);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Account");
+        }
     }
 }
