@@ -114,7 +114,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var sessions = _sessionRepository.SearchByName(searchValue);
-                return View("GetAll", sessions);
+                return View("SearchName", sessions);
             }
             catch (Exception ex)
             {

@@ -113,7 +113,7 @@ namespace MVC_Projec2.Controllers
             try
             {
                 var makeUp_s = _makeUpRepository.SearchByName(searchValue);
-                return View("GetAll", makeUp_s);
+                return View("SearchName", makeUp_s);
             }
             catch (Exception ex)
             {
@@ -206,7 +206,6 @@ namespace MVC_Projec2.Controllers
 
                 makeUp.Name = model.Name;
                 makeUp.Price = model.Price;
-                makeUp.ImageUrl = model.ImageUrl;
 
                 _makeUpRepository.Update(makeUp);
                 _makeUpRepository.Save();

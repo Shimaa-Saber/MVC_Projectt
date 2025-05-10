@@ -46,7 +46,7 @@ namespace MVC_Projec2.Controllers
                     await userManager.AddToRoleAsync(userApp, "User");
                     await signInManager.SignInAsync(userApp,isPersistent: false);
              
-                    return RedirectToAction("Login", "Accountس");
+                    return RedirectToAction("Login", "Account");
                 }
                 foreach (var item in result.Errors)
                 {

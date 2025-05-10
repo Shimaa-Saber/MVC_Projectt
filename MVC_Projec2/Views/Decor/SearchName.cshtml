@@ -1,29 +1,25 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model List<Decor>
 @{
-    ViewData["Title"] = "GetAll";
+    ViewData["Title"] = "SearchHall";
 }
 
-
+<link rel="stylesheet" href="/css/DetailsStyle.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/hallStyle.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 
 
 <div class="container-fluid">
-    <div class="row" id="hall">
-        <img src="/images/halls (3).jpg" alt="">
-    </div>
     <div class="row text-center justify-content-center">
-        <h1 class="mt-5 mb-5">The most famous and best wedding Decor in Egypt</h1>
+        <h1 class="mt-5 mb-5">Search Results for Decor</h1>
 
         <!-- Search -->
 
         <div class="search-container">
             <form asp-controller="Decor" asp-action="Search" method="get" class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" name="searchValue" placeholder="Search by Decor name..." />
+                <input type="text" name="searchValue" placeholder="Search by decor name..." />
             </form>
         </div>
 
@@ -34,7 +30,6 @@
                 @TempData["ErrorMessage"]
             </div>
         }
-
 
 
         @foreach (Decor decor in Model)
@@ -50,8 +45,16 @@
  *@                </div>
             </div>
         }
+
+    </div>
+
+    <div class="row text-center justify-content-center">
+        <form asp-controller="Atelier" asp-action="GetAll" method="post">
+            <button id="btn" class="btn mt-5 w-25">Back to All Atlier</button>
+        </form>
     </div>
 </div>
+
 
 
 

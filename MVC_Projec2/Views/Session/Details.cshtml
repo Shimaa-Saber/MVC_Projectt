@@ -59,9 +59,10 @@
         <div class="col-lg-4 col-md-4 col-sm-12 m-2 justify-content-center row" id="details">
             <div id="infoDiv" class="align-items-center justify-content-start row">
                 <h2>@Model.Session.Name</h2>
-                <div id="text"><strong>Location : @Model.Session.Price</strong></div>
-                <div id="text"><strong>Price :@Model.Session.Description</strong></div>
-                <form asp-controller="Session" asp-action="GetAll" method="post">
+                <div id="text"><strong>Price : @Model.Session.Price</strong></div>
+
+                <div id="text"><strong>Description :<p>@Model.Session.Description</p></strong></div>
+                <form asp-controller="Booking" asp-action="Create" method="post">
                     <button id="btn" class="btn">Book Now</button>
                 </form>
             </div>
