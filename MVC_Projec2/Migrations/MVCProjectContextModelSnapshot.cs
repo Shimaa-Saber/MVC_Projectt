@@ -136,57 +136,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "09970960-568f-421a-855d-9c2e22205af2",
+                            Id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1",
                             AccessFailedCount = 0,
-
-                         
-
-
-                            ConcurrencyStamp = "b65df7bb-22a7-458d-a45c-1b3e9b1839d6",
-
-                          CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "5e2560b8-f859-4b33-9470-72eceae2092d",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJjlvyUgIDaLHTZqCpMD4gHnkv9e887fOkJiDjF2xGoJwtY5efw4JiNI6SRUpKbmyQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOcqunwnmGDexI9thynKodVXHHUkJBq3Wm5HAQjVlbCbguK0W48+S3sk6pyZkOUgEQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-
-
-
-
-                            SecurityStamp = "8a1ac1fa-3358-4d40-b9e7-a890c9aac316",
-
+                            SecurityStamp = "c85ee6c1-0d51-4c74-9693-d549e4770b53",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "8aa98e10-33a4-412a-8cd4-edb609f077d5",
+                            Id = "3b2b7ea2-3f66-4ead-82bf-2938d4912506",
                             AccessFailedCount = 0,
-
-
-
-
-                            ConcurrencyStamp = "0a03c815-7c19-4e35-9da9-b5b3eb47c04a",
-
+                            ConcurrencyStamp = "6cc98145-04c4-407a-885b-cf08afcca772",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIP/W0E/SkD5mRD9O4dSxOz6kjNG8YMgiCr7zdTs/ZGegstn0eDd/puIbkqQNC6+bg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPie55DJjmH+H0kKltcn4dmf2qtYQizZBvrOFbZK3b8XKKTTXmZDx031ntIr6qTCaw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-
-
-
-
-                            SecurityStamp = "fe9b6409-a3f8-4a53-ae69-0f77d155b1d1",
-
+                            SecurityStamp = "a0ff20e0-ee4e-4280-a1cc-42c845f65c08",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -709,78 +689,49 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-
-
-
-
-                            Created_at = new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(8980),
-
+                            Created_at = new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7471),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-
-
-
-
-                            user_id = "09970960-568f-421a-855d-9c2e22205af2"
-
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         },
                         new
                         {
                             Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-
-
-
-
-                            user_id = "09970960-568f-421a-855d-9c2e22205af2"
-
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-
-
-
-
-                            Created_at = new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9117),
-
+                            Created_at = new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7644),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-
-
-
-                            user_id = "09970960-568f-421a-855d-9c2e22205af2"
-
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         },
                         new
                         {
                             Id = 4,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-
-
-
-
-                            user_id = "09970960-568f-421a-855d-9c2e22205af2"
-
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         });
                 });
 
@@ -820,18 +771,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-
-
-                            
-
-                         
-
-
-                            CreatedAt = new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9188),
+                            CreatedAt = new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7789),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "09970960-568f-421a-855d-9c2e22205af2"
-
+                            UserId = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         });
                 });
 
@@ -1347,25 +1290,25 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 9,
-                            ImageUrl = "MakeUp (1).jpeg",
+                            ImageUrl = "Makeup (1).jpeg",
                             MakeUp_ServiceId = 3
                         },
                         new
                         {
                             Id = 10,
-                            ImageUrl = "MakeUp (2).jpeg",
+                            ImageUrl = "Makeup (2).jpeg",
                             MakeUp_ServiceId = 4
                         },
                         new
                         {
                             Id = 11,
-                            ImageUrl = "MakeUp (3).jpeg",
+                            ImageUrl = "Makeup (3).jpeg",
                             MakeUp_ServiceId = 4
                         },
                         new
                         {
                             Id = 12,
-                            ImageUrl = "MakeUp (4).jpeg",
+                            ImageUrl = "Makeup (4).jpeg",
                             MakeUp_ServiceId = 4
                         });
                 });
@@ -1463,7 +1406,7 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 9,
                             Description = "Inspired by red carpet celebrities with dramatic, flawless finish.",
-                            ImageUrl = "MakeUp (9).jpeg",
+                            ImageUrl = "Makeup (9).jpeg",
                             Name = "Celebrity Look",
                             Price = 2000
                         },
@@ -1471,7 +1414,7 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 10,
                             Description = "Effortless and neat makeup for a clean and graceful appearance.",
-                            ImageUrl = "MakeUp (10).jpeg",
+                            ImageUrl = "Makeup (8).jpeg",
                             Name = "Simple Elegance",
                             Price = 600
                         });
@@ -1827,22 +1770,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-
-
-
-
-                            UserId = "09970960-568f-421a-855d-9c2e22205af2",
-
+                            UserId = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1",
                             RoleId = "1"
                         },
                         new
                         {
-
-
-
-
-                            UserId = "8aa98e10-33a4-412a-8cd4-edb609f077d5",
-
+                            UserId = "3b2b7ea2-3f66-4ead-82bf-2938d4912506",
                             RoleId = "2"
                         });
                 });

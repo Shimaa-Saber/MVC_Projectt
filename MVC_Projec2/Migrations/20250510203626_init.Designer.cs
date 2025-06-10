@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Projec2.Migrations
 {
     [DbContext(typeof(MVCProjectContext))]
-    [Migration("20250412213440_Db")]
-    partial class Db
+    [Migration("20250510203626_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,37 +139,37 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3",
+                            Id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a0cdeea0-3c14-4546-8e54-fd42fb12f353",
+                            ConcurrencyStamp = "5e2560b8-f859-4b33-9470-72eceae2092d",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEETNV1tyjFzNJ1rPIeOo36aHAiZekyWzJbHUo1u6GJkf2Fud+vVL7IV0x8zBVT/05A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOcqunwnmGDexI9thynKodVXHHUkJBq3Wm5HAQjVlbCbguK0W48+S3sk6pyZkOUgEQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "1214be8f-a4f8-4fd6-aa18-ab2090cead25",
+                            SecurityStamp = "c85ee6c1-0d51-4c74-9693-d549e4770b53",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         },
                         new
                         {
-                            Id = "3f7ddbc4-30f9-4b10-aa32-0d34cba88771",
+                            Id = "3b2b7ea2-3f66-4ead-82bf-2938d4912506",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cec9ac30-1feb-44cd-ad72-feb2204448eb",
+                            ConcurrencyStamp = "6cc98145-04c4-407a-885b-cf08afcca772",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKQMPrx3tHktPnrZwZ60wbAYvCJYHEj/2wbPnkFJekMR020XC9/wSyGTAT6kbPWf5w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPie55DJjmH+H0kKltcn4dmf2qtYQizZBvrOFbZK3b8XKKTTXmZDx031ntIr6qTCaw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "264fd20d-0ab5-474a-a785-9ee5eb85c6ce",
+                            SecurityStamp = "a0ff20e0-ee4e-4280-a1cc-42c845f65c08",
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
@@ -184,7 +184,6 @@ namespace MVC_Projec2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -667,11 +666,9 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("user_id")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -695,49 +692,49 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 23, 34, 38, 969, DateTimeKind.Local).AddTicks(2188),
+                            Created_at = new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7471),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3"
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         },
                         new
                         {
                             Id = 2,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3"
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         },
                         new
                         {
                             Id = 3,
                             Atelier_Id = 3,
-                            Created_at = new DateTime(2025, 4, 12, 23, 34, 38, 969, DateTimeKind.Local).AddTicks(2424),
+                            Created_at = new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7644),
                             Decor_Id = 1,
                             Hall_Id = 2,
                             MakeupId = 1,
                             Session_Id = 2,
                             Status = "Confirmed",
-                            user_id = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3"
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         },
                         new
                         {
                             Id = 4,
                             Atelier_Id = 1,
-                            Created_at = new DateTime(2025, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            Created_at = new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             Decor_Id = 2,
                             Hall_Id = 1,
                             MakeupId = 4,
                             Session_Id = 1,
                             Status = "Pending",
-                            user_id = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3"
+                            user_id = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         });
                 });
 
@@ -777,10 +774,10 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 1,
                             Content = "Excellent service!",
-                            CreatedAt = new DateTime(2025, 4, 12, 23, 34, 38, 969, DateTimeKind.Local).AddTicks(2558),
+                            CreatedAt = new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7789),
                             ServiceId = 0,
                             ServiceType = 0,
-                            UserId = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3"
+                            UserId = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1"
                         });
                 });
 
@@ -796,7 +793,6 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
@@ -1019,7 +1015,6 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -1298,25 +1293,25 @@ namespace MVC_Projec2.Migrations
                         new
                         {
                             Id = 9,
-                            ImageUrl = "MakeUp (1).jpeg",
+                            ImageUrl = "Makeup (1).jpeg",
                             MakeUp_ServiceId = 3
                         },
                         new
                         {
                             Id = 10,
-                            ImageUrl = "MakeUp (2).jpeg",
+                            ImageUrl = "Makeup (2).jpeg",
                             MakeUp_ServiceId = 4
                         },
                         new
                         {
                             Id = 11,
-                            ImageUrl = "MakeUp (3).jpeg",
+                            ImageUrl = "Makeup (3).jpeg",
                             MakeUp_ServiceId = 4
                         },
                         new
                         {
                             Id = 12,
-                            ImageUrl = "MakeUp (4).jpeg",
+                            ImageUrl = "Makeup (4).jpeg",
                             MakeUp_ServiceId = 4
                         });
                 });
@@ -1333,7 +1328,6 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -1415,7 +1409,7 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 9,
                             Description = "Inspired by red carpet celebrities with dramatic, flawless finish.",
-                            ImageUrl = "MakeUp (9).jpeg",
+                            ImageUrl = "Makeup (9).jpeg",
                             Name = "Celebrity Look",
                             Price = 2000
                         },
@@ -1423,7 +1417,7 @@ namespace MVC_Projec2.Migrations
                         {
                             Id = 10,
                             Description = "Effortless and neat makeup for a clean and graceful appearance.",
-                            ImageUrl = "MakeUp (10).jpeg",
+                            ImageUrl = "Makeup (8).jpeg",
                             Name = "Simple Elegance",
                             Price = 600
                         });
@@ -1444,7 +1438,6 @@ namespace MVC_Projec2.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -1780,12 +1773,12 @@ namespace MVC_Projec2.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4d671fd5-cc3a-4b31-a34b-6948c1a1bbd3",
+                            UserId = "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "3f7ddbc4-30f9-4b10-aa32-0d34cba88771",
+                            UserId = "3b2b7ea2-3f66-4ead-82bf-2938d4912506",
                             RoleId = "2"
                         });
                 });
@@ -1844,9 +1837,7 @@ namespace MVC_Projec2.Migrations
 
                     b.HasOne("MVC_Projec2.Models.ApplicationUser", "user")
                         .WithMany("Bookings")
-                        .HasForeignKey("user_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("user_id");
 
                     b.Navigation("Atelier");
 

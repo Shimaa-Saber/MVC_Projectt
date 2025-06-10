@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Projec2.Migrations
 {
     /// <inheritdoc />
-    public partial class @new : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -431,8 +431,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "09970960-568f-421a-855d-9c2e22205af2", 0, "b65df7bb-22a7-458d-a45c-1b3e9b1839d6", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEJjlvyUgIDaLHTZqCpMD4gHnkv9e887fOkJiDjF2xGoJwtY5efw4JiNI6SRUpKbmyQ==", "0123456789", true, "8a1ac1fa-3358-4d40-b9e7-a890c9aac316", false, "admin@example.com" },
-                    { "8aa98e10-33a4-412a-8cd4-edb609f077d5", 0, "0a03c815-7c19-4e35-9da9-b5b3eb47c04a", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEIP/W0E/SkD5mRD9O4dSxOz6kjNG8YMgiCr7zdTs/ZGegstn0eDd/puIbkqQNC6+bg==", "9876543210", true, "fe9b6409-a3f8-4a53-ae69-0f77d155b1d1", false, "user@example.com" }
+                    { "3b2b7ea2-3f66-4ead-82bf-2938d4912506", 0, "6cc98145-04c4-407a-885b-cf08afcca772", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@example.com", true, null, false, null, "USER@EXAMPLE.COM", "USER@EXAMPLE.COM", "AQAAAAIAAYagAAAAEPie55DJjmH+H0kKltcn4dmf2qtYQizZBvrOFbZK3b8XKKTTXmZDx031ntIr6qTCaw==", "9876543210", true, "a0ff20e0-ee4e-4280-a1cc-42c845f65c08", false, "user@example.com" },
+                    { "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1", 0, "5e2560b8-f859-4b33-9470-72eceae2092d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@example.com", true, null, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEOcqunwnmGDexI9thynKodVXHHUkJBq3Wm5HAQjVlbCbguK0W48+S3sk6pyZkOUgEQ==", "0123456789", true, "c85ee6c1-0d51-4c74-9693-d549e4770b53", false, "admin@example.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -509,8 +509,8 @@ namespace MVC_Projec2.Migrations
                     { 6, "Colorful and creative look, perfect for festivals and themed events.", "makeUp6.jpg", "Festival Glam", 700 },
                     { 7, "Radiant bridal makeup focused on glowing skin and soft tones.", "makeUp7.jpg", "Bridal Glow", 1600 },
                     { 8, "Tailored makeup style for birthdays, graduations, and formal events.", "makeUp8.jpg", "Special Occasion", 1300 },
-                    { 9, "Inspired by red carpet celebrities with dramatic, flawless finish.", "MakeUp (9).jpeg", "Celebrity Look", 2000 },
-                    { 10, "Effortless and neat makeup for a clean and graceful appearance.", "MakeUp (10).jpeg", "Simple Elegance", 600 }
+                    { 9, "Inspired by red carpet celebrities with dramatic, flawless finish.", "Makeup (9).jpeg", "Celebrity Look", 2000 },
+                    { 10, "Effortless and neat makeup for a clean and graceful appearance.", "Makeup (8).jpeg", "Simple Elegance", 600 }
                 });
 
             migrationBuilder.InsertData(
@@ -535,8 +535,8 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1", "09970960-568f-421a-855d-9c2e22205af2" },
-                    { "2", "8aa98e10-33a4-412a-8cd4-edb609f077d5" }
+                    { "2", "3b2b7ea2-3f66-4ead-82bf-2938d4912506" },
+                    { "1", "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1" }
                 });
 
             migrationBuilder.InsertData(
@@ -593,16 +593,16 @@ namespace MVC_Projec2.Migrations
                 columns: new[] { "Id", "Atelier_Id", "Created_at", "Decor_Id", "Hall_Id", "MakeupId", "Session_Id", "Status", "user_id" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(8980), 1, 2, 1, 2, "Confirmed", "09970960-568f-421a-855d-9c2e22205af2" },
-                    { 2, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "09970960-568f-421a-855d-9c2e22205af2" },
-                    { 3, 3, new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9117), 1, 2, 1, 2, "Confirmed", "09970960-568f-421a-855d-9c2e22205af2" },
-                    { 4, 1, new DateTime(2025, 4, 13, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "09970960-568f-421a-855d-9c2e22205af2" }
+                    { 1, 3, new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7471), 1, 2, 1, 2, "Confirmed", "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1" },
+                    { 2, 1, new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1" },
+                    { 3, 3, new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7644), 1, 2, 1, 2, "Confirmed", "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1" },
+                    { 4, 1, new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Local), 2, 1, 4, 1, "Pending", "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ServiceId", "ServiceType", "UserId" },
-                values: new object[] { 1, "Excellent service!", new DateTime(2025, 4, 13, 12, 8, 19, 558, DateTimeKind.Local).AddTicks(9188), 0, 0, "09970960-568f-421a-855d-9c2e22205af2" });
+                values: new object[] { 1, "Excellent service!", new DateTime(2025, 5, 10, 23, 36, 25, 399, DateTimeKind.Local).AddTicks(7789), 0, 0, "73dc93d1-8a7b-47f4-90b1-ecedfaffbfc1" });
 
             migrationBuilder.InsertData(
                 table: "DecoreImage",
@@ -658,10 +658,10 @@ namespace MVC_Projec2.Migrations
                     { 6, "makeUp6.jpg", 2 },
                     { 7, "makeUp7.jpg", 3 },
                     { 8, "makeUp8.jpg", 3 },
-                    { 9, "MakeUp (1).jpeg", 3 },
-                    { 10, "MakeUp (2).jpeg", 4 },
-                    { 11, "MakeUp (3).jpeg", 4 },
-                    { 12, "MakeUp (4).jpeg", 4 }
+                    { 9, "Makeup (1).jpeg", 3 },
+                    { 10, "Makeup (2).jpeg", 4 },
+                    { 11, "Makeup (3).jpeg", 4 },
+                    { 12, "Makeup (4).jpeg", 4 }
                 });
 
             migrationBuilder.InsertData(

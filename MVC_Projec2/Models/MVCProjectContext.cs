@@ -402,8 +402,8 @@ namespace MVC_Projec2.Models
                  new MakeUp_Service { Id = 6, Name = "Festival Glam", Price = 700, Description = "Colorful and creative look, perfect for festivals and themed events.", ImageUrl = "makeUp6.jpg" },
                  new MakeUp_Service { Id = 7, Name = "Bridal Glow", Price = 1600, Description = "Radiant bridal makeup focused on glowing skin and soft tones.", ImageUrl = "makeUp7.jpg" },
                  new MakeUp_Service { Id = 8, Name = "Special Occasion", Price = 1300, Description = "Tailored makeup style for birthdays, graduations, and formal events.", ImageUrl = "makeUp8.jpg" },
-                 new MakeUp_Service { Id = 9, Name = "Celebrity Look", Price = 2000, Description = "Inspired by red carpet celebrities with dramatic, flawless finish.", ImageUrl = "MakeUp (9).jpeg" },
-                 new MakeUp_Service { Id = 10, Name = "Simple Elegance", Price = 600, Description = "Effortless and neat makeup for a clean and graceful appearance.", ImageUrl = "MakeUp (10).jpeg" }
+                 new MakeUp_Service { Id = 9, Name = "Celebrity Look", Price = 2000, Description = "Inspired by red carpet celebrities with dramatic, flawless finish.", ImageUrl = "Makeup (9).jpeg" },
+                 new MakeUp_Service { Id = 10, Name = "Simple Elegance", Price = 600, Description = "Effortless and neat makeup for a clean and graceful appearance.", ImageUrl = "Makeup (8).jpeg" }
             );
 
             modelBuilder.Entity<MakeUpImages>().HasData(
@@ -415,10 +415,10 @@ namespace MVC_Projec2.Models
                 new MakeUpImages { Id = 6, MakeUp_ServiceId = 2, ImageUrl = "makeUp6.jpg" },
                 new MakeUpImages { Id = 7, MakeUp_ServiceId = 3, ImageUrl = "makeUp7.jpg" },
                 new MakeUpImages { Id = 8, MakeUp_ServiceId = 3, ImageUrl = "makeUp8.jpg" },
-                new MakeUpImages { Id = 9, MakeUp_ServiceId = 3, ImageUrl = "MakeUp (1).jpeg" },
-                new MakeUpImages { Id = 10, MakeUp_ServiceId = 4, ImageUrl = "MakeUp (2).jpeg" },
-                new MakeUpImages { Id = 11, MakeUp_ServiceId = 4, ImageUrl = "MakeUp (3).jpeg" },
-                new MakeUpImages { Id = 12, MakeUp_ServiceId = 4, ImageUrl = "MakeUp (4).jpeg" }
+                new MakeUpImages { Id = 9, MakeUp_ServiceId = 3, ImageUrl = "Makeup (1).jpeg" },
+                new MakeUpImages { Id = 10, MakeUp_ServiceId = 4, ImageUrl = "Makeup (2).jpeg" },
+                new MakeUpImages { Id = 11, MakeUp_ServiceId = 4, ImageUrl = "Makeup (3).jpeg" },
+                new MakeUpImages { Id = 12, MakeUp_ServiceId = 4, ImageUrl = "Makeup (4).jpeg" }
 
             );
 
